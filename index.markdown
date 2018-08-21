@@ -2,7 +2,6 @@
 layout: default
 nav-state: index
 ---
-Test 2
 <div id="quick-links">
 <h3><a href="syllabus.html">Course Info</a> | <a href="https://piazza.com/class/jcqb4xh11ny10y">Piazza</a> | <a href="syllabus.html#tutoring">Tutoring</a> | <a href="syllabus.html#hw-policy">Homework Policy</a> | <a href="syllabus.html#quiz-policy">Quiz Policy</a></h3>
 </div>
