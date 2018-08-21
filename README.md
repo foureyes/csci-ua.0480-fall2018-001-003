@@ -1,2 +1,2 @@
 
-Course site for 001-003
+Course site for 0480 - AIT
