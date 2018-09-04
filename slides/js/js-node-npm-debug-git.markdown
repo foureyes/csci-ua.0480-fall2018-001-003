@@ -75,7 +75,7 @@ End
 This example uses a Node.js library called Request (as well!). __What does this output?__ &rarr;
 
 <pre><code data-trim contenteditable>
-var request = require('request');
+const request = require('request');
 console.log("Start");
 request('http://www.google.com', function (error, response, body) {
     // just print out the first 30 characters of the response body
@@ -345,7 +345,7 @@ module.exports = {
 __Create all of your functions in an object and assign that object to module.exports__ &rarr;
 
 <pre><code data-trim contenteditable>
-var tic = { 
+const tic = { 
     repeat: function(value, n) {
         // implementation
     },
@@ -403,7 +403,7 @@ Node's built-in function `require` is analogous to:
 It returns an object... and that object most likely has some useful methods and properties. From our request example earlier:
 
 <pre><code data-trim contenteditable>
-var request = require('request');
+const request = require('request');
 </code></pre>
 </section>
 
@@ -441,7 +441,7 @@ __Using a module__:
 
 <pre><code data-trim contenteditable>
 // bring in the http module
-var http = require('http');
+const http = require('http');
 </code></pre>
 {:.fragment}
 </section>
@@ -457,8 +457,8 @@ npm install module-name
 {:.fragment}
 
 <pre><code data-trim contenteditable>
-var prompt = require('readline-sync').prompt;
-var request = require('request');
+const prompt = require('readline-sync').prompt;
+const request = require('request');
 </code></pre>
 {:.fragment}
 
@@ -502,7 +502,7 @@ exports.makeCreatureList = function (r) {
 __And... using that module__: &rarr;
 
 <pre><code data-trim contenteditable>
-var creaturesModule = require('./creatures.js');
+const creaturesModule = require('./creatures.js');
 creaturesModule.makeCreatureList().forEach(function(name) {
 	console.log(name);
 });
@@ -592,11 +592,11 @@ __Create a function that determines if a set of parentheses is balanced (what do
 ## Here's an Implementation
 
 <pre><code data-trim contenteditable>
-var isBalanced = function(s) {
-    var stack = [], balanced = true;
+const isBalanced = function(s) {
+    const stack = [], balanced = true;
 
-    for(var i = 0; i < s.length; i++) {
-        var ch = s.charAt(i);    
+    for(let i = 0; i < s.length; i++) {
+        const ch = s.charAt(i);    
         if (ch === '(') {
             stack.push(ch);
         } else if (ch === ')') {
