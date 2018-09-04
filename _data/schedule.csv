@@ -33,25 +33,22 @@ For a more gentle introduction to JavaScript, read the first 3 chapters of [{{ s
 * Chapter 1 - Values, Types, and Operators
 * Chapter 2 - Program Structure
 * Chapter 3 - Functions
-","<!--
-
- __Due Wednesday 1/25, by 11pm__ 
+","__Due Wednesday 9/5, by 11pm__ 
 
 Homework #0
 
-* [Fill out this survey!]({{ site.survey_github }})
+* [Fill out this survey / use of GitHub consent form]({{ site.survey_github }})
     * (Must be logged in)
     * (Required for future homeworks! ^^^)
 * [Sign up for piazza]({{ site.piazza }})
 * [Install Node {{ site.node_version }}](https://nodejs.org/en/)
     * (you can also use homebrew on osx)
+* add yourself to piazza
 
-__Due Sunday 1/29, by 11pm__ 
+__Due Sunday 9/10, by 11pm__ 
 
 * Quizzes #2 and #3 
-* (Quizz #1 is Optional)
-
--->",
+* (Quizz #1 is Optional)",
 ,,2,06-Sep,Thu,"* Objects
 * Node
 * Modules and Require
