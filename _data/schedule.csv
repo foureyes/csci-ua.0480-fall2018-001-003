@@ -43,9 +43,9 @@ Homework #0
 * [Sign up for piazza]({{ site.piazza }})
 * [Install Node {{ site.node_version }}](https://nodejs.org/en/)
     * (you can also use homebrew on osx)
-* add yourself to piazza
 
-__Due Sunday 9/10, by 11pm__ 
+
+__Due Monday 9/10, by 11pm__ 
 
 * Quizzes #2 and #3 
 * (Quizz #1 is Optional)",
@@ -59,7 +59,7 @@ __Due Sunday 9/10, by 11pm__
 * [Objects](slides/js/js-objects.html)
 * [Functions Some More!](slides/js/js-functions-addendum.html)
 * [Strings, Arrays, Mutability and Variable Parameters](slides/js/js-strings-arrays.html)
-* [Node, NPM, and git](slides/js/js-node-npm-debug-git.html)
+
 ","[{{ site.book_js }}]({{ site.book_js_link }})
 
 * [Chapter 17 - Objects (up to ""Converting Any Value to an Object"")](http://speakingjs.com/es5/ch17.html)
