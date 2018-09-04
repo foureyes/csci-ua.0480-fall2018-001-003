@@ -12,7 +12,11 @@ draft,type,num,date,day,topics,slides,readings,assignments,
 * [Objects](slides/js/js-objects.html)
 * [Functions Some More!](slides/js/js-functions-addendum.html)
 * [Strings, Arrays, Mutability and Variable Parameters](slides/js/js-strings-arrays.html) (s)
-* Survey, Piazza, Node
+* Two Sections
+* Survey
+* Piazza
+* Node Installation
+
 ","For an in-depth JavaScript introduction, __skim__ these chapters in [{{ site.book_js }}]({{ site.book_js_5_link }})
 
 * [Chapter 7 - JavaScript's Syntax (the section on ""Strict Mode"" can be skipped)](http://speakingjs.com/es5/ch07.html) 
