@@ -245,10 +245,10 @@ __You should make sure your exports are up to date as you implement your functio
 		
 ### Unit Tests
 
-You can use the supplied unit tests (in `test/tic-tac-toe-test.js`) to check that your functions are:
+You can use the supplied unit tests (in `tests/tic-tac-toe-test.js`) to check that your functions are:
 
 * are named correctly
-* have the required parameters
+    * have the required parameters
 * return the appropriate value(s) 
 * meet the minimum requirements according to the specifications 
 
@@ -261,6 +261,7 @@ You can __run the included unit tests by using this command__ in your project di
 If you run these tests before starting, you'll get a bunch of reference errors. This is because you have no functions implemented yet. Additionally, you'll have to export the functions you create so that the tests have access to them.
 
 __Please try continually running the unit tests as you develop your program.__ To clear out the noise, __feel free to comment out the tests that you aren't working on__, and uncomment them as soon as you have a stub of a function exported.
+
 
 ### Assumptions
 
@@ -339,12 +340,12 @@ __Description:__
 
 `repeat` creates an `Array` that contains `value` as each element for `n` elements. If the `value` is a reference type, it's ok if the reference is copied (that is, you don't have to worry about deep copying `value` if it's an `Object`.
 
-Hint: The `Array` methods, [push](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) and/or [concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) may be helpful here.
+Hint: The `Array` methods, [push](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) and/or [spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)/[concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) may be helpful here.
 
 
 __Example:__
 
-    var arr = tic.repeat("hello", 3);
+    const arr = tic.repeat("hello", 3);
     // arr is ["hello", "hello", "hello"];
 
 <hr>
@@ -356,6 +357,7 @@ __Parameters:__
 * `rows` - the number of rows in the board
 * `columns` - the number of columns in the board
 * `initialCellValue` - the initial value contained in each square
+    * default value should be space (`" "`)
 
 __Returns:__
 
@@ -370,7 +372,7 @@ Use the `repeat` function that you created above to implement this function.
 __Example:__
 
     // creates a board with 9 squares
-    var board = tic.generateBoard(3, 3, " ");
+    const board = tic.generateBoard(3, 3, " ");
     // board is = [" ", " ", " ", " ", " ", " ", " ", " ", " ", ];
     // (each empty cell is a space)
 
@@ -397,9 +399,9 @@ Hint: [Math.sqrt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 __Example:__
 
     // translates a row and col to a single index
-    var board = tic.generateBoard(3, 3, " ");
-    var i = tic.rowColToIndex(board, 1, 1);
-    var j = tic.rowColToIndex(board, 0, 2);
+    const board = tic.generateBoard(3, 3, " ");
+    const i = tic.rowColToIndex(board, 1, 1);
+    const j = tic.rowColToIndex(board, 0, 2);
     // i is 4 (column 1, row 1 is the same as the element at index 4)
     // j is 2
 
