@@ -9,7 +9,7 @@ title: CSCI-UA.0480 - Homework #1
 
 # Tic Tac Toe and Scrabble Pal
 
-## Due __Sep 14th, by 11PM__
+## Due __Sep 16th, by 11PM__
 
 <div markdown="block" class="img">
 ![tic tac toe from wargames](../resources/img/hw01-t3-wargames.gif)
@@ -30,7 +30,7 @@ Create an interactive 2-player (computer vs human player) Tic Tac Toe game.
 * some people take tic-tac-toe [really seriously](https://www.reddit.com/r/TrueTicTacToe/)
 * the gif above comes from a [youtube clip from the 1983 movie, Wargames](http://www.imdb.com/title/tt0086567/)
 
-You'll create this game in 2 parts. The first part will guide you through creating several helper functions for your game. The second part deals with implementing the game using the helper functions you made for part 1. It'll be a bit over-engineered, but don't worry - you don't have to use all of the functions you create.
+You'll create this game in 2 parts. The first part will guide you through creating several helper functions for your game. The second part deals with implementing the game using the helper functions you made for part 1. It'll be a bit over-engineered, but don't worry - you don't have to use all of the functions you create (and you definitely won't use every feature in each function). Of course, you're encouraged to create your own helper functions as well!
 
 See the [example game](#hw01-tic-tac-toe-sample) shown at the end of these instructions.
 
@@ -91,14 +91,14 @@ Assuming that you've already:
 You can then go through the following steps to clone your repository and commit your first changes:
 
 1. ...go to the [class github page]({{site.vars.github_org}})
-2. find the repository that starts with your NYU NetID and ends with homework01 (for example, jjv222-homework01) 
+2. find the repository that starts with your github username and ends with homework01 (for example, mygithubusername-homework01) 
 3. on the repository's page, use the green "Clone or download" button on the right side of the screen to copy the HTTPS clone URL to __clone__ the homework. To use the commandline client (with GITHUB_REPOSITORY_URL being the url you copied from the green button):
     <pre><code data-trim contenteditable> git clone GITHUB_REPOSITORY_URL
 </code></pre>
 4. create a file called <code>.gitignore</code> in the same directory
 5. add the following line to the file so that git ignores any locally installed node modules: <code> node_modules </code>
 6. in the same project directory, create a file called README.md, and edit it so that it includes:
-	* your name and net id
+	* your github username
 	* the title of your project: Homework #01 - Tic Tac Toe
 7. again, in the same project directory, run <code>git add README.md</code> to let git know that we're ready to "save"
 8. save your work locally by running <code>git commit -m "add homework meta information"</code>... everything within the quotes after <code>-m</code> is any commit message you'd like
@@ -268,7 +268,22 @@ You can __run the included unit tests by using this command__ in your project di
 
 If you run these tests before starting, you'll get a bunch of reference errors. This is because you have no functions implemented yet. Additionally, you'll have to export the functions you create so that the tests have access to them.
 
-__Please try continually running the unit tests as you develop your program.__ To clear out the noise, __feel free to comment out the tests that you aren't working on__, and uncomment them as soon as you have a stub of a function exported.
+__Please try continually running the unit tests as you develop your program.__ 
+
+### Only Running a Subset of Unit Tests
+
+To clear out the noise of dealing with many failing tests due to unimplemented functions, use `.only()`:
+
+Any time that you see the functions `describe()` or `it()` in `tests/tic-tac-toe-test.js`, you can follow it with `.only()` to limit the tests being run to those contained in the call to `describe` or `it`. For example:
+```
+# describe('board', function() { });
+describe.only(('board', function() { });
+# or
+# it('generates a board with specified number of rows and columns', function() { });
+it.only('generates a board with specified number of rows and columns', function() { });
+```
+
+Alternatively, you can simply comment out unused tests until you're ready to implement them.
 
 
 ### Assumptions
@@ -324,7 +339,7 @@ index      |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |
     * the upper left corner would be at index 0 (or row 0, column 0)
     * the upper left corner would be at index 2 (or row 0, column 2)
     * the center square would be at index 4 (or row 1, column 1)
-5. The space character, `" "`, will be used to mark an empty square
+5. The empty string, `""`, will be used to mark an empty square
 6. You can assume that all of the code examples below use `tic` as the name of the imported module of your Tic Tac Toe functions
 
 
@@ -333,7 +348,7 @@ index      |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |
 ### Functions to Implement
 
 
-### `board(rows, columns, initialCellValue)` // modify parameters to allow for default values
+### `board(rows, columns, initialCellValue) // modify parameters to allow for default values` 
 
 __Parameters:__
 
@@ -356,18 +371,21 @@ A `for` loop and generous use of `push` works here, but an alternative would be 
 
 __Example:__
 
-    // creates a board with 9 squares
-    const board = tic.board(3, 3, "");
+    // creates a board with 9 squares (default value not specified)
+    const board = tic.board(3, 3);
     // board = ["", "", "", "", "", "", "", "", "", ];
     // (each empty cell is an empty string)
 
+    // creates a board with 9 squares, with "-" as initial value
+    const board = tic.board(3, 3, "-");
+    // board = ["-", "-", "-", "-", "-", "-", "-", "-", "-", ];
 <hr>
 
-### `toIndex(board, row, col)` // modify parameters to allow for default values
+### `toIndex(board, row, col)` 
 
 __Parameters:__
 
-* `board` - the board where the `rowNumber` and `columnNumber` come from
+* `board` - the board where the `row` and `col` come from
 * `row` - the row number to be converted to an index in a one dimensional a`Array` representation
 * `col` - the column number to be converted to an index in a one dimensional a`Array` representation
 
@@ -392,7 +410,7 @@ __Example:__
 
 <hr>
 
-### `indexToRowCol(board, i)`
+### `toRowCol(board, i)`
 
 __Parameters:__
 
@@ -413,8 +431,8 @@ __Example:__
 
     // translates an index into a row and column...
     const board = tic.board(3, 3, "");
-    const rowCol1 = tic.indexToRowCol(board, 4);
-    const rowCol2 = tic.indexToRowCol(board, 2);
+    const rowCol1 = tic.toRowCol(board, 4);
+    const rowCol2 = tic.toRowCol(board, 2);
     // rowCol1 is: {"row": 1, "col": 1};
     // rowCol2 is {"row": 0, "col": 2};
 
@@ -437,7 +455,7 @@ __Description:__
 
 Sets the value of the cell at the specified row and column numbers on the board, `board`, to the value, `letter`.
 
-You can either set the cell in the `board` argument passed in... and return it, or you can shallow copy `board` and mutate and return the copy. To shallow copy an `Array`, use the [slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) method.
+Instead of modifying the `board` argument passed in, create a shallow copy of the `board`, mutate it (place the letter), and return the copy. To shallow copy an `Array`, use the [slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) method.
 
 __Example:__
 
@@ -493,13 +511,14 @@ __Example:__
 
 <hr> 
 
-### `placeLetter(board, letter, algebraicNotation)`
+### `placeLetters(board, letter, algebraicNotation) // see specifications for addtional arguments`
 
 __Parameters:__
 
 * `board` - the board where a cell will be set to `letter`
 * `letter` - the string to set the cell to
 * `algebraicNotation` - a `String` that specifies the position of a cell using algebraic notation 
+	* followed by any number of `letter` and `string` pairs
 
 __Returns:__
 
@@ -507,17 +526,34 @@ __Returns:__
 
 __Description:__
 
-Translates algebraic notation specifying a cell into a row and column specifying the same cell.
+Places the every a letter at every algebraic notation for every pair of arguments specifying letter and algebraic notation. Letters and position combinations are placed in the order that they appear in the arguments. It does not have to be "smart" about detecting whether or not a value is a letter vs algebraic notation; using position to determine letter versus position is adequate. In general, this function can be naive in its implementation, and it should do its best to skip erroneous arguments without raising exceptions (failing silently is not usually good practice, but it's appropriate for our toy implementation of this game):
 
-Use the `setBoardCell` function you created above to implement this.
+* If the algebraic notation is invalid, skip the move. 
+* If there are an uneven number of arguments after `board`, assume that every odd is the letter and every even is the algebraic notation, and skip the last argument 
+* If a letter already exists in the position specified after the letter, do not overwrite the existing letter... and skip the new move instead
+
+Use the `setBoardCell` function you created above to implement this. Use the [rest operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) to implement an arbitrary number of arguments.
 
 __Example:__
 
     // X and O are placed on the board
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "B2");
-    board = tic.placeLetter(board, 'O', "A3");
+    board = tic.placeLetters(board, 'X', "B2");
+    board = tic.placeLetters(board, 'O', "A3");
     // board is [" ", " ", "O", " ", "X", " ", " ", " ", " "]
+
+
+    // X and O are placed on the board in a single call
+    let board = tic.board(3, 3, "");
+	board = tic.placeLetters(board, 'X', 'B2', 'O', 'A3');
+	// board is ["", "", "O", "", "X", "", "", "", ""]
+   
+    // Invalid moves, uneven moves, and existing letter in position
+	// should result in skipping the current move
+    let board = tic.board(3, 3, "");
+    board = tic.placeLetters(board, 'X', 'Z7', 'O', 'B2', 'X', 'B2', 'O');
+    // board is ["", "", "", "", "O", "", "", "", ""]
+	// (O is not overwritten, and invalid rows/cols are skipped)
 
 <hr>
 
@@ -573,6 +609,8 @@ It should work for boards of any size! Here's an example of a 7 x 7 board!
    +---+---+---+---+---+---+---+
 </code></pre>
 
+If the "letter" is empty, use a space character to space out the cell. If the "letter" is more than one character, truncate it to fit in the space.
+
 This one is actually quite challenging (and tedious) to get exactly right, so there won't be any penalties for minor spacing inconsistencies... and if there are other issues (for example, not adding labels), there will only be small point penalties.
 
 Again, you can __assume that the numbers of rows and columns will not be greater than 26__.
@@ -583,8 +621,8 @@ __Example:__
 
     // a string representation of a board with two moves
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "B2");
-    board = tic.placeLetter(board, 'O', "A3");
+    board = tic.placeLetters(board, 'X', "B2");
+    board = tic.placeLetters(board, 'O', "A3");
     // board will be equal to the following string:
     // "     1   2   3  \n   +---+---+---+\n A |   |   | O |\n   +---+---+---+\n B |   | X |   |\n   +---+---+---+\n C |   |   |   |\n   +---+---+---+\n"
 
@@ -612,21 +650,21 @@ __Example:__
 
     // row B is filled with X, X wins
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "B1");
-    board = tic.placeLetter(board, 'X', "B2");
-    board = tic.placeLetter(board, 'X', "B3");
+    board = tic.placeLetters(board, 'X', "B1");
+    board = tic.placeLetters(board, 'X', "B2");
+    board = tic.placeLetters(board, 'X', "B3");
     console.log(tic.getWinnerRows(board)); // --> 'X'
 
     // row B is partially filled, no winner
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "B1");
-    board = tic.placeLetter(board, 'X', "B2");
+    board = tic.placeLetters(board, 'X', "B1");
+    board = tic.placeLetters(board, 'X', "B2");
     console.log(tic.getWinnerRows(board)); // --> undefined
 
     // row B is partially filled, no winner
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "B2");
-    board = tic.placeLetter(board, 'X', "B3");
+    board = tic.placeLetters(board, 'X', "B2");
+    board = tic.placeLetters(board, 'X', "B3");
     console.log(tic.getWinnerRows(board)); // --> undefined
 
 <hr>
@@ -651,21 +689,21 @@ __Example:__
 
     // Column 2 is filled with X, X wins
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "A2");
-    board = tic.placeLetter(board, 'X', "B2");
-    board = tic.placeLetter(board, 'X', "C2");
+    board = tic.placeLetters(board, 'X', "A2");
+    board = tic.placeLetters(board, 'X', "B2");
+    board = tic.placeLetters(board, 'X', "C2");
     console.log(tic.getWinnerCols(board)); // --> 'X'
 
     // Column 2 is partially filled, no winner
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "A2");
-    board = tic.placeLetter(board, 'X', "B2");
+    board = tic.placeLetters(board, 'X', "A2");
+    board = tic.placeLetters(board, 'X', "B2");
     console.log(tic.getWinnerCols(board)); // --> undefined
 
     // Column 2 is partially filled, no winner
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "B2");
-    board = tic.placeLetter(board, 'X', "C2");
+    board = tic.placeLetters(board, 'X', "B2");
+    board = tic.placeLetters(board, 'X', "C2");
     console.log(tic.getWinnerCols(board)); // --> undefined
 
 <hr>
@@ -690,23 +728,23 @@ __Example:__
 
     // a diagonal is filled with X, X wins
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "A1");
-    board = tic.placeLetter(board, 'X', "B2");
-    board = tic.placeLetter(board, 'X', "C3");
+    board = tic.placeLetters(board, 'X', "A1");
+    board = tic.placeLetters(board, 'X', "B2");
+    board = tic.placeLetters(board, 'X', "C3");
     console.log(tic.getWinnerDiagonals(board)); // --> 'X'
 
     // a diagonal is filled with X, X wins
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "A3");
-    board = tic.placeLetter(board, 'X', "B2");
-    board = tic.placeLetter(board, 'X', "C1");
+    board = tic.placeLetters(board, 'X', "A3");
+    board = tic.placeLetters(board, 'X', "B2");
+    board = tic.placeLetters(board, 'X', "C1");
     console.log(tic.getWinnerDiagonals(board)); // --> 'X'
 
     // a diagonal is partially filled with X, no winner
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "A3");
-    board = tic.placeLetter(board, 'O', "B2");
-    board = tic.placeLetter(board, 'X', "C1");
+    board = tic.placeLetters(board, 'X', "A3");
+    board = tic.placeLetters(board, 'O', "B2");
+    board = tic.placeLetters(board, 'X', "C1");
     console.log(tic.getWinnerDiagonals(board)); // --> undefined
 
 
@@ -736,26 +774,26 @@ __Example:__
 
     // board is completely full
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "A1");
-    board = tic.placeLetter(board, 'X', "A2");
-    board = tic.placeLetter(board, 'X', "A3");
-    board = tic.placeLetter(board, 'X', "B1");
-    board = tic.placeLetter(board, 'X', "B2");
-    board = tic.placeLetter(board, 'X', "B3");
-    board = tic.placeLetter(board, 'X', "C1");
-    board = tic.placeLetter(board, 'X', "C2");
-    board = tic.placeLetter(board, 'X', "C3");
+    board = tic.placeLetters(board, 'X', "A1");
+    board = tic.placeLetters(board, 'X', "A2");
+    board = tic.placeLetters(board, 'X', "A3");
+    board = tic.placeLetters(board, 'X', "B1");
+    board = tic.placeLetters(board, 'X', "B2");
+    board = tic.placeLetters(board, 'X', "B3");
+    board = tic.placeLetters(board, 'X', "C1");
+    board = tic.placeLetters(board, 'X', "C2");
+    board = tic.placeLetters(board, 'X', "C3");
     console.log(tic.isBoardFull(board)); // --> true
 
     // board has one square empty...
-    board = tic.placeLetter(board, 'X', "A2");
-    board = tic.placeLetter(board, 'X', "A3");
-    board = tic.placeLetter(board, 'X', "B1");
-    board = tic.placeLetter(board, 'X', "B2");
-    board = tic.placeLetter(board, 'X', "B3");
-    board = tic.placeLetter(board, 'X', "C1");
-    board = tic.placeLetter(board, 'X', "C2");
-    board = tic.placeLetter(board, 'X', "C3");
+    board = tic.placeLetters(board, 'X', "A2");
+    board = tic.placeLetters(board, 'X', "A3");
+    board = tic.placeLetters(board, 'X', "B1");
+    board = tic.placeLetters(board, 'X', "B2");
+    board = tic.placeLetters(board, 'X', "B3");
+    board = tic.placeLetters(board, 'X', "C1");
+    board = tic.placeLetters(board, 'X', "C2");
+    board = tic.placeLetters(board, 'X', "C3");
     console.log(tic.isBoardFull(board)); // --> false
 
 <hr>
@@ -793,7 +831,7 @@ __Example:__
 
 	// move into square that's already occupied, not valid
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'O', "B2");
+    board = tic.placeLetters(board, 'O', "B2");
     console.log(tic.isValidMove(board, 1, 1)); // --> false
 
 <hr>
@@ -823,7 +861,7 @@ __Example:__
 
     // target square is not empty, not a valid move
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "A3");
+    board = tic.placeLetters(board, 'X', "A3");
     console.log(tic.isValidMoveAlgebraicNotation(board, 'A3')) // --> false
 
 <hr>
@@ -846,48 +884,48 @@ __Example:__
 
     // there's only one empty cell... the middle square (index 4)
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "A1");
-    board = tic.placeLetter(board, 'X', "A2");
-    board = tic.placeLetter(board, 'X', "A3");
-    board = tic.placeLetter(board, 'X', "B1");
-    board = tic.placeLetter(board, 'X', "B3");
-    board = tic.placeLetter(board, 'X', "C1");
-    board = tic.placeLetter(board, 'X', "C2");
-    board = tic.placeLetter(board, 'X', "C3");
+    board = tic.placeLetters(board, 'X', "A1");
+    board = tic.placeLetters(board, 'X', "A2");
+    board = tic.placeLetters(board, 'X', "A3");
+    board = tic.placeLetters(board, 'X', "B1");
+    board = tic.placeLetters(board, 'X', "B3");
+    board = tic.placeLetters(board, 'X', "C1");
+    board = tic.placeLetters(board, 'X', "C2");
+    board = tic.placeLetters(board, 'X', "C3");
     const i = tic.getRandomEmptyCellIndex(board);
     // i is 4
 
     // the entire second row is empty (index 3, 4, or 5)
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "A1");
-    board = tic.placeLetter(board, 'X', "A2");
-    board = tic.placeLetter(board, 'X', "A3");
-    board = tic.placeLetter(board, 'X', "C1");
-    board = tic.placeLetter(board, 'X', "C2");
-    board = tic.placeLetter(board, 'X', "C3");
+    board = tic.placeLetters(board, 'X', "A1");
+    board = tic.placeLetters(board, 'X', "A2");
+    board = tic.placeLetters(board, 'X', "A3");
+    board = tic.placeLetters(board, 'X', "C1");
+    board = tic.placeLetters(board, 'X', "C2");
+    board = tic.placeLetters(board, 'X', "C3");
     const i = tic.getRandomEmptyCellIndex(board);
     // i is 3, 4, or 5
 
     let board = tic.board(3, 3, "");
-    board = tic.placeLetter(board, 'X', "A1");
-    board = tic.placeLetter(board, 'X', "A2");
-    board = tic.placeLetter(board, 'X', "A3");
-    board = tic.placeLetter(board, 'X', "B1");
-    board = tic.placeLetter(board, 'X', "B2");
-    board = tic.placeLetter(board, 'X', "B3");
-    board = tic.placeLetter(board, 'X', "C1");
-    board = tic.placeLetter(board, 'X', "C2");
-    board = tic.placeLetter(board, 'X', "C3");
+    board = tic.placeLetters(board, 'X', "A1");
+    board = tic.placeLetters(board, 'X', "A2");
+    board = tic.placeLetters(board, 'X', "A3");
+    board = tic.placeLetters(board, 'X', "B1");
+    board = tic.placeLetters(board, 'X', "B2");
+    board = tic.placeLetters(board, 'X', "B3");
+    board = tic.placeLetters(board, 'X', "C1");
+    board = tic.placeLetters(board, 'X', "C2");
+    board = tic.placeLetters(board, 'X', "C3");
     const i = tic.getRandomEmptyCellIndex(board);
     // i is undefined
 
 ### Checking Your Code, Pushing Your Changes
 
-1. JavaScript (ES5) is kind of crazy (read: has some really _bad_, but valid parts), so it's useful to use a static analysis tool, like `jshint` to check your code
+1. JavaScript (ES5) is kind of crazy (read: has some really _bad_, but valid parts), so it's useful to use a static analysis tool, like `eshint` to check your code
     * ideally, you'd be doing this periodically while you develop
-    * the commandline usage is described here, but there are jshint integrations for some editors (see the plugins section in the [jshint installation guide](http://jshint.com/install/))
-    * from your project directory run: `jshint src/*` to check all of the code in the `src` directory
-    * (you _did install_ `jshint` globally in the preparation section, right?)
+    * the commandline usage is described here, but there are eshint integrations for some editors (see the plugins section in the [eshint installation guide](https://eslint.org/docs/user-guide/integrations))
+    * from your project directory run: `eshint src/*` to check all of the code in the `src` directory
+    * (you _did install_ `eshint` globally in the preparation section, right?)
     * check the output; __make sure you fix all warnings / errors__
 2. Run your tests one last time to make sure that they're all (or... _mostly_) passing.
     * `mocha test.tic-tac-toe-test.js`
@@ -916,13 +954,13 @@ __Example:__
 ## Part 2 - Tic Tac Toe Game
 
 Whew. That was a lot of work. But, ummmm... there's no Tic Tac Toe game yet. What?
-__Let's use the module / helper functions you created in part 1 to ll implement an interactive Tic Tac Toe game that supports the following features:__
+__Let's use the module / helper functions you created in part 1 to implement an interactive Tic Tac Toe game that supports the following features:__
 
 1. User controlled game settings
 2. An interactive game
 3. Scripted moves for the computer opponent
 
-You don't have to use _all_ of the function you created in your `tic-tac-toe.js` module. However, you'll likely end up doing a lot of redundant work.
+You don't have to use _all_ of the function you created in your `tic-tac-toe.js` module (and you definitely won't need to use all of the features of each function). However, you'll likely end up doing a lot of redundant work. Of course, you are encouraged to create your own additional functions as well!
 
 ### Prep
 
@@ -1244,7 +1282,7 @@ if(computerMoves && computerMoves.length > 0) {
 
 // if we still don't have a valid move, just get a random empty square
 if(move === undefined) {
-    move = tic.indexToRowCol(board, tic.getRandomEmptyCellIndex(board));
+    move = tic.toRowCol(board, tic.getRandomEmptyCellIndex(board));
 }
 
 </code></pre>
@@ -1280,9 +1318,11 @@ To write this program, you'll use a word list called `enable1.txt`. Your program
 
 In your implementation, you'll be using a lot of functions that required callback functions to be passed in as arguments! So it'll be good to read up on functions as objects in the readings and slides.
 
-Instead of using `readline-sync` to ask for user for input, use the built-in `readline` module. The regular `readline` module will allow you to read input from the user, and it can also be used to read a file line-by-line if used in conjunction with the file system, `fs` module. 
+Instead of using `readline-sync` to ask for user for input, use the built-in `readline` module. The regular `readline` module will allow you to read input from the user.
 
 `readline` does the same thing as `readline-sync`, but it's asynchronous. That is, it's non-blocking, so it may not finish before your next line of code is executed. Try the sample programs below (you'll need a file called test.txt with a few lines in it to try the second example) to get a feel for programming with callbacks. Pay close attention to when `last line of program` is printed out.
+
+Lastly, use `fs.readFile` to read in your word list.
 
 __Input from the user__ 
 
@@ -1308,39 +1348,23 @@ function handleUserInput(response) {
 console.log('last line of program!');
 </code></pre>
 
-__Line by line input from a file__ 
+__Reading from a file__ 
 
-<pre><code data-trim contenteditable>const readline = require('readline');
-const fs = require('fs');
-const fileName = 'test.txt';
-const n = 0;
-
-// set up a readline object that can be used for reading data from a file
-// line by line
-fileInput = readline.createInterface({ 
-    input: fs.createReadStream(fileName)
+* the [`fs` module has a  readFile function](https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback) to do this
+* example usage of the `fs` module:
+	<pre><code data-trim contenteditable>
+fs.readFile('path/to/myFile.txt', 'utf8', function(err, data) {
+    if (err) {
+        console.log('uh oh', err); 
+    } else {
+        console.log(data);
+    }
 });
 
-// specify what functions to call when the readline object:
-// 1. reads a single line from the file
-// 2. finishes reading the file
-fileInput.on('line', handleLine);
-fileInput.on('close', handleClose);
+__Please use a relative path to read the file!__
 
-function handleLine(line) {
-    console.log('line ' + n + ': ' + line);
-
-    // mutating a global
-    n += 1;
-}
-
-function handleClose() {
-    console.log('done');
-}
-
-console.log('last line of program!');
-</code></pre>
-
+* that is... read `data/enable1.txt` rather than `/full/path/to/enable1.txt`
+* assume that the program will be run from the project's root directory
 
 ### Handle Scores
 
@@ -1424,7 +1448,7 @@ If you run the above code, you'll get the following error:
 
 `ReferenceError: greeting is not defined`
 
-Because greeting is within the local scope of `main`. Assuming you want to keep the `main` function around, you can get around this by:
+Because greeting is within the local scope of `main`. Assuming you want to keep the `main` function around, you can get around this by employing one the following strategies (I recommend using the arrow function version!):
 
 * (easy, but sloppy) using a lot of global variables - just move the declaration of `greeting` outside of `main`
 * (easy, slightly less sloppy) nest functions within other functions if you need inner function to access variables in the outer function 
@@ -1447,7 +1471,7 @@ Because greeting is within the local scope of `main`. Assuming you want to keep 
 }
 main();
 </code></pre>
-* (difficult) pass the necessary variables to the function as arguments, and then fix the arity by using an anonymous function (that is, fix the values of a function's parameters) when using the function as a callback:
+* (difficult) pass the necessary variables to the function as arguments, and then fix the arity by using an anonymous function (that is, fix the values of a function's parameters) when using the function as a callback (an arrow function or _regular_ function expression will work):
     <pre><code data-trim contenteditable>const readline = require('readline');
     
     function main() {
@@ -1458,9 +1482,14 @@ main();
         output: process.stdout
     });
 
-    userPrompt.question('What\'s your name?', function(response) {
-        handleUserInput(userPrompt, greeting, response);
-    });
+	// using arrow function
+	// (arrow function takes one argument and passes that as third argument to handleUserInput)
+    userPrompt.question('What\'s your name?', (response) => { handleUserInput(userPrompt, greeting, response); } );
+
+	// or with a function expression
+    // userPrompt.question('What\'s your name?', function(response) {
+    //     handleUserInput(userPrompt, greeting, response);
+    // });
 }
 function handleUserInput(userPrompt, greeting, response) {
     console.log(greeting + ' ' + response);
@@ -1468,7 +1497,7 @@ function handleUserInput(userPrompt, greeting, response) {
 }
 main();
 </code></pre>
-* (difficult) pass the necessary variables to the function as arguments, and then fix the arity of the callback by using [bind](https://www.google.com/search?q=js+bind&oq=js+bind&aqs=chrome..69i57j0l5.1794j0j4&sourceid=chrome&ie=UTF-8)
+* (difficult) pass the necessary variables to the function as arguments, and then fix the arity of the callback by using an arrow function or [bind](https://www.google.com/search?q=js+bind&oq=js+bind&aqs=chrome..69i57j0l5.1794j0j4&sourceid=chrome&ie=UTF-8)
     <pre><code data-trim contenteditable>const readline = require('readline');
 
     function main() {
@@ -1478,6 +1507,8 @@ main();
         input: process.stdin,
         output: process.stdout
     });
+
+	// using bind...
     userPrompt.question('What\'s your name?', handleUserInput.bind(null, userPrompt, greeting));
 }
 function handleUserInput(userPrompt, greeting, response) {
@@ -1489,32 +1520,10 @@ main();
 
 __Issues Reading a File__
 
-When creating a readline interface for reading a file, the fileName argument to the `createReadStream` function expects a path to a file. Depending on where you're running node from (what directory), you'll have to figure out what the relative or absolute path is to `data/enable1.txt`.
-
-The syntax is like this:
-
-<pre><code data-trim contenteditable>fileInput = readline.createInterface({ 
-    input: fs.createReadStream(fileName)
-});
-</code></pre>
-
-The easiest way to deal with this is to set `fileName` to an absolute path. This way, it can work anywhere you run node. 
-
-`/Users/jversoza/project/homework01/data/enable1.txt`
-
-If you're running your program from your project directory, then fileName should be:
+You should be running your program from your project root directory. The path given to `fs.readFile` should be:
 
 `data/enable1.txt`
 
-If you're running from your `src`, then fileName should be:
-
-`../data/enable1.txt`
-
-
-__Reading a file after user input is not working__
-
-* make sure you create your readline interface for reading a file __after__ you've received user input
-* so you should create the `readline` interface for reading a file within the callback of the `readline` interface that prompts the user for input
 </div>
 
 </div>

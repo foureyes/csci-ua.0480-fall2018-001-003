@@ -73,13 +73,12 @@ __Due Monday 9/10, by 11pm__
 [{{ site.book_js_6 }}]({{ site.book_js_6_link }})
 
 * [Chapter 3. Building Robust Node Applications](http://chimera.labs.oreilly.com/books/1234000001808/ch03.html) (excluding ""Using Multiple Processors"")
-","<!--
-__Due Wednesday 1/31, by 11pm__
+","__Due Sunday 9/16, by 11pm__
 
 * [Homework #1](homework/01.html) 
--->
+
 ",
-y,,3,11-Sep,Tue,* Higher Order Functions,"* Tutoring and Workshops!
+,,3,11-Sep,Tue,* Higher Order Functions,"* Tutoring and Workshops!
 * [Higher Order Functions](slides/js/higher-order-functions.html) 
 * [Higher Order Functions Continued](slides/js/higher-order-functions-continued.html) 
 * [Objects Revisited, Arrow Functions with ""this""](slides/js/objects-prototypes.html)
@@ -96,9 +95,10 @@ y,,3,11-Sep,Tue,* Higher Order Functions,"* Tutoring and Workshops!
 [{{ site.book_js_5 }}]({{ site.book_js_5_link }})
 
 * Chapter 5 - Higher Order Functions
-","__Due Sunday 2/4, by 11pm__ 
+","<!-- __Due Sunday 2/4, by 11pm__ 
 
 * Quizzes #4 and #5
+-->
 ",
 y,,4,13-Sep,Thu,"* Objects and Prototypes
 * Patterns
