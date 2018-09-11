@@ -962,7 +962,7 @@ __Let's use the module / helper functions you created in part 1 to implement an 
 
 You don't have to use _all_ of the function you created in your `tic-tac-toe.js` module (and you definitely won't need to use all of the features of each function). However, you'll likely end up doing a lot of redundant work. Of course, you are encouraged to create your own additional functions as well!
 
-## {:.danger} You MUST IMPLEMENTED #3, Scripted Moves
+## You MUST IMPLEMENTED #3, Scripted Moves
 
 * in order for this game to be tested properly, scripted moves must be implemented for both the computer and the human player
 * consequently, this feature will be worth a  __significant__ number of points
@@ -1276,7 +1276,7 @@ Player will make the following moves: [ [ 1, 0 ], [ 2, 1 ] ]
     * remove the 1st element of `computerMoves` (the first scripted move has been consumed)... you can use [splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to do this
     * if the `computerMoves` array is empty or undefined, just use a random move
     * check out the example code below:  
-<pre><code data-trim contenteditable>// assume that a computerMoves global variable exists... 
+<pre><code data-trim contenteditable>// assume that a computerMoves global variable 
 // and it is an Array of 2-element Arrays like [[0, 0], [0, 1], ...]
         
 // the move the computer will make
