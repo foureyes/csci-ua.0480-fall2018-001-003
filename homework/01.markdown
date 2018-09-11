@@ -962,7 +962,7 @@ __Let's use the module / helper functions you created in part 1 to implement an 
 
 You don't have to use _all_ of the function you created in your `tic-tac-toe.js` module (and you definitely won't need to use all of the features of each function). However, you'll likely end up doing a lot of redundant work. Of course, you are encouraged to create your own additional functions as well!
 
-## You MUST IMPLEMENTED #3, Scripted Moves
+## You MUST IMPLEMENT #3, Scripted Moves
 
 * in order for this game to be tested properly, scripted moves must be implemented for both the computer and the human player
 * consequently, this feature will be worth a  __significant__ number of points
