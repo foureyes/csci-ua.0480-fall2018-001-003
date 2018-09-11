@@ -363,7 +363,7 @@ __Returns:__
 
 __Description:__
 
-Creates a single dimensional `Array` representation of a Tic Tac Toe board. The number of elements in the `Array` is the same as the number of squares in the board based on the supplied number of `rows` and `columns`. The initial value in each cell is the `initialCellValue` passed in. If `initialCellValue` is not passed in, default to space (`" "`).
+Creates a single dimensional `Array` representation of a Tic Tac Toe board. The number of elements in the `Array` is the same as the number of squares in the board based on the supplied number of `rows` and `columns`. The initial value in each cell is the `initialCellValue` passed in. If `initialCellValue` is not passed in, default to  (`""`).
 
 A `for` loop and generous use of `push` works here, but an alternative would be to use an [`Array` constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Syntax) (not typical, but worth doing in this case) with the [`fill` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
 
@@ -609,7 +609,7 @@ It should work for boards of any size! Here's an example of a 7 x 7 board!
    +---+---+---+---+---+---+---+
 </code></pre>
 
-If the "letter" is empty, use a space character to space out the cell. If the "letter" is more than one character, truncate it to fit in the space.
+If the "letter" is empty (an empty string), use a space character to space out the cell. If the "letter" is more than one character, truncate it to fit in the space.
 
 This one is actually quite challenging (and tedious) to get exactly right, so there won't be any penalties for minor spacing inconsistencies... and if there are other issues (for example, not adding labels), there will only be small point penalties.
 
@@ -762,7 +762,7 @@ __Returns:__
 
 __Description:__
 
-Examines the `board` passed in to determine whether or not it's full. It returns `true` if there are no empty squares, `false` if there are still squares available. __Assume that the board uses the space character, `" "`, to mark a square as empty__.
+Examines the `board` passed in to determine whether or not it's full. It returns `true` if there are no empty squares, `false` if there are still squares available. __Assume that the board uses the empty string , `""`, to mark a square as empty__.
 
 Hint: The solution to this is pretty straightforward with a simple for loop, but if you want to ditch the for loop entirely, you can get fancy and use the `Array` method, [some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some).
 
@@ -817,7 +817,7 @@ Using the `board` passed in, determines whether or not a move to `row` and `col`
 * targets an empty square
 * is within the boundaries of the board
 
-Use a previous function that you created, `toIndex` in the implementation of this function. Again, you can __assume that the space character, `" "`, represents empty__.
+Use a previous function that you created, `toIndex` in the implementation of this function. Again, you can __assume that the empty string, `""`, represents empty__.
 
 __Example:__
 
