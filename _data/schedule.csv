@@ -79,6 +79,13 @@ __Due Monday 9/10, by 11pm__
 
 ",
 ,,3,11-Sep,Tue,* Higher Order Functions,"* Tutoring and Workshops!
+* Node and NPM (above)
+     * package.json
+     * package-lock.json
+     * npm (init, install, list)
+* Arrays (above)
+     * constructor / holes
+     * mutability, slice
 * [Higher Order Functions](slides/js/higher-order-functions.html) 
 * [Higher Order Functions Continued](slides/js/higher-order-functions-continued.html) 
 * [Objects Revisited, Arrow Functions with ""this""](slides/js/objects-prototypes.html)

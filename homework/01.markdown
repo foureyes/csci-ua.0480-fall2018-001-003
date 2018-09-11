@@ -958,9 +958,15 @@ __Let's use the module / helper functions you created in part 1 to implement an 
 
 1. User controlled game settings
 2. An interactive game
-3. Scripted moves for the computer opponent
+3. Scripted moves for both players
 
 You don't have to use _all_ of the function you created in your `tic-tac-toe.js` module (and you definitely won't need to use all of the features of each function). However, you'll likely end up doing a lot of redundant work. Of course, you are encouraged to create your own additional functions as well!
+
+## {:.danger} You MUST IMPLEMENTED #3, Scripted Moves
+
+* in order for this game to be tested properly, scripted moves must be implemented for both the computer and the human player
+* consequently, this feature will be worth a  __significant__ number of points
+* make sure you implemented it (see the section below, "Scripted Moves")
 
 ### Prep
 
@@ -1231,33 +1237,39 @@ What's your move?
 >
 </code></pre>
 
-### Scripted Moves for the Computer
+### Scripted Moves 
 
 Testing your game against a computer player that makes random moves can be pretty annoying because you can't reliably repeat tests!
 
-To deal with this, add a feature to your game that allows you to pass in the computer's moves once you start your game. That is, when you run your game on the commandline, you can add an extra option to control the computer moves.
+To deal with this, add a feature to your game that allows you to pass in the computer's moves (and, if present, the player's moves) once you start your game. That is, when you run your game on the commandline, you can add an extra option to control the computer and player moves.
 
 To pick up commandline arguments, use the built-in variable `process.argv`. `process.argv` is an array that contains parts of the command used to run your program. For example, if you run your program with `node my-program.js`, `process.argv[0]` will be `node` and `process.argv[1]` will be `my-prgoram.js`.
 
-We can use this feature to supply an `Array` of moves (each represented by a 2-element `Array`). So... if we want the computer to move according to a commandline argument that we pass in, we can start the program by running:
+We can use this feature to supply an `Array` of moves. The entire `Array` consists of two inner `Arrays` - one for the computer and one for the player. The player and computer `Array`s contain moves, which themselves are 2-element `Array`s. So... if we want the computer and player to move according to s commandline argument that we pass in, we can start the program by running:
 
-<pre><code data-trim contenteditable>node game.js "[[0,0],[0,1],[0,2]]"
-// the computer's first three moves are the first 3 columns of the first row
+<pre><code data-trim contenteditable>node game.js "[[[0,0],[0,1],[0,2]], [[1,0],[1,1]]]"
+// the computer's first three moves are the first 3 columns of the first row, and the player's moves are 
+// the first 2 columns of the 2nd row
 </code></pre>
 
 To capture the commandline argument, you can use this line:
 
-<pre><code data-trim contenteditable>const computerMoves = process.argv[2]
+<pre><code data-trim contenteditable>const arr = process.argv[2]
 </code></pre>
 
-Now... instead of just randomly choosing the computer's move, you can consume the moves from the Array passed in.
+Now... instead of just randomly choosing the computer's move, and instead of prompting the user for a move, you can consume the moves from the Array passed in.
 
 __To implement this feature...__
 
 1. At the beginning of your file, use `process.argv` to access the passed in argument... and use `JSON.parse` to turn it into an actual nested `Array`
-    <pre><code data-trim contenteditable>const computerMoves = process.argv[2] ? JSON.parse(process.argv[2]) : undefined;
+    <pre><code data-trim contenteditable>const arr = process.argv[2] ? JSON.parse(process.argv[2]) : undefined;
 </code></pre>
-2. Notify the user that the computer is using scripted moves: `Computer will make the following moves: [ [ 0, 0 ], [ 0, 1 ], [ 0, 2 ] ]`
+	* assign the first element to `computerMoves`
+	* assign the first element to `playerMoves``
+2. Notify the user that the computer (and possibly the player) is using scripted moves: 
+	<pre><code data-trim contenteditable> Computer will make the following moves: [ [ 0, 0 ], [ 0, 1 ], [ 0, 2 ] ]
+Player will make the following moves: [ [ 1, 0 ], [ 2, 1 ] ]
+</code></pre>
 3. When the computer moves
     * check out the 1st element of the `computerMoves` `Array`... 
     * if it's valid use it as the computer's move, otherwise just move randomly
@@ -1286,6 +1298,14 @@ if(move === undefined) {
 }
 
 </code></pre>
+4. Do the same for player moves
+	* instead of prompting the player for user input, just show the move that they are about to make
+	* ...and ask the player to press enter
+    * (simply ask for any input again using something like `readlineSync.question('Press <ENTER> to confirm player\'s scripted move...');`... without storing the input in a variable)
+5. Once the `playerMoves` or `computerMoves` `Array` is exhausted, allow the moves to proceed normally 
+	* use _whatever_ mechanism you want to generate a computer move
+	* prompt the player for their move as if it were not scripted
+6. Again - skip invalid moves (moves that are not on the board or that attempt to move into an already occupied cell), and remove them from their respective scripted moves `Array`
 
 ## Part 3 - Scrabble Pal
 
