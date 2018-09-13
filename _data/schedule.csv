@@ -107,11 +107,8 @@ __Due Monday 9/10, by 11pm__
 * Quizzes #4 and #5
 -->
 ",
-y,,4,13-Sep,Thu,"* Objects and Prototypes
-* Patterns
-* Networking Primer
-* Network Programming
-* Streams / Buffers / File IO","* [Objects and Prototypes, Classes](slides/05/prototypes.html)
+,,4,13-Sep,Thu,"* Objects and Prototypes
+","* [Objects and Prototypes, Classes](slides/05/prototypes.html)
 * [Objects in JavaScript Summary](slides/05/objects-review.html)
 * [Where Not to Use Arrow Functions](slides/05/not-arrow.html)
 
@@ -133,16 +130,18 @@ y,,4,13-Sep,Thu,"* Objects and Prototypes
 
 * Chapter 6 - The Secret Life of Objects
 * Chapter 8 - Bugs and Error Handling 
-","__Due Wednesday 2/7 at 11pm:__
+","__Due Monday 9/23 at 11pm:__
 
 
-<!--
-* Homework #2 (to be posted)
--->
+* Homework #2 (to be posted over the weekend)
+
 
 *  [Homework #2](homework/02.html) 
 ",
-y,,5,18-Sep,Tue,"* Web Development
+,,5,18-Sep,Tue,"* Networking Primer
+* Network Programming
+* Streams / Buffers / File IO
+* Web Development
 * HTTP
 * A Simple Web Server","* [Intro to Web Development](slides/05/web.html)  
 * [Networking and Sockets](slides/06/sockets.html)
