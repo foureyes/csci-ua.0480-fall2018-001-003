@@ -354,113 +354,127 @@ __Example:__
 
 <hr>
 
-### `simpleINIParse(s)`
+### `bundleArgs(fn, args1 ... argsn)`
 
 __Parameters:__
 
-* `s` - a string that contains data in a simplified [INI format](https://en.wikipedia.org/wiki/INI_file)
+* `fn` - the function to get args bundled with it
+* `args1 ... argsn` - args that will automatically get filled in when the output function is used
+
 
 __Returns:__
 
-* `object` - an `object` that represents the data in the string as keys and values
+* `function` - a version of the original `fn` that can take any number of arguments, but when used, will use the `args1 ... argsn` as the first parameters to `fn`, filling in the new arguments afterwards
 
 __Description:__
 
-For this function, we'll assume that the string being passed in is in a simplified INI format:
-
-Name and value pairs are separated by new lines. Each line has a name on the left side and a value on the right side. An equals sign with no spaces separates the name and the value. For example, the following string literal is in INI format - `"foo=bar\nbaz=qux\nquxx=corge"`. When printed (or if within a file) the content would look like:
-
-    foo=bar
-    baz=qux
-    quxx=corge
-
-This function takes a string in INI format and parses its names and values as properties and values in a JavaScript object. Consequently, the string above, `"foo=bar\nbaz=qux\nquxx=corge"`, is parsed into: `{foo: 'bar', baz: 'qux', quxx: 'corge'}` 
-
-If duplicate names exist, the later name will overwrite the earlier name (for example, two foo=..., will result in the last foo= overriding the first).
-
-If there is no `=` sign, the line will be skipped.
-
-If there is an equal sign, but one side is missing (`=foo` or `foo=`), then treat the resulting name or value as ''.
+Suppose you're using the same function all the time, with nearly the same arguments every time: wouldn't it be great to have a quick way  tomake an alternate version of your function where your favorite arguments come pre-filled?
 
 __Example:__
 
-    let s = "foo=bar\nbaz=qux\nquxx=corge";
-    simpleINIParse(s); // {foo: 'bar', baz: 'qux', quxx: 'corge'} 
+    // example, you have a function that surrounds text with other text
+    function surroundText(surrounding, text) {
+      return [surrounding, text, surrounding].join(" ")
+    }
 
-    s = "foo=bar\nbaz=qux\nquxx=corge\nfoo=WAT";
-    simpleINIParse(s); // {foo: 'WAT', baz: 'qux', quxx: 'corge'}
+    // but you know you're going to use it for one thing only
+    const makeCool = bundleArgs(surroundText, "~x~X~x~")
 
-    s = "foo=bar\nbaz\nquxx=corge";
-    simpleINIParse(s); // {foo: 'bar', quxx: 'corge'};
-
-    s = "foo=bar\nbaz=\n=qux";
-    simpleINIParse(s); // {foo: 'bar', baz: '', '': 'qux'}
+    // save yourself some time
+    console.log(makeCool("i guess")) // ~x~X~x~ i guess ~x~X~x~
 
 
 <hr>
 
 
-### `readFileWith((fn)`
+### `sequence(fn1, fn2, ...fnN)`
 
 __Parameters:__
 
-* `fn` - a _callback_ function that takes in a single argument, a string of data, and parses it into a JavaScript object (or Array)... this function will eventually work on the data read in from a file using `fs.readFile`.
+* `fn1, fn2, ...fnN` - a bunch of functions
 
 __Returns:__
 
-* `function` - a function that reads a file and immediately parses it into a JavaScript object (or Array)
-    * it has 2 parameters: the `fileName` of the file being read, and callback function specified by the caller to handle the parsedData 
-    * this new function does not return anything; instead, it runs the callback function supplied after it reads in the file
+* `function` - a function that will pass it's arguments to `fn1`, take the output of `fn1` and use it as the argument to `fn2`, then take the output of `fn2` and use it for `fn3`, and then... etc
 
 
 __Description:__
 
-This combines many of the items from above and combines it with using callbacks / asynchronous programming.
+A handy utility for automating the writing of code that's just calling functions to pass their arguments to other functions.
 
-This function will take a parsing function and turn it into a function that opens a file and immediately parses it. This resulting function will be an async function (!) so it will take a callback as one of its arguments (this callback function is defined by the caller).
-
-The steps for `readFileWith` are:
-
-1. takes a parsing function as an argument
-2. returns a new function
-3. the new function will take a `fileName` and a callback as arguments
-4. it'll read a file using `fs.readFile` (make sure the `fs` module is `require`'d in your project)
-    * check out the [fs.readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback) docs
-    * use the `fileName` passed in to the new function as the file name for `readFile`
-    * set the encoding when calling `readFile` to `utf8`
-    * the callback supplied to `readFile` should:
-        * parse the data resulting from a file read using the original parsing function, `fn` passed into `readFileWith` if there's no error
-        * call the callback passed into the new function with the err object (regardless of wheteher or not it's null/undefined) and the parsed data (again, regardless of whether or not it has a value or is `undefined`)
-        * if there is an error, the parsed data should be `undefined`
-
-This is essentially a function that creates functions that reads and parses files.
-
+# hint, it's kind of like _summing_ the functionality of a bunch of functions together
 
 __Example:__
 
-    // assuming config.ini look like this:
-    foo=bar
-    baz=qux
-    quxx=corge
 
-    // use our simpleINIParse function from earlier!
-    const readFileWithSimpleINIParse = readFileWith(simpleINIParse);
-    readFileWithSimpleINIParse('tests/config.ini', (err, data) => {
-        // within the callback, data is equal to
-        //  {foo: 'bar', baz: 'qux', quxx: 'corge'}
-    });
-
-    // assuming config.json look like this:
-    {
-        "foo": "bar", 
-        "baz": [1, 2, 3]
+    // let's say you have some pretty procedural functions
+    function superCamelCase(s) {
+      return s
+        .split("")
+        .map((c, i) => (i % 2 == 0 ? c.toUpperCase() : c.toLowerCase()))
+        .join("")
     }
-    
-    const readFileWithJSONParse = readFileWith(JSON.parse);
-    readFileWithJSONParse('tests/config.json', (err, data) => {
-        // within the callback, data is equal to
-        // {foo: 'bar', baz: [1, 2, 3]};
-    });
+
+    function spaceText(s) {
+      return s.split("").join(" ")
+    }
+
+    function addStyle(s) {
+      return "~~~ " + s + " ~~~"
+    }
+
+    // you want to make a playlist of them
+    const aestheticFmtPipeline = sequence(
+      superCamelCase,
+      spaceText,
+      addStyle
+    )
+
+    console.log(aestheticFmtPipeline("hello world")) // ~~~ H e L l O   W o R l D ~~~
+
+    function makeVertical(s) {
+      return s.split("").join("\n")
+    }
+
+    // playlists of playlists of functions
+    const tallAestheticFmt = sequence(aestheticFmtPipeline, makeVertical)
+
+    console.log(tallAestheticFmt("goodbye world"))
+    /*
+    ~
+    ~
+    ~
+
+    G
+
+    o
+
+    O
+
+    d
+
+    B
+
+    y
+
+    E
+
+
+
+    W
+
+    o
+
+    R
+
+    l
+
+    D
+
+    ~
+    ~
+    ~
+    */
 
 ### Test, Lint and Commit
 
