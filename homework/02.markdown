@@ -130,7 +130,7 @@ __Example:__
 
     longestString('foo', 'bar', 'bazzy', 'qux', 'quxx') // --> bazzy
     longestString('foo', 'bar', 'baz', 'qux') // --> qux
-    longestString() // --> null
+    longestString() // --> undefined
 
 <hr>
 
