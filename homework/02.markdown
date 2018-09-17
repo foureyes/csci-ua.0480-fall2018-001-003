@@ -9,16 +9,20 @@ title: CSCI-UA.0480 - Homework #2
 
 # Higher Order Functions: Exercises and Processing Data - __Due Sunday, September 23rd, by 11PM__
 
+<div markdown="block" class="img">
+![dog](../resources/img/dog.gif)
+</div>
+
 ## Overview
 
 ### Description
 
 __hoffy.js__ - Write a series of functions that demonstrate the use of the rest operator (or call/apply), and higher order functions
 
-__bitefunc.js__ and __report.js__ - Print out a report analyzing AirBnb listing data. There are two parts to this:
+__bitefunc.js__ and __report.js__ - Print out a report analyzing dog bite data. There are two parts to this:
 
-* An initial version that works off of a local JSON file
-* A second version that works off of remote urls and additional data (you can overwrite the previous part with this code)
+* An initial version that works off of a local csv file
+* A second version that works off of remote urls containing json (you can overwrite the previous part with this code)
 
 See the [sample output](#hw02-sample) at the end of these instructions.
 
