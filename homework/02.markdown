@@ -7,7 +7,7 @@ title: CSCI-UA.0480 - Homework #2
   <div class="panel-heading">Homework #2</div>
   <div class="panel-body" markdown="block">
 
-# Higher Order Functions: Exercises and Processing Data - __Due Wednesday, February 7th, by 11PM__
+# Higher Order Functions: Exercises and Processing Data - __Due Sunday, September 23rd, by 11PM__
 
 ## Overview
 
@@ -102,44 +102,103 @@ npm install --save-dev eslint-plugin-mocha
 
 <hr>
 
-### `sum(num1, num2, ... numn)`
+### `longestString(s1, s2, s3 up to sN)`
 
 __Parameters:__
 
-* `num1`, `num2` ... `numn` - the values to be summed
+* any number of string arguments
 
 __Returns:__
 
-* the sum of the arguments as a `Number`
-* the sum of no arguments is 0
+* the longest string in the arguments passed in
+* if no arguments are passed in, give back `undefined`
 
 __Description:__
 
-Adds all of the arguments together and returns the resulting sum. If there are no arguments, the resulting sum is 0. Does not have to check for types.
+Goes through every string argument passed in and gives back the longest string. No error checking is required; you can assume that every argument is a string or no arguments are passed in at all. If there is a tie, return the argument that appears in the later position. If there are no arguments passed in, return `undefined`
 
 Hints:
 
 * use `rest` parameters!
+* try `reduce`
 
 __Example:__
 
-    // returns the sum of all arguments passed in
-    sum(1, 2, 3) // --> 6
-    sum(1, 1, 1, 1, 1, 1, 1, 1, 1, 1) // --> 10
-    sum(1) // --> 1
-
-    // returns 0 if there are no arguments passed in
-    sum() // --> 0
+    longestString('foo', 'bar', 'bazzy', 'qux', 'quxx') // --> bazzy
+    longestString('foo', 'bar', 'baz', 'qux') // --> qux
+    longestString() // --> null
 
 <hr>
 
-### `repeatCall(fn, n arg)`
+### `maybe(fn)`
 
 __Parameters:__
 
+* `fn` - the function to be called 
+
+__Returns:__
+
+* a new `function` or `undefined` - the `function` calls the original function
+
+__Description:__
+
+`maybe` will take a function, `fn` and return an entirely new function that behaves mostly like the original function, `fn` passed in, but will return undefined if any `null` or `undefined` arguments are passed in to `fn`.
+
+The new function will take the same arguments as the original function (`fn`). Consequently when the new function is called, it will use the arguments passed to it and call the old function and return the value that's returned from the old function. However, if any of the arguments are `undefined` or `null`, the old function is not called, and `undefined` is returned instead. You can think of it as a way of calling the old function only if all of the arguments are not `null` or not `undefined`.
+
+
+__Example:__
+
+    function createFullName(firstName, lastName) {
+        return `${firstName} ${lastName}`; 
+    }
+    maybe(createFullName)('Frederick', 'Functionstein'); // Frederick Functionstein
+    maybe(createFullName)(null, 'Functionstein');        // undefined
+    maybe(createFullName)('Freddy', undefined);          // undefined 
+
+<hr>
+
+### `filterWith(fn)`
+
+__Parameters:__
+
+* `fn` - a _callback_ function that takes in a single argument and returns a value (it will eventually operate on every element in an array)
+
+__Returns:__
+
+* `function` - a function that...
+    * has 1 parameter, an `Array`
+    * returns a new Array where only elements that cause `fn` to return `true` are present (all other elements from the old Array are not included)
+
+__Description:__
+
+This is different from regular filter. The regular version of filter immediately calls the callback function on every element in an Array to return a new Array of filtered elements. `filterWith`, on the other hand, gives back a function rather than executing the callback immediately (think of the difference between bind and call/apply). `filterWith` is basically a function that turns another function into a filtering function (a function that works on Arrays). 
+
+__Example:__
+
+    // original even function that works on Numbers
+    function even(n) {return n % 2 === 0;} 
+
+    // create a 'filter' version of the square function
+    filterWithEven = filterWith(even); 
+
+    // now square can work on Arrays of Numbers!
+    console.log(filterWithEven([1, 2, 3, 4])); // [2, 4]    
+    
+    const nums = [1, NaN, 3, NaN, NaN, 6, 7];
+    const filterNaN = filterWith(n => !isNaN(n));
+    console.log(filterNaN(nums)); // [1, 3, 6, 7]
+
+<hr>
+
+
+### `steppedForEach(arr, fn, step)`
+
+__Parameters:__
+
+* `arr` - the array containing potential arguments to the function `fn`
 * `fn` - the function to be called repeatedly
-* `n` - the number of times to call function, `fn`
-* `arg` - the argument to pass to function, `fn`, when it is called
+* `n` - the number elements to be consumed from the array to be used as arguments to `fn`
 
 __Returns:__
 
@@ -147,7 +206,7 @@ __Returns:__
 
 __Description:__
 
-This function demonstrates using functions as an argument or arguments to another function. It calls function, `fn`, `n` times, passing in the argument, `arg` to each invocation / call.  It will ignore the return value of function calls. Note that it passes in only one `arg`. Check out the [readings](http://eloquentjavascript.net/05_higher_order.html) or [slides](../slides/js/higher-order-functions-continued.html) on higher order functions for relevant background material and examples.
+Calls the function `fn` using every `step` number of elements from the `Array`, `arr`, as arguments to `fn`. For example, if `step` were 3, then `fn` would be called with the first 3 elements of `arr` each as a positional argument. `fn` will be called again with the next 3 arguments.
 
 __Example:__
 
@@ -165,79 +224,6 @@ __Example:__
     // foo
 
 <hr>
-
-### `repeatCallAllArgs(fn, n, args1 ... argsn)`
-
-__Parameters:__
-
-* `fn` - the function to be called repeatedly
-* `n` - the number of times to call function, `fn`
-* `args1 ... argsn` - _all_ of the arguments to pass in to the function `fn` when it is called
-
-__Returns:__
-
-* `undefined` (no return value)
-
-__Description:__
-
-This is pretty much the same function as the previous, but it also demonstrates using a variable number of arguments. It calls function, `fn`, `n` times, passing in all of the remaining arguments that were passed to the original function, as the arguments to the `fn` function invocation. It will ignore the return value of function calls. Here are some hints:
-
-
-* use `rest` parameters and `spread`
-* or use the `arguments` object along with `apply`
-
-__Example:__
-
-    // calls console.log twice, each time passing in the args, "foo", "bar", ... "corge"
-    repeatCallAllArgs(console.log, 2, "foo", "bar", "baz", "qux", "quxx", "corge");
-
-    // prints out:
-    // foo bar baz qux quxx corge
-    // foo bar baz qux quxx corge
-
-<hr>
-
-### `makePropertyChecker(prop)`
-
-__Parameters:__
-
-* `prop` - a string representing the property to check for
-
-__Returns:__
-
-* `function` - a function that...
-    * has 1 parameter, an `object`
-    * returns `true` if the original `prop` is in `object`, `false` otherwise
-
-__Description:__
-
-
-The previous functions showed how functions can be passed in as arguments to another function. In this function, we'll be returning a function. You can think of it as a _function producing factory_!
-
-The original function will take an argument, a `String` representing the property that the new function will check for. You can use the newly returned function to check an object for that property. However, it will only check for properties on the object itself, not inherited properties. See the [slides on objects](../slides/js/objects.html#/16) to see how to do this. Again, you can also check out the [readings](http://eloquentjavascript.net/05_higher_order.html) or [slides](../slides/js/higher-order-functions-continued.html) on higher order functions for relevant background material and examples.
-
-__Example:__
-
-    // returns a function that checks for an object for a specific property
-    // setup some objects
-    const duck = {
-        quack: function(){
-            console.log('quack');
-        }
-    };
-    const notADuck = {};
-
-    // this new syntax creates an object that inherits from duck
-    const duckling = Object.create(duck);
-
-    const canQuack = makePropertyChecker('quack');
-    canQuack(duck) // --> true
-    canQuack(notADuck) // --> false
-    canQuack(duckling) // --> false
-
-
-<hr>
-
 
 ### `constrainDecorator(fn, min, max)`
 
@@ -319,38 +305,6 @@ __Example:__
     limitedParseInt("423") // --> 423
     limitedParseInt("423") // --> undefined
 
-<hr>
-
-### `mapWith(fn)`
-
-__Parameters:__
-
-* `fn` - a _callback_ function that takes in a single argument and returns a value (it will eventually operate on every element in an array)
-
-__Returns:__
-
-* `function` - a function that...
-    * has 1 parameter, an `Array`
-    * returns a new Array where every element is the result of calling the original function passed in `fn` on elements in the incoming Array, producing an entirely new `Array`
-
-__Description:__
-
-This is different from regular map. The regular version of map immediately calls the callback function on every element in an Array to return a new Array. `mapWith`, on the other hand, gives back a function rather than executing the callback immediately (think of the difference between bind and call/apply). `mapWith` is basically a function that turns another function into a mapping function (a function that works on Arrays).
-
-__Example:__
-
-    // original square function that works on Numbers
-    function square(n) {return n * n;}
-
-    // create a 'mapped' version of the square function
-    mapWithSquare = mapWith(square);
-
-    // now square can work on Arrays of Numbers!
-    console.log(mapWithSquare([1, 2, 3])); // [1, 4, 9]
-
-    mapWithParseInt = mapWith((n) => parseInt(n));
-    console.log(mapWithParseInt([' 123', '45', '67 '])); // [123, 45, 67]
-
 
 <hr>
 
@@ -368,7 +322,9 @@ __Returns:__
 
 __Description:__
 
-Suppose you're using the same function all the time, with nearly the same arguments every time: wouldn't it be great to have a quick way  tomake an alternate version of your function where your favorite arguments come pre-filled?
+Suppose you're using the same function all the time, with nearly the same arguments every time: wouldn't it be great to have a quick way to make an alternate version of your function where your favorite arguments come pre-filled?
+
+Of course, `bind`, already does this for us, so don't take the easy way out and use `bind`. Implement this function __without bind__!
 
 __Example:__
 
@@ -383,7 +339,16 @@ __Example:__
     // save yourself some time
     console.log(makeCool("i guess")) // ~x~X~x~ i guess ~x~X~x~
 
+	// again w/ leftovers
+	function repeatLetter(letter, times) {
+		Array(times).fill(letter).join('');
+	}
 
+	// fix 1 of 2 arguments to 'r'
+	rrrrrollWithIt = bundleArgs(repeatLetter, 'r');
+
+	// resulting function has only one arg now
+	rrrrrollWithIt(10) // rrrrrrrrrr
 <hr>
 
 
@@ -595,7 +560,6 @@ It's actually a string whereas we'd like to use it as a float value.
 
 In situations like these, you'll need to parse the numerical value from the string. Here, we'll [use the `parseInt(strval)` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 
-This will return 5 as an integer when you use `parseFloat(obj.overall_satisfaction)`.
 
 ### Implementation Requirements
 
@@ -605,8 +569,8 @@ This will return 5 as an integer when you use `parseFloat(obj.overall_satisfacti
     * `map`
     * `reduce`
     * There will be a small penalty for each one not used (-2).
-    * HINT: A typical pattern is to always use map 99% of the time, so you never accidentaly get rid or mess up the data, except when you're doing your first pass through the data to clean it up. You don't an initial copy of the data with all the numbers saved as strings and weird typos etc, so forEach is good for that.
-
+    * HINT: A typical pattern is to always use map 99% of the time, so you never accidentally get rid of or mess up the data, except when you're doing your first pass through the data to clean it up. 
+	
 ### Report Overview
 
 Your report will use the data passed in to determine:
@@ -627,7 +591,7 @@ See the following details...
 Average age of these chompy friends is: 5.10
 ```
 
-* * Be careful of weird things popping up in the age column ! You're going to have to decide what is noise and what to throw away. Don't worry if your number is slightly different. *
+* Be careful of weird things popping up in the age column ! You're going to have to decide what is noise and what to throw away. Don't worry if your number is slightly different. *
 * yes, assume no repeat offenders
 
 
