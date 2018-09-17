@@ -102,11 +102,11 @@ npm install --save-dev eslint-plugin-mocha
 
 <hr>
 
-### `longestString(s1, s2, s3 up to sN)`
+### `longestString(s1, s2, s3 to sN)`
 
 __Parameters:__
 
-* any number of string arguments
+* `s1, s2, s3 to sN` - any number of string arguments
 
 __Returns:__
 
@@ -117,7 +117,7 @@ __Description:__
 
 Goes through every string argument passed in and gives back the longest string. No error checking is required; you can assume that every argument is a string or no arguments are passed in at all. If there is a tie, return the argument that appears in the later position. If there are no arguments passed in, return `undefined`
 
-Hints:
+HINTS:
 
 * use `rest` parameters!
 * try `reduce`
@@ -206,22 +206,26 @@ __Returns:__
 
 __Description:__
 
-Calls the function `fn` using every `step` number of elements from the `Array`, `arr`, as arguments to `fn`. For example, if `step` were 3, then `fn` would be called with the first 3 elements of `arr` each as a positional argument. `fn` will be called again with the next 3 arguments.
+Calls the function `fn` using every `step` number of elements from the `Array`, `arr`, as arguments to `fn`. For example, if `step` were 3, then `fn` would be called with the first 3 elements of `arr` each as a positional argument. `fn` will be called again with the next 3 arguments. `fn` will continue to be called until there are no more elements to use as arguments from `arr`. If the last group of arguments is less than `step` call the function `fn` with whatever arguments are left (see example below)
+
+HINT: to adhere to the restrictions regarding use of for, for of, forEach, while, etc. ... it might be useful to think of a way to implement this function recursivelu
 
 __Example:__
 
-    repeatCall(console.log, 3, "Hello!");
-    // prints out:
-    // Hello!
-    // Hello!
-
-    // calls console.log twice, each time passing in only the first argument
-    // (we'll see how to fix this later)
-    repeatCall(console.log, 2, "foo", "bar", "baz", "qux", "quxx", "corge");
-
-    // prints out (again, only 1st arg is passed in):
-    // foo
-    // foo
+	steppedForEach([1, 2, 3, 4, 5, 6], (a, b, c) => console.log('' + a + b + c),  3);
+	/* 
+	note that arrow function is called twice, each time with 3 elements from arr:
+	123
+	456
+	*/
+	steppedForEach([1, 2, 3, 4, 5, 6, 7], (a, b, c) => console.log('' + a + b + c),  3);
+	/*
+	in this case, the arrow function is called 3 times, but the last time, only one
+	argument is passed in, 7 (there are no more elements after that)
+	123
+	456
+	7undefinedundefined
+	*/
 
 <hr>
 
@@ -308,17 +312,17 @@ __Example:__
 
 <hr>
 
-### `bundleArgs(fn, args1 ... argsn)`
+### `bundleArgs(fn, args1, args2 to argsn)`
 
 __Parameters:__
 
 * `fn` - the function to get args bundled with it
-* `args1 ... argsn` - args that will automatically get filled in when the output function is used
+* `args1, args2 to  argsn` - any numbers of args that will automatically get filled in when the output function is used
 
 
 __Returns:__
 
-* `function` - a version of the original `fn` that can take any number of arguments, but when used, will use the `args1 ... argsn` as the first parameters to `fn`, filling in the new arguments afterwards
+* `function` - a version of the original `fn` that can take any number of arguments, but when used, will use the `args1, args2 to argsn` as the first parameters to `fn`, filling in the new arguments afterwards
 
 __Description:__
 
@@ -352,11 +356,11 @@ __Example:__
 <hr>
 
 
-### `sequence(fn1, fn2, ...fnN)`
+### `sequence(fn1, fn2, to fnN)`
 
 __Parameters:__
 
-* `fn1, fn2, ...fnN` - a bunch of functions
+* `fn1, fn2, to fnN` - a bunch of functions
 
 __Returns:__
 
@@ -365,9 +369,9 @@ __Returns:__
 
 __Description:__
 
-A handy utility for automating the writing of code that's just calling functions to pass their arguments to other functions.
+A handy utility for automating the writing of code that's just calling functions to pass their arguments to other functions. You can assume that each function passed in only takes one argument.
 
-# hint, it's kind of like _summing_ the functionality of a bunch of functions together
+HINT: it's kind of like _summing_ or _composing_ the functionality of a bunch of functions together
 
 __Example:__
 
@@ -474,11 +478,11 @@ You'll be using two files for this:
     * there's one bite per line
     * each bite is represented by a comma-delimited string
 * Find a way to read in and parse the contents of the file so that:
-    * leading and trailing white space is removed from the initial contents (use the string method, `trim`)
-    * each line into an actual JavaScript object, where the properities correspond with the first row of the file (the headers)
+    * leading and trailing white space is removed from the initial contents (use the [string method, `trim`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim))
+    * each line into an actual JavaScript object, where the properties correspond with the first row of the file (the headers)
     * each resulting object is placed into an `Array` for later processing
-    * you can check out some [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and/or [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) methods to do this
-    * note that the goal of this assignment is to work with higher order functions and JSON, so memory efficiency does not need to be taken into consideration
+    * you can check out some [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) and  [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) 
+    * note that the goal of this assignment is to work with higher order functions, so memory efficiency does not need to be taken into consideration
 * All of your parsing can only be done from within the callback function (or the function to be called once data is read from the file) that you supply to `fs.readFile`
 * Examine the resulting `Array` ... (for example, try printing it out!)
 * Later, you will be supplying this `Array` to the `processBiteData` function that you create in `bitefunc.js` to generate a report.
@@ -546,16 +550,18 @@ __Returns:__
 
 __Description:__
 
-This function will generate a report based on the `Array` of objects passed in. #TODO The report will contain the average ratings for all bites in the file, the most reviewed bites etc. (see full description of report requirements below)
+This function will generate a report based on the `Array` of objects passed in. The report will contain the average ratings for all bites in the file, the most reviewed bites etc. (see full description of report requirements below)
 
 __Important note about parsing numerical values:__
 
-One of the most common peculiarities you'll come across while working with datasets is that the values in JSON objects might not be in the format you expect them to be.
+One of the most common peculiarities you'll come across while working with datasets is that the values read in from a file is that they might not be in the format you expect them to be (they may not be the _right_ type).
+
  eg. you might see
 
  ```
  "age": "5"
  ```
+
 It's actually a string whereas we'd like to use it as a float value.
 
 In situations like these, you'll need to parse the numerical value from the string. Here, we'll [use the `parseInt(strval)` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
@@ -636,7 +642,7 @@ Dog Bite Leaderboard
 
 There are multiple years of data in the dataset. You need to:
 1. Count up the number of bites per month/year (e.g. how many dog bites happened in July of 2015, how many happened in July of 2016?)
-2. For every month, get the average number of bites (number of bites in July of 2015 + number of bites in July of 2016) / 2 = guessimate of how many dog bites happen in a typical July
+2. For every month, get the average number of bites (number of bites in July of 2015 + number of bites in July of 2016) / 2 = guesstimate of how many dog bites happen in a typical July
 3. Get the top three months
 
 ```
@@ -691,59 +697,37 @@ Lint, commit and push your code; the next part will make modifications to this e
 
 ### Setup for Retrieving JSON
 
-In this part, you'll be setting up your project to work with JSON data from a url:
+In this part, you'll be setting up your project to work with JSON / csv data from a url (this is a bit unusual, as usually your data is just in one format or another):
 
 1. Install the requests library in your project's root folder: `npm install --save request` (similar to installing `readline-sync` in the previous assignment)
 2. Add the module to the beginning of `report.js` using `require`
 3. __Comment out or delete reading from a local file__
 
 
-### Retrieve and Process JSON Data
+### Retrieve and Process JSON 
 
-Instead of reading a local file, __modify your program__ so that it requests CSV data directly from NYC's Dog Bite Data API.
+Instead of reading a local file, __modify your program__ so that it pieces together all of the data by retrieving partial data sets in json files. The output should be similar, but you'll have to write the part that requests the json files, parses the data out of each file data, and only runs the report when all of the files have been downloaded and parsed.
 
-Skim the API docs here [https://dev.socrata.com/foundry/data.cityofnewyork.us/muam-ae6m](https://dev.socrata.com/foundry/data.cityofnewyork.us/muam-ae6m) and when you're done, click the gigantic blue "Sign up for an app token!" button in the middle of that page.
+1. [Read the documentation](https://github.com/mikeal/request) to see how to use the requests module (or see the [slides](../slides/js/js-node-npm-debug-git.html#/6))
+	* Notice that the data is only available within the callback that you pass in to calling `request` (much like using readFile)
+	* Again, a __callback__ is a function passed as an argument to another function... the callback will be invoked / executed at a later time, when some event is triggered
+	* In the case of `request`, it's the function that you pass in as the 2nd argument
+2. Remove the part of your program that reads a local file
+3. Instead, use request to download the first json file (url given through piazza)
+4. Notice that the json file has two fields `data` and `next`
+	* `data` is a list of objects, with each object representing a dog bite
+	* `next` is the name (without extension) of the next file to retrieve
+5. First try downloading just one file and running your report (the numbers should differ from what you previously had)
+6. Once you have that working...
+	1. Instead of running your report immediately...
+	2. Store the parsed dog bite data (in memory, in a global Array or as an argument that gets continually passed)
+	3. Retrieve the next url to get more data (that is, use the `next` field to get the name of the next json file to retrieve)
+	4. Again, parse the file... and add the data to the dog-bite data you've already saved
+	5. Continue doing this until there is no more `next` field
+	6. Once you've retrieved all of the data, run your report... it should the same as it did before!
 
-* The URL for the dataset used in this assignment __will be posted on piazza__
-* [Read the documentation](https://github.com/mikeal/request) to see how to use the requests module (or see the [slides](../slides/js/js-node-npm-debug-git.html#/6))
-* Notice that the data is only available within the callback that you pass in to calling `request` (much like using readFile)
-* Again, a __callback__ is a function passed as an argument to another function... the callback will be invoked / executed at a later time, when some event is triggered
-* In the case of `request`, it's the function that you pass in as the 2nd argument
-* (The call to your report generation should be moved to the callback of request...)
-* Parse the body of the response from `request` into an Array of objects (similar to how you processed the file in the previous part)
-    * Leading and trailing white space should removed from the initial contents (use the string method, `trim`) before parsing (again, same as the previous part)
-    * Modify your script if necessary to ignore that line
-    * Finally, print out the result of calling `processBiteData` on the parsed response
-
-When you run your report again, the output should looks similar to your previous version, though some of the data will be different.
-
-### But wait, I am not taking into account the entire recorded history of people being bit by dogs in New York anymore !
-
-The API docs talk about two parameters, `$$app_token` and `$limit`. `$limit` is how many rows will be returned by your call. What if you want all of the dog bite data possible? You COULD just put a gigantic number for limit, but in the future, as we move beyond the age of Big Data and dogs continue bite people at an exponential rate, we might have so much dog bite data that a single http request will probably take too long and NYC's server will just give you a timeout error. A much more durable way of doing things is to pick some sensible number for `$limit` (1000 is their default so that seems fine), then use their API parameter `$offset` by continously requesting more data in batches of 1000 reports, each time telling their API to skip past the data you already have. When you make a request that returns FEWER reports than what you specificed in your `$limit` parameter, you can then safely conclude that you've truly juiced as much dog bite data out of the city of New York as you could.
-
-How can you do this?
-
-* pick how big your '$limit' is going to be
-* make a function that:
-  * prints out the values it's going to use for `$limit` and `$offset`
-  * makes a request using the request library with a parameter
-  * for the callback of that request, make a function that:
-    1. checks to see how many dog bite reports were included
-    2. if the number is fewer than `$limit`, (also in that callback), uses your Requesting Function to make ANOTHER request where the parameter '$offset' is `$limit * how many times you've paged through this api already`
-    3. have this process repeat, each time collecting all of your chunks of dog bite data until you have it all
-* once you have all of the dog bite data, run your `processBiteData` function
 
 ```
-using parameters: $limit = 1000. $offset = 0
-using parameters: $limit = 1000. $offset = 1000
-using parameters: $limit = 1000. $offset = 2000
-using parameters: $limit = 1000. $offset = 3000
-using parameters: $limit = 1000. $offset = 4000
-using parameters: $limit = 1000. $offset = 5000
-using parameters: $limit = 1000. $offset = 6000
-using parameters: $limit = 1000. $offset = 7000
-using parameters: $limit = 1000. $offset = 8000
-===================================
 Average age of these chompy friends is: 5.10
 
 The percentage of biting dogs that are spayed/neutered: 34.13%
