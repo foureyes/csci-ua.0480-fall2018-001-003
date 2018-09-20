@@ -203,7 +203,7 @@ Cookies
 * nczonline articles on [Cookies](https://www.nczonline.net/blog/2009/05/05/http-cookies-explained/) and [Cookies and Security](https://www.nczonline.net/blog/2009/05/12/cookies-and-security/)
 ","(Homework #3 to be assigned Monday)
 ",
-,,7,25-Sep,Tue,"* HTTP Module
+y,,7,25-Sep,Tue,"* HTTP Module
 * Web Framework
 * Project Layout","
 * [Node's HTTP Module](slides/07/node-http.html)
@@ -218,7 +218,7 @@ Cookies
 NO GRACE PERIOD on extended deadline (was 2/19).
 
 * [Homework #3](homework/03.html) -->",
-,,8,27-Sep,Thu,"* Web Framework Continued
+y,,8,27-Sep,Thu,"* Web Framework Continued
 * Middleware
 * Templating","* [Express (from previous slides)](slides/08/express.html#/26)
 * [Templating](slides/09/templating.html)
@@ -230,7 +230,7 @@ NO GRACE PERIOD on extended deadline (was 2/19).
 * [Handlebars Basics](http://handlebarsjs.com/expressions.html) (Basic Usage Section Only)
 * [Handlebars Loops/Conditionals](http://handlebarsjs.com/block_helpers.html) (Up to Hash Arguments, Ignore blocks with `registerHelper`)
 ",,
-,,9,02-Oct,Tue,"Slides
+y,,9,02-Oct,Tue,"Slides
 
 * Cookies
 * Sessions
