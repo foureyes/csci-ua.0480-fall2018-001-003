@@ -165,7 +165,7 @@ MDN Documentation on HTTP
 * Chapter 13 - JavaScript and the Browser
 * Chapter 17 - HTTP (up to browsers and http)
 ",,
-y,,6,20-Sep,Thu,"* A Simple Web Server Continued / Our ""Framework""
+,,6,20-Sep,Thu,"* A Simple Web Server Continued / Our ""Framework""
 * Routing
 * Node HTTP Module","Topics
 
@@ -175,6 +175,7 @@ y,,6,20-Sep,Thu,"* A Simple Web Server Continued / Our ""Framework""
 * [HTTP Summary](slides/07/http-summary.html)
 * [Sockets Review](slides/07/sockets-review.html)
 
+<!--
 Coding Demo
 
 * review net module
@@ -189,18 +190,7 @@ Coding Demo
   * public/img/[croissant.jpg](examples/class06/public/img/croissant.jpg)
 * Basic net module [Echo Server](examples/net/echoServer.js) Example
 * Another [Web Server / Routing / Dispatching](examples/net/webServer.js) Example
-
-Homework Demo
-
-* intro.js  w browser
-* nc to test 405
-* curl to test 301
-* better.js
-* sendFile
-* setHeader
-* send
-* app.get vs app.post
-
+-->
 
 ","HTTP
 
@@ -213,25 +203,22 @@ Cookies
 
 * [MDN on Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
 * nczonline articles on [Cookies](https://www.nczonline.net/blog/2009/05/05/http-cookies-explained/) and [Cookies and Security](https://www.nczonline.net/blog/2009/05/12/cookies-and-security/)
-","(Homework #3 to be assigned Monday)
-",
+",,
 y,,7,25-Sep,Tue,"* HTTP Module
 * Web Framework
-* Project Layout","* Homework #3 Due Date
-* Review class 6 notes
+* Project Layout","
 * [Node's HTTP Module](slides/07/node-http.html)
 * [Project Setup](slides/08/setup.html)
 * [Express](slides/08/express.html) 
 * (see request and response slides from next class?)
-* Homework #3 Demo Again
 * Methods as Callbacks, Arrow Functions Again
 
 
-",,"__(Extended) Due Wednesday 2/21 at 11pm:__
+",,"<!--__(Extended) Due Wednesday 2/21 at 11pm:__
 
 NO GRACE PERIOD on extended deadline (was 2/19).
 
-* [Homework #3](homework/03.html) ",
+* [Homework #3](homework/03.html) -->",
 y,,8,27-Sep,Thu,"* Web Framework Continued
 * Middleware
 * Templating","* [Express (from previous slides)](slides/08/express.html#/26)
@@ -248,26 +235,14 @@ y,,9,02-Oct,Tue,"Slides
 
 * Cookies
 * Sessions
-* Forms","Slides
+* Forms", * [Socket.io](slides/23/socketio.html),"* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
 
-* [More About Get](slides/10/review-get.html)
-* [Middleware](slides/09/middleware.html)
-* Review [Response and Request Objects / Along with Templating](slides/09/request-response.html)
-* [Forms](slides/10/forms.html)
-
-Code Samples
-
-* [get, post, form, middleware](examples/class09/get-post-form-middleware.zip)
-
-
-","* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
-
-","__(Extended) Due Wednesday 2/28 at 11pm:__
+","<!-- __(Extended) Due Wednesday 2/28 at 11pm:__
 
 NO GRACE PERIOD on extended deadline (was 2/26).
 
 * [Homework #4](homework/04.html) 
-",
+-->",
 y,,10,04-Oct,Thu,"* Cookies
 * Sessions 
 * NoSQL Database
@@ -283,8 +258,7 @@ y,,10,04-Oct,Thu,"* Cookies
 
 Code Samples
 
-* [creating middleware, sessions](examples/class10/middleware-sessions.zip)","* [MDN on Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
-* nczonline articles on [Cookies](https://www.nczonline.net/blog/2009/05/05/http-cookies-explained/) and [Cookies and Security](https://www.nczonline.net/blog/2009/05/12/cookies-and-security/)",,hw4
+* [creating middleware, sessions](examples/class10/middleware-sessions.zip)","/ ,",,hw4
 y,holiday,,09-Oct,Tue,Monday Schedule,,,,hw3
 y,,11,11-Oct,Thu,"* Object Document Mapper
 * Database Design
@@ -315,21 +289,7 @@ __Midterm Practice__
 ",
 y,,12,16-Oct,Tue,"* URL Parameters
 * Finishing Database
-* Validation","* [Forms Revisited](slides/11/forms-revisited.html)
-* [Project Layout and Scaffolding](slides/11/scaffolding.html)
-* [Parameters from URLs](slides/14/params.html)
-* [Mongoose](slides/14/mongoose.html)
-* [Routers, Project/Directory Layout, nodemon](slides/14/layout.html)
-* [Validation](slides/15/validation.html)
-* Coding Demos and Class Notes: 
-    * [Mongoose](examples/mongodb/mongoose.js)
-    * [Mongoose and Express](examples/mongodb/mongooseexpress.zip) (functioning web app)
-    * [Embedded Documents](examples/mongodb/embedded.zip) (pseudo-code)
-
-
-
-
-","MongoDB
+* Validation",1,"MongoDB
 
 * [Databases and Collections](https://docs.mongodb.com/manual/core/databases-and-collections/)
 * [Types](https://docs.mongodb.com/manual/core/documen://docs.mongodb.com/manual/reference/bson-types/)
