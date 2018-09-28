@@ -19,7 +19,7 @@ nav-state: index
 
 {% for c in site.data.schedule %}
 
-<tr class="{% if c.type == 'holiday' %}success {% endif %}{% if c.type == 'exam' %}danger {% endif %}">
+<tr name="class{{c.num}}" id="class{{c.num}}" class="{% if c.type == 'holiday' %}success {% endif %}{% if c.type == 'exam' %}danger {% endif %}">
 	<td class="date-col">{% unless c.type == 'holiday' %}#{{ c.num }}{% endunless %}<div class="date">{{ c.date | replace: '-', ' ' | markdownify}}</div>{{c.day}}</td>
 
 	{% if c.draft %}
