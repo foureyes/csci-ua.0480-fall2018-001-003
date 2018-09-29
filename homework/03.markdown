@@ -94,13 +94,12 @@ Follow these steps to implement part 1:
 
 ### 1. Create a Simple Web Server
 
-Start by creating some functions/objects in `webby1.js` for helpers, utilities, and an entry point to creating a web server. You'll export some of these for use in `server1.js`. Minimally, implement the following (of course, you can create more functions/objects, as the ones listed below will only help with a subset of the part 1's requirements). __No type checking or error handling has to be handled unless specified by the description below__.
+Start by creating some functions/objects in `webby1.js` for helpers, utilities, and an entry point to creating a web server. __No type checking or error handling has to be handled unless specified by the description below__. You'll export some of these for use in `server1.js`. Minimally, implement the following (of course, you can create more functions/objects, as the ones listed below will only help with a subset of the part 1's requirements): 
 
-<hr>
 
 ### `HTTP_STATUS_CODE_DESCRIPTIONS`
 
-Create a module level (_global_) object called `HTTP_STATUS_CODE_DESCRIPTIONS` that maps status codes (as `Number`s) to descriptions. For example, `200` should map to `OK`. Minimally, this should contain 200, 404, and 500.
+Create a module-level (_global_) object called `HTTP_STATUS_CODE_DESCRIPTIONS` that maps status codes (as `Number`s) to descriptions. For example, `200` should map to `OK`. Minimally, this should contain 200, 404, and 500.
 
 [See MDN's listing of status codes for descriptions](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
@@ -108,7 +107,7 @@ Create a module level (_global_) object called `HTTP_STATUS_CODE_DESCRIPTIONS` t
 
 ### `MIME_TYPES`
 
-Create a module level (_global_) object called `MIME_TYPES` that maps file name extensions to [MIME Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types). This is essentially the value that will be used in the `Content-Type` request header. For example, if a file ends with `jpg`, its MIME Type is `image/jpeg`. Minimally, this mapping should contain `jpg`, `jpeg`, `png`, `html`, `css`, and `txt`.
+Create a module-level (_global_) object called `MIME_TYPES` that maps file name extensions to [MIME Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types). This is essentially the value that will be used in the `Content-Type` request header. For example, if a file ends with `jpg`, its MIME Type is `image/jpeg`. Minimally, this mapping should contain `jpg`, `jpeg`, `png`, `html`, `css`, and `txt`.
 
 [See MDN's documentation of MIME Types to see the mappings between extension and MIME Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
 
@@ -198,24 +197,29 @@ Content-Type: text/html
  
 __Parameters:__
 
-* `title` - 
-* `css` - 
-* `content` - 
+* `title` - the text in the title tag of the resulting html
+* `css` - the path to the css file to be linked to in the resulting html
+* `content` - the tags / content in the body tags of the resulting html file
 
 __Return:__
 
-* a `String`
+* a `String` representation of an html document generated using the arguments passed in
 
 __Description:__
 
 ```
+const html = createHTML('foo', '/bar/baz.css', '<h1>qux</h1>');
+// html should be a string with the following content...
+```
+
+```
 <!DOCTYPE html>
 <head>
-<title></title>
-<link rel="stylesheet" href="${css}">
+<title>foo</title>
+<link rel="stylesheet" href="/bar/baz.css">
 </head>
 <body>
-  ${content}
+	<h1>qux</h1>
 </body>
 </html>
 ```
@@ -232,38 +236,21 @@ __Parameters:__
 
 __Return:__
 
-* 
+* no return value
 
 __Description:__
 
-const server = net.createServer(handleConnection);
-console.log('ctrl + c if u dont want me 2 serve nemore');
-server.listen(port, host);
+1. creates a server...
+2. in such a way that sets the callback called when a client connects to `handleConnection` (see function specification for `handleConnection` down below)
+3. listens on the port and host
 
-Example usage:
-
- 
-<hr>
-
-### `startServer(port, host)`
-
-__Parameters:__
-
-* `` - 
-
-__Return:__
-
-* 
-
-__Description:__
-
-const server = net.createServer(handleConnection);
-console.log('ctrl + c if u dont want me 2 serve nemore');
-server.listen(port, host);
+Hint: this should be a very short function! ... use the `net` module to create a server and listen with that server. The callback should be `handleConnection`, specified below.
 
 Example usage:
 
 ```
+const [PORT, HOST] = [3000, '127.0.0.1'];
+startServer(PORT, HOST);
 ```
 
 <hr>
@@ -272,15 +259,15 @@ Example usage:
 
 __Parameters:__
 
-* `` - 
+* `sock` - a socket object that represents the connected client
 
 __Return:__
 
-* 
+* no return value
 
 __Description:__
 
-
+Once a client connects (remember, this is called on connection), _find_ a way to make it so that when the server receives data, the `handleRequest` function below is called. You'll notice this is a bit tricky, though, since the method on the `sock` that sets the callbacke
 sock.on('data', binaryData => handleRequest(sock, binaryData));
 
 Example usage:
