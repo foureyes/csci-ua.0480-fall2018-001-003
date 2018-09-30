@@ -13,23 +13,22 @@ hr {
 	<div class="panel-heading">Homework #3</div>
 	<div class="panel-body" markdown="block">
 
-# Creating a Tiny Web Framework, Due <strike>Monday, Feb 19th by 11PM</strike> __Wednesday, Feb 21st by 11PM__
+# A Site About An Animal 🐶🦎🦉🐬🐷, Due Friday, Oct 5th at 11PM 
 
-⚠️⚠️⚠️NO GRACE PERIOD⚠️⚠️⚠️ 
-
-Extended due to length of homework.
-
+<div markdown="block" class="img">
+![gecko web site](../resources/img/hw03-gecko-00-animation-resized.gif)
+</div>
 
 ## Overview
 
 ### Description
 
-There are two major parts to this assignment:
+There are two parts to this assignment:
 
-1. create a simple web server and website by using the `net` module
-2. move the functionality from part 1 into classes so that they your code can be reused as a library for making web apps without having to deal with low-level `net` module code
+1. using the sample code from class, refactor the code into functions and create a website about an animal (maybe your pet, your favorite animal, your _spirit animal_, a mythical animal, etc.)
+2. refactor your code again, but move the functionality into reusable classes that mimic Express routes and middleware (specifically `.get` and `express.static` middleware
 
-By the end of both parts, you'll have a _toy_  web framework that allows a developer to write simple web applications. 
+At the end, you'll have a reusable _toy_ web framework that you can use to write simple web applications.
 
 Again, both parts will be built off of and run from node's built-in TCP server (from the `net` module).
 
@@ -38,25 +37,25 @@ __You can only use the following two modules for this assignment__ &rarr;
 1. `net` - a module for creating TCP servers and clients
 2. `fs` - a module for file system related tasks, such as reading and writing files
 
-__You can't use the `http` module... or install additional frameworks, such as `express`__
+__⚠️You can't use the `http` module... or install additional frameworks, such as `express`__
 
 ### Submission Process
 
 You will be given access to a private repository on GitHub. It will contain: 
 
 1. stub source files in the `src` directory
-2. some testing assets in the `public` folder
+2. some images you can use for testing in the `public/img` folder
 3. unit tests in `test`
 4. linting files `.eslintrc`, etc.
-5. __you'll have to create your own `package.json`__
+5. __you'll have to create your own `package.json`, `package-lock.json`, `.gitignore`__
+    * (these are required and included in grading)
 
-* __Push__ your changes to the homework repository on GitHub.
-* Commits later than the deadline will not be included in grading
+__Push__ you code to the homework repository on GitHub. Repositories will close, so make sure you push your changes before the deadline.
 
 ### (4 points) Make at Least 4 Commits
 
 * Commit multiple times throughout your development process.
-* Make at least 3 separate commits - (for example, one option may be to make one commit per part in the homework).
+* Make at least 4 separate commits - (for example, one option may be to make one commit per part in the homework).
 
 
 ## Part 1 - An Introduction
@@ -65,32 +64,54 @@ In this part, you'll familiarize yourself with the `net` module by creating a si
 
 Work with the following files:
 
-1. `src/intro.js` - your web server (run this file to serve your site)
-2. `src/webutils.js` - a module that contains helper functions 
+1. `src/webby1.js` - a module that contains helper functions and code to create a tcp/ip server (with http layered on top of it) 
+2. `src/server1.js` - a file that uses `webby1.js` to start the server
 
 You'll start off by writing some helper functions. Then at the end of this part, you should have an application that uses those helper functions to respond to the following requests:
 
-1. `GET /` - responds with a page that contains links to other pages and a form
-2. `GET /such/stylish` - responds with a page that includes a stylesheet
-3. `GET /css/base.css` - responds with a stylesheet
-4. `GET /picsplz` - responds with a page that includes an image
-5. `GET /img/animal.jpg` - responds with an image of your favorite animal
-6. `GET /showanimage` - responds with a redirect to `picsplz`
-7. `POST /` - responds with the body of the post request as plain text       
-8. A request that isn't `GET` or `POST` - a `405` is sent back saying that the method is not allowed 
-9. A request that is a `GET` or `POST` but does not have a matching path - a `404` is sent back saying that the resource/page was not found
+1. `GET /` - responds with a page that contains a links to `/links` (on this same site)
+2. `GET /css/styles.css` - responds with a stylesheet
+3. `GET /links` - responds with a page that has links to resources about your favorite animal
+4. `GET /img/animal.jpg` - responds with an image of your favorite animal
 
 Before starting, __make sure to review the course materials on the net module and creating tcp/ip servers__:
 
-1. check out the [slides on the `net` module](../slides/06/sockets.html#/2), paying close attention to the [the last slide](../slides/06/sockets.html#/10).
-2. go over the [notes from previous classes](../examples/class06/notes.js)
-3. lastly, make sure that you can write back a valid http response by reviewing::
+1. 👀__you can use the code from class samples to start your project__ 👀:
+    * see [class 7 for in-class demo code on the net module](../#class7)
+    * (specifically [section 001 webServer.js](../examples/class07/webServer.js) or [section 003 webServer.js](../examples/class07b/webServer.js));
+2. check out the [slides on the `net` module](../slides/06/sockets.html#/2), paying close attention to the [the last slide](../slides/06/sockets.html#/10).
+3. go over the [notes from previous classes](../examples/class06/notes.js)
+4. lastly, make sure that you can write back a valid http response by reviewing::
     * [the slides on http](../slides/05/web.html#/16)
     * [and an example response](../slides/05/web.html#/24)
 
-### Create helper functions
+Follow these steps to implement part 1:
 
-Start by creating some helper functions in `webutils.js` to ease development. Export these function so that You can use them in `intro.js`. Minimally, implement the following functions (of course, you can create more functions, as the functions will only help with a subset of the part 1's requirements).
+1. Start by creating a module containing helper functions and objects to get a simple web server working.
+2. Add a mechanism to serve images
+3. Build out the iste described above
+
+
+### 1. Create a Simple Web Server
+
+Start by creating some functions/objects in `webby1.js` for helpers, utilities, and an entry point to creating a web server. __No type checking or error handling has to be handled unless specified by the description below__. You'll export some of these for use in `server1.js`. Minimally, implement the following (of course, you can create more functions/objects, as the ones listed below will only help with a subset of the part 1's requirements): 
+
+
+### `HTTP_STATUS_CODE_DESCRIPTIONS`
+
+Create a module-level (_global_) object called `HTTP_STATUS_CODE_DESCRIPTIONS` that maps status codes (as `Number`s) to descriptions. For example, `200` should map to `OK`. Minimally, this should contain 200, 404, and 500.
+
+[See MDN's listing of status codes for descriptions](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+<hr>
+
+### `MIME_TYPES`
+
+Create a module-level (_global_) object called `MIME_TYPES` that maps file name extensions to [MIME Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types). This is essentially the value that will be used in the `Content-Type` request header. For example, if a file ends with `jpg`, its MIME Type is `image/jpeg`. Minimally, this mapping should contain `jpg`, `jpeg`, `png`, `html`, `css`, and `txt`.
+
+[See MDN's documentation of MIME Types to see the mappings between extension and MIME Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
+
+<hr>
 
 ### `getExtension(fileName)`
 
@@ -112,16 +133,212 @@ Example usage:
 const ext1 = getExtension('foo.jpg'); // ext1 --> jpg
 const ext2 = getExtension('FOO.JPG'); // ext2 --> jpg
 const ext3 = getExtension('foo.bar.jpg'); // ext3 --> jpg
-const ext4 = getExtension('foo'); // ext4 --> empty string
+const ext4 = getExtension('foo'); // ext4 --> '' (empty string)
 ```
+<hr>
 
-### `sendTextFile(fileName, sock)`:
+### `getMIMEType(fileName)`
 
 __Parameters:__
 
-* `fileName` - a string representing the name of the file (relative to a directory called `public` within the root of your project directory)
-	* example `/css/base.css` would read the file `PROJECT_ROOT/public/css/base.css``
-* `sock` - a socket object to write data to
+* `fileName` - a string representing the name of the file
+
+__Return:__
+
+* the [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of a file based on its extension
+    * minimally, support `jpg`/`jpeg`, `png`, `html`, `css`, `txt`
+    * (see article above for how appropriate MIME type for extension)
+    * empty string if MIME type can't be determined from file name
+
+__Description:__
+
+Based on the extension of the file, give back the associated MIME Type. 
+
+Hints: Use your `getExtension` above.
+
+Example usage:
+
+```
+const t1 = getMIMEType('foo.jpg'); // t1 --> img/jpeg
+const t2 = getExtension('foo'); // t2 --> '' (empty string)
+```
+
+<hr>
+
+### `createResponseHead(status, contentType)`
+
+__Parameters:__
+
+* `status` - a `Number` representing the status code of an HTTP response 
+* `contentType` - a `String` representing the value for the `Content-Type` header for an HTTP response  (see `getMIMEType` above for possible values)
+
+__Return:__
+
+* a `String` that contains the status line and the `Content-Type` header, along with the blank line (exactly two `\r\n` after the `Content-Type` header)
+
+__Description:__
+
+This function constructs the "top" part of an HTTP response. It includes only the status line and a single header, `Content-Type`. Hint: Use the `HTTP_STATUS_CODE_DESCRIPTIONS` object created previously to map codes to short descriptions.
+
+Example usage:
+
+```
+const responseHead = createResponseHead(200, 'text/html');
+// will give back the string below (note the extra new line at the end)
+```
+```
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+```
+<hr>
+
+### `createHTML(title, css, content)`
+ 
+__Parameters:__
+
+* `title` - the text in the title tag of the resulting html
+* `css` - the path to the css file to be linked to in the resulting html
+* `content` - the tags / content in the body tags of the resulting html file
+
+__Return:__
+
+* a `String` representation of an html document generated using the arguments passed in
+
+__Description:__
+
+```
+const html = createHTML('foo', '/bar/baz.css', '<h1>qux</h1>');
+// html should be a string with the following content...
+```
+
+```
+<!DOCTYPE html>
+<head>
+<title>foo</title>
+<link rel="stylesheet" href="/bar/baz.css">
+</head>
+<body>
+	<h1>qux</h1>
+</body>
+</html>
+```
+
+Example usage:
+
+<hr>
+
+### `startServer(port, host)`
+
+__Parameters:__
+
+* `` - 
+
+__Return:__
+
+* no return value
+
+__Description:__
+
+1. creates a server...
+2. in such a way that sets the callback called when a client connects to `handleConnection` (see function specification for `handleConnection` down below)
+3. listens on the port and host
+
+Hint: this should be a very short function! ... use the `net` module to create a server and listen with that server. The callback should be `handleConnection`, specified below.
+
+Example usage:
+
+```
+const [PORT, HOST] = [3000, '127.0.0.1'];
+startServer(PORT, HOST);
+```
+
+<hr>
+
+### `handleConnection(sock)`
+
+__Parameters:__
+
+* `sock` - a socket object that represents the connected client
+
+__Return:__
+
+* no return value
+
+__Description:__
+
+Once a client connects (remember, this is called on connection), _find_ a way to make it so that when the server receives data, the `handleRequest` function below is called. You'll notice this is a bit tricky, though, since the method on the `sock` that sets the callbacke
+sock.on('data', binaryData => handleRequest(sock, binaryData));
+
+Example usage:
+
+```
+```
+
+<hr>
+
+### `handleRequest(sock, binaryData)`
+
+__Parameters:__
+
+* `sock` - 
+* `binaryData` - 
+
+__Return:__
+
+* 
+
+__Description:__
+
+const [method, path, ...rest] = reqStr.split(' ');
+if(path === '/') {
+  const s = createHTML('Geckos', 
+    '/css/style.css', 
+    `<h1>Geckos R Great!</h1>
+    <a href="/links">Links about geckos</a>`
+  );
+  sock.write(createResponseHead(200, 'text/html'));
+  sock.write(s);
+  sock.end();
+} else if(path === '/links') {
+  const s = createHTML('Geckos', 
+    '/css/style.css', 
+    `<h1>Linkles</h1>
+    <ul> </ul>`
+  );
+  sock.write(createResponseHead(200, 'text/html'));
+  sock.write(s);
+  sock.end();
+} else if(path === '/css/style.css') {
+  const s = `
+    body { background-size: 194px 130px; background-image: url(/img/animal.jpg); background-repeat: repeat;}
+  `;
+  sock.write(createResponseHead(200, 'text/css'));
+  sock.write(s);
+  sock.end();
+} else if(path === '/img/animal.jpg') {
+  sendImage(sock, 'public', 'img/animal.jpg');
+} else {
+  sock.write(createResponseHead(404, 'text/plain'));
+  sock.write('NOT FOUND');
+  sock.end();
+}
+
+Example usage:
+
+```
+```
+
+<hr>
+
+### `handleRead(sock, contentType, err, data)`:
+
+__Parameters:__
+
+* `sock` -  a socket object to write data to
+* `contentType` - 
+* `err` -
+* `data` - 
 
 __Return:__
 
@@ -129,53 +346,16 @@ __Return:__
 
 __Description:__
 
-Sends back an http response with the data from the text file specified as the response body (along with appropriate headers and status line). The `sock` object will be used to write the http response back to the client.
+if(err) {
+  console.log(err);
+  sock.write(createResponseHead(500, 'text/plain'));
+} else {
+  sock.write(createResponseHead(200, contentType));
+  sock.write(data);
+}
+sock.end();
 
-Use `fs.readFile` to read the data from the file from the path passed in: 
-
-1. the path, `fileName` will be relative to a folder called `public` in your project's root directory
-	* the built-in variable, `__dirname` contains the directory that your program is running from
-	* for example, if you're running your project from `/Users/foo/abc123-homework03/src`, then `__dirname` will contain that path
-	* you can assume that your program, `intro.js` will be run directly from the `src` folder in your project's root
-	* consequently, to read `fileName` from `public`, you'll have to use a combination of `__dirname` and `..` to go up one directory to your project root
-	* for example, to construct the absolute path to the file, concatenate or use [path.join](https://nodejs.org/api/path.html#path_path_join_paths) from the `path` module to put together: `__dirname`, `..`, `public`, and `fileName`
-2. you can assume that the file you are reading is `utf8`, so use that as the 2nd argument to `fs.readFile`
-3. in the callback to `fs.readFile` use the `socket` object that was provided as an argument to the original function to write out a response.
-
-The response should be a valid http response:
-
-1. start with the status line (using the appropriate status code)
-2. include any headers 
-	* hint: `Content-Type` may be useful 
-	* [see the mdn page on MIME types for possible values](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) for `Content-Type`
-	*  use the appropriate value for the extension of the text file being sent
-	* you can assume that we will only be serving stylesheets, html and plain text
-	* creating a mapping from extension to `MIME` type may be helpful
-3. make sure that there's an empty line between the headers and the body of the response (remember `\r\n\r\n` separates the body from the status line and headers)
-4. use the text from the file as the response body
-5. write all of this out to the client using the `socket` object passed in
-6. and finally, use the `socket` object to end the connection
-
-{% comment %}_ {% endcomment %}
-
-If any error occurs while reading the file, don't send back the contents of the file. Instead... send back a response that:
-
-1. let's the client know there was an error
-2. use an appropriate status code and description in the status line of your response
-3. include a plain text body that describes the status code
-
-Example usage:
-
-```
-sendTextFile('/css/base.css', sock); 
-
-// reads /path/to/project/public/css/base.css
-// the resulting response should be something like (with new lines as \r\n\r\n):
-// HTTP/1.1 200 OK
-// Content-Type: text/css
-// 
-// h1 {color: red;}
-```
+<hr>
 
 ### `sendImage(fileName, sock)`:
 
@@ -208,7 +388,14 @@ Export the functions using `module.exports`, and try running the tests in test/w
 
 * make sure that `mocha` is installed as in previous assignments 
 * install dev dependencies to run tests: npm install \-\-save-dev chai sinon mocha-sinon (you can ignore any unmet peer dependency warnings)
-* `mocha test/webutils-test.js`
+* `mocha test/webby1-test.js`
+
+
+
+
+
+
+
 
 
 
@@ -916,3 +1103,4 @@ Here's an example of how it might all work:
 </div>
 
 </div>
+

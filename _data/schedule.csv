@@ -1,5 +1,5 @@
 draft,type,num,date,day,topics,slides,readings,assignments,
-,,1,04-Sep,Tue,"* Introductions 
+,,1,4-Sep,Tue,"* Introductions 
 * JavaScript Basics
 * Variables
 * Functions","* [Intro](slides/intro/intro.html#/10)
@@ -54,7 +54,7 @@ __Due Monday 9/10, by 11pm__
 
 * Quizzes #2 and #3 
 * (Quizz #1 is Optional)",
-,,2,06-Sep,Thu,"* Objects
+,,2,6-Sep,Thu,"* Objects
 * Node
 * Modules and Require
 * Static Analysis Tools
@@ -130,12 +130,12 @@ __Due Monday 9/10, by 11pm__
 
 * Chapter 6 - The Secret Life of Objects
 * Chapter 8 - Bugs and Error Handling 
-","__Due Monday 9/23 at 11pm:__
+","__Due Mon 9/24 (extended from Sun 9/23) at 11pm:__
 
 
-* Homework #2 (to be posted over the weekend)
+* [Homework #2](homework/02.html) 
 
-__Due Sunday 9/19, by 9am__ 
+__Due Sunday 9/25, by 9am__ 
 
 * Quizzes #4 and #5
 
@@ -165,7 +165,7 @@ MDN Documentation on HTTP
 * Chapter 13 - JavaScript and the Browser
 * Chapter 17 - HTTP (up to browsers and http)
 ",,
-y,,6,20-Sep,Thu,"* A Simple Web Server Continued / Our ""Framework""
+,,6,20-Sep,Thu,"* A Simple Web Server Continued / Our ""Framework""
 * Routing
 * Node HTTP Module","Topics
 
@@ -174,33 +174,6 @@ y,,6,20-Sep,Thu,"* A Simple Web Server Continued / Our ""Framework""
 * ESLint Grading
 * [HTTP Summary](slides/07/http-summary.html)
 * [Sockets Review](slides/07/sockets-review.html)
-
-Coding Demo
-
-* review net module
-* routing
-* sending a text file
-* sending an image
-* post
-* redirect
-* Notes: [Web Server, Request Class, POST etc.](examples/class06/notes.js)
-  * public/html/[form.html](examples/class06/public/html/form.html)
-  * public/html/[index.html](examples/class06/public/html/index.html)
-  * public/img/[croissant.jpg](examples/class06/public/img/croissant.jpg)
-* Basic net module [Echo Server](examples/net/echoServer.js) Example
-* Another [Web Server / Routing / Dispatching](examples/net/webServer.js) Example
-
-Homework Demo
-
-* intro.js  w browser
-* nc to test 405
-* curl to test 301
-* better.js
-* sendFile
-* setHeader
-* send
-* app.get vs app.post
-
 
 ","HTTP
 
@@ -213,28 +186,55 @@ Cookies
 
 * [MDN on Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
 * nczonline articles on [Cookies](https://www.nczonline.net/blog/2009/05/05/http-cookies-explained/) and [Cookies and Security](https://www.nczonline.net/blog/2009/05/12/cookies-and-security/)
-","(Homework #3 to be assigned Monday)
-",
-y,,7,25-Sep,Tue,"* HTTP Module
+",,
+,,7,25-Sep,Tue,"* HTTP Module
 * Web Framework
-* Project Layout","* Homework #3 Due Date
-* Review class 6 notes
+* Project Layout","Coding Demo
+
+* review net module
+* routing
+* sending a text file
+* sending an image
+* post
+* redirect
+* this, bind, arrow + ES6 classes
+
+Example Set 1
+
+* [echoServer.js](examples/class07/echoServer.js)
+* [webServer.js](examples/class07/webServer.js)
+* public/[homer.html](examples/class07/public/homer.html)
+* public/[pika.html](examples/class07/public/pika.html)
+
+Example Set 2
+
+* [webServer.js](examples/class07b/webServer.js)
+* public/[harry.html](examples/class07b/public/harry.html)
+* public/[mouse.html](examples/class07b/public/mouse.html)
+
+
+<!--
+* Notes: 
+  * [Web Server, Request Class, POST etc.](examples/class06/notes.js)
+  * public/html/[form.html](examples/class06/public/html/form.html)
+  * public/html/[index.html](examples/class06/public/html/index.html)
+  * public/img/[croissant.jpg](examples/class06/public/img/croissant.jpg)
+* Basic net module [Echo Server](examples/net/echoServer.js) Example
+* Another [Web Server / Routing / Dispatching](examples/net/webServer.js) Example
+-->
+
+
 * [Node's HTTP Module](slides/07/node-http.html)
 * [Project Setup](slides/08/setup.html)
-* [Express](slides/08/express.html) 
-* (see request and response slides from next class?)
-* Homework #3 Demo Again
-* Methods as Callbacks, Arrow Functions Again
 
-
-",,"__(Extended) Due Wednesday 2/21 at 11pm:__
+",,"<!--__(Extended) Due Wednesday 2/21 at 11pm:__
 
 NO GRACE PERIOD on extended deadline (was 2/19).
 
-* [Homework #3](homework/03.html) ",
-y,,8,27-Sep,Thu,"* Web Framework Continued
+* [Homework #3](homework/03.html) -->",
+,,8,27-Sep,Thu,"* Web Framework Continued
 * Middleware
-* Templating","* [Express (from previous slides)](slides/08/express.html#/26)
+* Templating","* [Express](slides/08/express.html) 
 * [Templating](slides/09/templating.html)
 * [Express Request and Response](slides/09/request-response.html) (start [With Web Server/Web App](slides/09/request-response.html#/7))
 ","* [Express Hello World](https://expressjs.com/en/starter/hello-world.html)
@@ -244,31 +244,19 @@ y,,8,27-Sep,Thu,"* Web Framework Continued
 * [Handlebars Basics](http://handlebarsjs.com/expressions.html) (Basic Usage Section Only)
 * [Handlebars Loops/Conditionals](http://handlebarsjs.com/block_helpers.html) (Up to Hash Arguments, Ignore blocks with `registerHelper`)
 ",,
-y,,9,02-Oct,Tue,"Slides
+y,,9,2-Oct,Tue,"Slides
 
 * Cookies
 * Sessions
-* Forms","Slides
+* Forms", * [Socket.io](slides/23/socketio.html),"* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
 
-* [More About Get](slides/10/review-get.html)
-* [Middleware](slides/09/middleware.html)
-* Review [Response and Request Objects / Along with Templating](slides/09/request-response.html)
-* [Forms](slides/10/forms.html)
-
-Code Samples
-
-* [get, post, form, middleware](examples/class09/get-post-form-middleware.zip)
-
-
-","* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
-
-","__(Extended) Due Wednesday 2/28 at 11pm:__
+","<!-- __(Extended) Due Wednesday 2/28 at 11pm:__
 
 NO GRACE PERIOD on extended deadline (was 2/26).
 
 * [Homework #4](homework/04.html) 
-",
-y,,10,04-Oct,Thu,"* Cookies
+-->",
+y,,10,4-Oct,Thu,"* Cookies
 * Sessions 
 * NoSQL Database
 ","Slides
@@ -283,9 +271,8 @@ y,,10,04-Oct,Thu,"* Cookies
 
 Code Samples
 
-* [creating middleware, sessions](examples/class10/middleware-sessions.zip)","* [MDN on Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
-* nczonline articles on [Cookies](https://www.nczonline.net/blog/2009/05/05/http-cookies-explained/) and [Cookies and Security](https://www.nczonline.net/blog/2009/05/12/cookies-and-security/)",,hw4
-y,holiday,,09-Oct,Tue,Monday Schedule,,,,hw3
+* [creating middleware, sessions](examples/class10/middleware-sessions.zip)","/ ,",,hw4
+y,holiday,,9-Oct,Tue,Monday Schedule,,,,hw3
 y,,11,11-Oct,Thu,"* Object Document Mapper
 * Database Design
 * Authentication","* Mongoose (from Previous Slides)
@@ -315,21 +302,7 @@ __Midterm Practice__
 ",
 y,,12,16-Oct,Tue,"* URL Parameters
 * Finishing Database
-* Validation","* [Forms Revisited](slides/11/forms-revisited.html)
-* [Project Layout and Scaffolding](slides/11/scaffolding.html)
-* [Parameters from URLs](slides/14/params.html)
-* [Mongoose](slides/14/mongoose.html)
-* [Routers, Project/Directory Layout, nodemon](slides/14/layout.html)
-* [Validation](slides/15/validation.html)
-* Coding Demos and Class Notes: 
-    * [Mongoose](examples/mongodb/mongoose.js)
-    * [Mongoose and Express](examples/mongodb/mongooseexpress.zip) (functioning web app)
-    * [Embedded Documents](examples/mongodb/embedded.zip) (pseudo-code)
-
-
-
-
-","MongoDB
+* Validation",1,"MongoDB
 
 * [Databases and Collections](https://docs.mongodb.com/manual/core/databases-and-collections/)
 * [Types](https://docs.mongodb.com/manual/core/documen://docs.mongodb.com/manual/reference/bson-types/)
@@ -395,7 +368,7 @@ y,,16,30-Oct,Tue,"* HTML Primer, JavaScript and the Browser
 ","__Due Wednesday 4/4 at 11pm:__
 
 * [Homework #6](homework/06.html)",
-y,,17,01-Nov,Thu,"* CSS
+y,,17,1-Nov,Thu,"* CSS
 
 <!--
 * Flexbox
@@ -411,13 +384,13 @@ y,,17,01-Nov,Thu,"* CSS
 ","__Due Wednesday 4/4 at 11pm:__
 
 *  [Final Project Miletsone #01](final-project.html#milestone01)",
-y,,18,06-Nov,Tue,"* CSS Continued
+y,,18,6-Nov,Tue,"* CSS Continued
 * Events / Timers Continued
 * AJAX
 * APIs","* See Previous Slides for CSS, Events
 * [Ajax Part 1](slides/20/ajax.html)
 ",* {{ site.book_js_5 }} - Chapter 17 - HTML (Focus on the section on XMLHttpRequest),,
-y,,19,08-Nov,Thu,"* AJAX Continued
+y,,19,8-Nov,Thu,"* AJAX Continued
 * Promises
 * Fetch API","* [Ajax Part 1](slides/20/ajax.html) (from previous class)
 * [Ajax Part 2](slides/21/ajax-express.html)
@@ -481,7 +454,7 @@ Practice Questions
 
 
 ",
-y,,25,04-Dec,Tue,* Frontend Framework Continued,"* [React Basics](slides/26/react.html) (from previous class)
+y,,25,4-Dec,Tue,* Frontend Framework Continued,"* [React Basics](slides/26/react.html) (from previous class)
 * [React Revisited](slides/26/react-state-parent.html) (from previous class)
 * [React and Express / Using Webpack](slides/26/react-webpack-continued.html)
 * React review, multiple child clickers and forms
@@ -492,7 +465,7 @@ Due __today__ while you're in class:
 * [React Lab](homework/react-lab.html)
     * [Form to submit](https://docs.google.com/forms/d/e/1FAIpQLSde-vCFp3eJ9vFII9534X_FErSum5G8j3r2q4Uide7skzszaQ/viewform)
 ",m4 due
-y,,26,06-Dec,Thu,"* TBD (everything together, wasm, webgl, electron or webaudio?)","* from previous slides...
+y,,26,6-Dec,Thu,"* TBD (everything together, wasm, webgl, electron or webaudio?)","* from previous slides...
   * go over webpack 
   * go over text input
   * componentDidMount
