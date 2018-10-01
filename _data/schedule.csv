@@ -250,7 +250,8 @@ NO GRACE PERIOD on extended deadline (was 2/19).
 
 * Cookies
 * Sessions
-* Forms",Go over previous slides on templating,"* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
+* Forms","* Go over previous slides on templating
+* [Templating](slides/09/templating.html)","* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
 
 ","<!-- __(Extended) Due Wednesday 2/28 at 11pm:__
 
