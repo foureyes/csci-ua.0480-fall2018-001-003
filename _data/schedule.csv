@@ -243,12 +243,14 @@ NO GRACE PERIOD on extended deadline (was 2/19).
 * [Express Static Files](https://expressjs.com/en/starter/static-files.html)
 * [Handlebars Basics](http://handlebarsjs.com/expressions.html) (Basic Usage Section Only)
 * [Handlebars Loops/Conditionals](http://handlebarsjs.com/block_helpers.html) (Up to Hash Arguments, Ignore blocks with `registerHelper`)
-",,
-y,,9,2-Oct,Tue,"Slides
+","__Due Monday 10/8 at 11pm:__
+
+* [Homework #3](homework/03.html)",
+,,9,2-Oct,Tue,"Slides
 
 * Cookies
 * Sessions
-* Forms", * [Socket.io](slides/23/socketio.html),"* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
+* Forms",Go over previous slides on templating,"* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
 
 ","<!-- __(Extended) Due Wednesday 2/28 at 11pm:__
 
