@@ -239,6 +239,7 @@ NO GRACE PERIOD on extended deadline (was 2/19).
 
 * [Express](slides/08/express.html) 
 * [Templating](slides/09/templating.html)
+* [Middleware](slides/09/middleware.html)
 * [Express Request and Response](slides/09/request-response.html) (start [With Web Server/Web App](slides/09/request-response.html#/7))
 
 Coding Demo
@@ -258,8 +259,18 @@ Coding Demo
 
 * Cookies
 * Sessions
-* Forms","* Go over previous slides on templating
-* [Templating](slides/09/templating.html)","* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
+* Forms","Slides 
+
+* Templating (from previous class)
+* Middleware (from previous class)
+* Form handling, GET and POST (from previous class)
+
+<!--
+Coding Demo
+
+* [Middleware and Forms](examples/class09/middleware-forms.zip)
+-->
+","* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
 
 ","<!-- __(Extended) Due Wednesday 2/28 at 11pm:__
 
@@ -267,22 +278,29 @@ NO GRACE PERIOD on extended deadline (was 2/26).
 
 * [Homework #4](homework/04.html) 
 -->",
-y,,10,4-Oct,Thu,"* Cookies
+,,10,4-Oct,Thu,"* Cookies
 * Sessions 
 * NoSQL Database
-","Slides
+","Slides / Notes
 
-* Review Middleware
+* Review form handling, middleware
 * [Sessions and Cookies](slides/10/sessions.html)
-* Homework Extended / Next Topics 
-    * maybe quiz
-    * maybe interactive coding session during review?
-* Upcoming Exam
+* About the Upcoming Exam
 * Maybe [Mongo DB  and Mongoose](slides/14/mongo.html)
 
-Code Samples
 
-* [creating middleware, sessions](examples/class10/middleware-sessions.zip)","/ ,",,hw4
+<!--
+Coding Demo
+
+
+* [creating middleware, sessions](examples/class10/middleware-sessions.zip)
+
+-->","
+Cookies Revisited
+
+* [MDN on Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+* nczonline articles on [Cookies](https://www.nczonline.net/blog/2009/05/05/http-cookies-explained/) and [Cookies and Security](https://www.nczonline.net/blog/2009/05/12/cookies-and-security/)
+",,hw4
 y,holiday,,9-Oct,Tue,Monday Schedule,,,,hw3
 y,,11,11-Oct,Thu,"* Object Document Mapper
 * Database Design

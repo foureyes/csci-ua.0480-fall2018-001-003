@@ -367,7 +367,6 @@ Our usual setup, with an extra bit for dealing with request bodies.
 
 <pre><code data-trim contenteditable>
 const express = require('express');
-const bodyParser = require('body-parser');
 
 const port = 8080;
 const app = express();
@@ -390,7 +389,7 @@ This part makes the req.body property available.
 
 <pre><code data-trim contenteditable>
 // to display request body...
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 </code></pre>
 </section>

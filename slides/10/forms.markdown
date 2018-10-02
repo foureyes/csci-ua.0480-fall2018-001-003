@@ -78,8 +78,7 @@ Your form's fields have the following attributes:
 
 To handle data in the request body, you'll need to:
 
-* make sure you've used npm to install <code>body-parser</code>
-* require body-parser
+* use body-parser middleware
 * __add the appropriate routes... what will they be?__ &rarr;
 	* {:.fragment} you'll need an <code>app.get</code> to handle requesting the original form
 	* {:.fragment} and a route to handle the post (the route handling the __POST__ can use request.body.property-name)
@@ -92,12 +91,10 @@ To handle data in the request body, you'll need to:
 Again, the body of a POST is likely to be encoded and compressed, so to parse out the data and add it to the <code>request</code> object, use the body-parser middleware:
 
 <pre><code data-trim contenteditable>
-const bodyParser = require('body-parser');
-
 // only handle urlencoded data...
 // extended: false specifies that incoming values will be treated as strings
 // or arrays
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 </code></pre>
 </section>
 
@@ -111,12 +108,11 @@ Here's an example that takes a name entered by the user... and displays it on th
 <pre><code data-trim contenteditable>
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 
 app.set('view engine', 'hbs');
 </code></pre>
 <pre><code data-trim contenteditable>
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 // this is middleware to log method and path
 
