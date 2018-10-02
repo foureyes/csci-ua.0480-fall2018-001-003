@@ -300,7 +300,7 @@ The body parser middleware:
 	* {:.fragment} it's probably compressed
 * {:.fragment} body parser gives you access to a compressed and encoded body as JavaScript object 
 	* {:.fragment} we'll mostly use it for urlencoded strings
-	* {:.fragment} <code>app.use(bodyParser.urlencoded({ extended: false }));</code>
+	* {:.fragment} <code>app.use(express.urlencoded({ extended: false }));</code>
 * {:.fragment} [more info in the docs](https://github.com/expressjs/body-parser)
 </section>
 
