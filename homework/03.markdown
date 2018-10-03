@@ -143,7 +143,7 @@ In your module, `src/webby.js`, create the classes and objects specified below. 
 
 ### `HTTP_STATUS_CODES`
 
-Create a module-level (_global_) object called `HTTP_STATUSS` that maps status codes (as `Number`s) to descriptions. For example, `200` should map to `OK`. Minimally, this should contain `200`, `404`, and `500`.
+Create a module-level (_global_) object called `HTTP_STATUS_CODES` that maps status codes (as `Number`s) to descriptions. For example, `200` should map to `OK`. Minimally, this should contain `200`, `404`, and `500`.
 
 [See MDN's listing of status codes for descriptions](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
@@ -204,7 +204,7 @@ Example usage:
 
 ```
 const t1 = getMIMEType('foo.jpg'); // t1 --> img/jpeg
-const t2 = getExtension('foo'); // t2 --> '' (empty string)
+const t2 = getMIMEType('foo'); // t2 --> '' (empty string)
 ```
 
 <hr>

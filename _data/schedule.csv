@@ -265,11 +265,11 @@ Coding Demo
 * Middleware (from previous class)
 * Form handling, GET and POST (from previous class)
 
-<!--
+
 Coding Demo
 
 * [Middleware and Forms](examples/class09/middleware-forms.zip)
--->
+
 ","* [Middleware](https://expressjs.com/en/guide/writing-middleware.html)
 
 ","<!-- __(Extended) Due Wednesday 2/28 at 11pm:__
