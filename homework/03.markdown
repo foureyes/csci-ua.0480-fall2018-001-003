@@ -258,6 +258,12 @@ Once you are finished with your implementation above, you can export, test and t
 	* `const req = new Request(binaryData.toString());`
 	* `if(req.method === 'GET' && req.path === '/foo') { }`
 
+## ⚠️Work on the `App` and `Response` Classes in Tandem
+
+Skim through the specs for both classes before writing code.
+
+`App` depends on `Response`, so you may have to jump around a bit during implementation (for example, wait on implementing `handleRequest` and `processRoutes`)
+
 ### Create an `App` Object
 
 The app object represents a web application. It's responsible for:
@@ -282,7 +288,7 @@ app.use((req, res, next) => {
 // add a route
 app.get('/hello', function(req, res) {
     // send back a response if route matches
-    res.send(200, 'HELLO WORLD');
+    res.send('HELLO WORLD');
 });
 
 app.listen(8080, '127.0.0.1');
@@ -367,7 +373,7 @@ p = app.normalizePath('/foo/#bar');
     * Hint: use one of the other methods specified earlier to make sure that the key added to `routes` can deal with casing, trailing slash, etc.
     * example usage:
         <pre><code data-trim contenteditable>app.get('/hello', function(req, res) {
-    res.send(200, 'HELLO WORLD');
+    res.send('HELLO WORLD');
 });
 </code></pre>
 4. `use(cb)` - sets the `middleware` property for this instance of `App`
@@ -388,7 +394,7 @@ p = app.normalizePath('/foo/#bar');
         <pre><code data-trim contenteditable>// OR...
 app.use((req, res, next) => {
     // send back the response right away and ignore any route handliers in routes
-    res.send(200, 'HELLO WORLD');
+    res.send('HELLO WORLD');
 });
 </code></pre>
 5. `listen(port, host)` - binds the server to the given `port` and `host` ("listens" on `host`:`port`)
@@ -558,7 +564,7 @@ app.use((req, res, next) => {
     <pre><code data-trim contenteditable>// add a route
 app.get('/hello', function(req, res) {
     // send back a response if route matches
-    res.send(200, '&lt;h1&gt;HELLO WORLD&lt;/h1&gt;');
+    res.send('&lt;h1&gt;HELLO WORLD&lt;/h1&gt;');
 });</code></pre>
     <pre><code data-trim contenteditable>app.listen(3000, '127.0.0.1');</code></pre>
     * if everything is running properly, then:
