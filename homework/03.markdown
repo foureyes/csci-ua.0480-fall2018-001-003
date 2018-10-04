@@ -264,9 +264,9 @@ Skim through the specs for both classes before writing code.
 
 `App` depends on `Response`, so you may have to jump around a bit during implementation (for example, wait on implementing `handleRequest` and `processRoutes`)
 
-### Create an `App` Object
+### Create an `App` Class
 
-The app object represents a web application. It's responsible for:
+An instance of an `App` represents a web application. It's responsible for:
 
 1. accepting and parsing incoming http requests (using the `Request` class)
 2. holding "routes" (http method and path combinations) in a property called (of course) `routes`
@@ -298,7 +298,7 @@ app.listen(8080, '127.0.0.1');
 
 #### Constructor
 
-`App()` - creates a new App object and sets the connection callback function to `this.handleConnection` which you'll implement below ... additionally, initializes its `routes` property to an empty object and its `middleware` property to null (see Properties section). Example usage of constructor:
+`App()` - creates a new App object and sets the connection callback function to `this.handleConnection` which you'll implement below ... additionally, initializes its `routes` property to an empty object and its `middleware` property to `null` (see Properties section). Example usage of constructor:
 
 <pre><code data-trim contenteditable>const App = require('./webby.js');
 const app = new webby.App();
@@ -336,6 +336,8 @@ Note that many of the methods in `App` will be used as callbacks to other method
 3. `middlware` - a function that gets called before the functions in `routes`... which enables the user to add features that will be executed before a function from `routes` is called;  it'll be useful for:
     * adding logging
     * serving static files (see `serveStatic` later on in these specifications)
+
+(see constructor for initial values)
 
 <hr>
 
