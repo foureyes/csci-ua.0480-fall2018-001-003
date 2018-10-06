@@ -30,11 +30,10 @@ Create a site the collects and displays a sketchbook of ascii art.In this homewo
 * handling forms, both GET and POST
 * sessions
 
-You'll be creating 3 pages:
+You'll be creating 2 pages:
 
 * __home__ - <code>/</code>: displays all of the ascii pieces submitted on the site; can be filtered by tag.
 * __add__ - <code>/add</code>: a page that allows a user to submit a new piece
-* __stats__ - <code>/stats</code>: displays the number of pieces the user submitted during this browsing session
 
 ### Example Interaction
 
@@ -340,60 +339,6 @@ req.body: { title: 'sanata',
 req.query: {}
 req.body: {}
 </code></pre>
-
-
-<h1 class='warning'>SKIP THIS PART</h1>
-
-(We did not cover it in class yet)
-
-## Part 5 - Stats Page / Using a Session Value
-
-Create a page that shows how many artworks that a user has submitted __during their browsing session__.
-
-###  Session Setup
-
-__First, setup and configure sessions:__
-
-* bring in the session module by requiring <code>express-session</code>
-* set up a some options for your session:
-
-<pre><code data-trim contenteditable>
-var sessionOptions = {
-	secret: 'secret cookie thang',
-	resave: true,
-	saveUninitialized: true
-};
-</code></pre>
-
-* then use those options for session handling middleware: <code>app.use(session(sessionOptions));</code>
-
-__Modify your add route (<code>/add</code>) so that every time a user adds a new artwork, it's counted in their session.__
-
-* in the add (<code>/add</code>) route, count how many times a person has complained for their session by adding a property to the <code>req.session</code> object
-* increment the count if there's already a value there
-* otherwise, the count should start at 0
-
-
-###  The Stats Page
-
-
-* create a route handler for <code>/stats</code>
-* create a template for it
-* display the session variable that represents the current count of the user's artwork submssions
-* the page should look like:
-
-<div markdown="block" class="img">
-<!--![stats](../resources/img/hw04_06_stats.gif)-->
-<img src="../resources/img/hw04_06_stats.gif">
-</div>
-
-__Test the session management.__
-
-* open your app with one browser... and add some artworks
-* the stats page should show the count of artworks
-* open your app in another browser or in private browsing / incognito mode
-* check that the count is 0 for this other browser session
-* (and of course, make sure that the previous count in your other session was maintained)
 
 
 </div>
