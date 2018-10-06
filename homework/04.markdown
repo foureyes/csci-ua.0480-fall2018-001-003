@@ -38,8 +38,8 @@ You'll be creating 2 pages:
 ### Example Interaction
 
 <div markdown="block" class="img">
-<!--![interaction](../resources/img/MAKE_GIF.gif)-->
-<img src="../resources/img/MAKE_GIF.gif">
+<!--![interaction](../resources/img/hw04-asciidiary-mainexample.gif)-->
+<img src="../resources/img/hw04-asciidiary-mainexample.gif">
 
 </div>
 
@@ -116,10 +116,9 @@ Now that static files are set, create a homepage.
 * in your <code>layout.hbs</code>, drop in the surrounding html that will go on every page
 	* pull in your <code>base.css</code> stylesheet
 	* include a header containing both your <code>logo.png</code> image and the title of your site, __ascii sketchbook__
-    * additionally, add a footer that links to all 3 pages in your site:
+    * additionally, add a footer that links to all 2 pages in your site:
 	    * a link to the home / list of artworks page (/)
 	    * a link to __a page to add an entry__ page (/add)
-	    * a link to a __stats__ page (/stats)
 	* don't forget <code>body</code>, surrounded by triple curly braces!
 * in your template for your homepage (you can name this template whatever you want... just make sure you can pull it up later), add the following:
 	* an <code>h3</code> header that says "artworks"
@@ -129,9 +128,9 @@ Now that static files are set, create a homepage.
 Here's an example of what the page could look like (you don't have to use the same exact styles, but add enough styles so that you can see that the style sheet is integrated correctly):
 
 <div markdown="block" class="img">
-<img src='../resources/img/NEED_EXAMPLe_LOOK.png'>
+<img src='../resources/img/hw04-asciidiary-examplelookempty.png' width="100%">
 <!--
-![png](../resources/img/NEED_EXAMPLe_LOOK.png)
+![png](../resources/img/hw04-asciidiary-examplelookempty.png)
 -->
 </div>
 
@@ -232,17 +231,17 @@ __Create the actual page...__
 * HINT: the <pre> tag is for monospaced (ascii art) texted
 * __display the artworks in reverse order__ - the last element on the list should be on top
 * put each artwork + metadata entry in a list item (<code>li</code>)
+* for each artwork, display all tags as links that will filter the artworks to only that tag
 * additionally, make the tags a different style (such as a different font-weight or background-color or ... anything you want)
 
 __Test your page.__
 
 * it should look a little like the image below
 * again, the styles don't have to match exactly - just add enough styling to distinguish between the tags and the actual message
-* (ignore the form for now... you'll set that up next)
 
 <div markdown="block" class="img">
-<!--![list](../resources/img/NEED_LOOK_LIKE.png)-->
-<img src="../resources/img/NEED_LOOK_LIKE.png">
+<img src="../resources/img/hw04-asciidiary-examplelookpopulated.png" width="100%">
+<!--![list](../resources/img/hw04-asciidiary-examplelookpopulated.png)-->
 </div>
 
 ###  Filter by Artwork Tag
@@ -263,8 +262,8 @@ __Once you have your list of artworks working... add a form that allows you to f
 * __here's what the filter interaction should look like:__
 
 <div markdown="block" class="img">
-<!--![filter](../resources/img/NEED_FILTER.gif)-->
-<img src="../resources/img/NEED_FILTER.gif">
+<!--![filter](../resources/img/hw04-asciidiary-filterexample.gif)-->
+<img src="../resources/img/hw04-asciidiary-filterexample.gif">
 </div>
 
 __The log should look something like this:__
@@ -307,8 +306,8 @@ req.body: {}
 
 
 <div markdown="block" class="img">
-<!--![add](../resources/img/NEED_FILTER_DEMO_POST_GIF.gif)-->
-<img src="../resources/img/NEED_FILTER_DEMO_POST_GIF.gif">
+<!--![add](../resources/img/hw04-asciidiary-addexample.gif)-->
+<img src="../resources/img/hw04-asciidiary-addexample.gif">
 </div>
 
 The logs should look something like this for the POST, Redirect and GET:
