@@ -31,6 +31,22 @@ You'll be creating 2 pages:
 * __home__ - <code>/</code>: displays all of the ascii pieces submitted on the site; can be filtered by tag.
 * __add__ - <code>/add</code>: a page that allows a user to submit a new piece
 
+Your directory layout should look like the following __once you're done with the assignment__:
+
+<pre><code data-trim contenteditable>
+├── app.js
+├── package-lock.json
+├── package.json
+├── public
+│   ├── css
+│   │   └── base.css
+│   └── img
+│       └── logo.png
+└── views
+    ├── layout.hbs
+    └── your-template-here.hbs
+</code></pre>
+
 ### Example Interaction
 
 <div markdown="block" class="img">
@@ -221,7 +237,7 @@ __Create the actual page...__
 
 * modify your route for your home page (<code>/</code>) so that you render the template with the correct context object (that is, the list of artworks to display)
 * in the template, you can iterate through the list of artworks using the <code>#each</code> helper
-	* HINT: use the <pre> tag is for monospaced (ascii art) 
+	* HINT: use the `<pre>` tag is for monospaced (ascii art) 
 * __display the artworks in reverse order__ - the last element on the list should be on top
 * put each artwork + metadata entry in a list item (<code>li</code>)
 * for each artwork, display all tags as links that will filter the artworks to only that tag
@@ -253,7 +269,7 @@ __Once you have your list of artworks working... add a form that allows you to f
     * find some way to filter the data
     * send that data to the template
     * if the filter submitted is blank or if there is no filter, display all of the artworks
-* go back and modify the tag links in your template for `/` so each has an appropriate link to filter the artworks WITHOUT having to submit a form
+* go back and modify the tag links in your template for `/` so each has an appropriate link to filter the artworks __WITHOUT__ having to submit a form
 * __here's what the filter interaction should look like:__
 
 <div markdown="block" class="img">
