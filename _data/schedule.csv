@@ -303,16 +303,19 @@ Cookies Revisited
 ","__Due Wednesday 10/16 at 11pm:__
 
 * [Homework #4](homework/04.html)",hw4
-y,holiday,,9-Oct,Tue,Monday Schedule,,,,hw3
-y,,11,11-Oct,Thu,"* Object Document Mapper
+,holiday,,9-Oct,Tue,Monday Schedule,,,,hw3
+,,11,11-Oct,Thu,"* Object Document Mapper
 * Database Design
 * Authentication","* Mongoose (from Previous Slides)
 * [More Mongoose](slides/12/mongoose.html)
+
+<!--
 * Homework #05
 * About Copying Homework
 * Reviews:
     * Friday, 2/2 from 11am-12pm
     * Sunday, 2/4 from 11am-12pm
+→
 
 __Midterm Practice__
 
@@ -327,10 +330,11 @@ __Midterm Practice__
  * [books](resources/data/books.csv)
  * [wifi](resources/data/wifi3.json) (NYC Open Data)
 -->
-",,"__Due Thursday 3/22 at 11pm:__
+",,"<!--
+__Due Thursday 3/22 at 11pm:__
 
 * [Homework #5](homework/05.html) 
-",
+-->",
 y,,12,16-Oct,Tue,"* URL Parameters
 * Finishing Database
 * Validation",1,"MongoDB
