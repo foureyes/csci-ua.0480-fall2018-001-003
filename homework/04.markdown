@@ -118,7 +118,7 @@ First, let's make sure you can serve up static content, like css and images.
 Now that static files are set, create a homepage.
 
 * for the home page, your app should accept <code>GET</code> requests on the path, <code>/</code>
-* set up handlebars - [these slides](../slides/10/templating.html#/5) may help... (it's just one line!)
+* set up handlebars - [these slides](../slides/09/templating.html) may help... (it's just one line!)
 	* get all the requirements and config setup
 	* create the appropriate views folder, along with an initial layout file:
 		* <code>views</code>
