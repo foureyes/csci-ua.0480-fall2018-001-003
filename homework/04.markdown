@@ -258,7 +258,7 @@ __Test your page.__
 
 __Once you have your list of artworks working... add a form that allows you to filter by tags.__ &rarr;
 
-* create a form in your <code>index.hbs</code> template
+* create a form in the template used for your homepage
     * the form should issue a <code>GET</code> request
     * the request should go to the same URL that it's on (still home, <code>/</code>)
     * the form should also have a text field and a submit button
