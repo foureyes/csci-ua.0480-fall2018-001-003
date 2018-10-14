@@ -12,7 +12,7 @@ h1.warning {
 	<div class="panel-heading">Homework #3</div>
 	<div class="panel-body" markdown="block">
 
-# ASCII ART DIARYYYY-MM-DD, Due __Tuesday 10/16 by 11PM__
+# ASCII ART DIARYYYY-MM-DD, Due __Wednesday 10/17 by 11PM__
 
 
 ## Overview
