@@ -339,7 +339,8 @@ __Due Thursday 3/22 at 11pm:__
 -->",
 ,,12,16-Oct,Tue,"* URL Parameters
 * Finishing Database
-* Validation",* [URL Parameters](slides/14/params.html),"MongoDB
+* Validation","* [URL Parameters](slides/14/params.html)
+* [Router Objects, Scaffolding](slides/12/scaffolding.html)","MongoDB
 
 * [Databases and Collections](https://docs.mongodb.com/manual/core/databases-and-collections/)
 * [Types](https://docs.mongodb.com/manual/core/documen://docs.mongodb.com/manual/reference/bson-types/)
