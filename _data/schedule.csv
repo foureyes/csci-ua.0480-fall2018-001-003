@@ -306,7 +306,9 @@ Cookies Revisited
 ,holiday,,9-Oct,Tue,Monday Schedule,,,,hw3
 ,,11,11-Oct,Thu,"* Object Document Mapper
 * Database Design
-* Authentication","* Mongoose (from Previous Slides)
+* Authentication","__Slides__
+
+* Mongoose (from Previous Slides)
 * [More Mongoose](slides/12/mongoose.html)
 
 <!--
@@ -315,7 +317,7 @@ Cookies Revisited
 * Reviews:
     * Friday, 2/2 from 11am-12pm
     * Sunday, 2/4 from 11am-12pm
-→
+-->
 
 __Midterm Practice__
 
@@ -335,9 +337,9 @@ __Due Thursday 3/22 at 11pm:__
 
 * [Homework #5](homework/05.html) 
 -->",
-y,,12,16-Oct,Tue,"* URL Parameters
+,,12,16-Oct,Tue,"* URL Parameters
 * Finishing Database
-* Validation",1,"MongoDB
+* Validation",* [URL Parameters](slides/14/params.html),"MongoDB
 
 * [Databases and Collections](https://docs.mongodb.com/manual/core/databases-and-collections/)
 * [Types](https://docs.mongodb.com/manual/core/documen://docs.mongodb.com/manual/reference/bson-types/)
@@ -354,7 +356,7 @@ Mongoose
 
 * [Embedded Documents - Sub Docs](http://mongoosejs.com/docs/subdocs.html) 
 * [Document References - Mongoose Population](http://mongoosejs.com/docs/populate.html) 
-",Quizzes Posted on NYU Classes,
+",Quizzes To Be Posted on NYU Classes for After Midterm,
 y,,13,18-Oct,Thu,"* About the Exam, Review",,,,
 y,exam,14,23-Oct,Tue,EXAM #1 (Midterm Exam),,,,
 y,,15,25-Oct,Thu,"* Authentication
