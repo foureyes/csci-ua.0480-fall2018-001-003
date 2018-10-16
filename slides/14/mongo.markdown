@@ -294,7 +294,7 @@ Although MongoDB doesn't require you to pre-define the types of values that your
 * __Object ID__ every MongoDB object or document must have an Object ID which is unique
 
 <br>
-More about __Object ID__: a 12-byte binary value which has a very rare chance of duplication; consists of a 4-byte timestamp (seconds since epoch), a 3-byte machine id, a 2-byte process id, and a 3-byte counter
+More about __Object ID__: a 12-byte value, consists of: a 4-byte timestamp (seconds since epoch), a 3-byte machine id, a 2-byte process id, and a 3-byte counter
 
 </section>
 
