@@ -14,7 +14,7 @@ title: "Routers"
 ## What's a Router?
 
 
-A __router__ is an _isolated instance_ of route handlers and middleware. It's an object that's essentially a __mini-application__. This means that you can:
+A __router__ is an _isolated instance_ of route handlers and middleware. It's an object that's essentially a __mini-application__. This means that:
 
 1. you can define routes (or  _route handlers_ - the HTTP verb methods, path and callback)
 2. you can also use middleware in a router (which means that you can _mount_ a router at a specific path and effectively have a path prefix for all of the paths that your router handles)
