@@ -7,7 +7,7 @@ title: CSCI-UA.0480 - Homework #5
 	<div class="panel-heading">Homework #5</div>
 	<div class="panel-body" markdown="block">
 
-# What Was That Sound? (Sessions and Storing Data) - __Thursday, March 22nd, by 11PM__
+# Anonymous Course Reviews (Sessions and Storing Data) - __Thursday, March 22nd, by 11PM__
 
 ## Overview
 
@@ -21,10 +21,10 @@ This assignment will cover storing and retrieving data in a database and in an i
 
 ### Description
 
-You'll be creating a site where users can anonymously post reports of weird sounds they heard. By the end of this project... you should be familiar with:
+You'll be creating a site where users can anonymously post reviews for courses. By the end of this project... you should be familiar with:
 
 * writing middleware
-* some basic read and write operations with mongodb...
+* some basic read and write operations with mongodb... 
 * integrating mongodb with an Express web application using Mongoose (See the [example interaction at the end of this page](#examples)).
 
 You'll create a single express application with the following directory layout (when you're done with all of the directions, the folder hierarchy should match the look the same as the one listed below): 📁
@@ -38,29 +38,29 @@ You'll create a single express application with the following directory layout (
 * `/src`
 	* `app.js`
 	* `public`
-		* `img`
-		* `css`
-			* your css file
+	* `img`
+	* `css`
+		* your css file
 	* `views`
 		* `layout.hbs`
 		* any other views
 
 Your application will support the following routes:
 
-* `GET /` - show all sounds
-* `GET /sounds/add` - show the add sound form
-* `POST /sounds/add` - process a new sound
-* `GET /sounds/mine` - show the sounds added during the user's session
+* `GET /` - show all course reviews
+* `GET /reviews/add` - show the add review form
+* `POST /reviews/add` - process a new review
+* `GET /reviews/mine` - show the reviews added during the user's session
 
 Finally, it should:
 
 * be served on __port 3000__
 * be run from the `/src` directory
-* use generated absolute paths where necessary (for example use `__dirname` and `public` when creating the public path for express static)
+* use generated absolute paths where necessary (for example use `__dirname__` and `public` when creating the public path for express static)
 
 ### Submission Process
 
-You will be given access to a private repository on GitHub.
+You will be given access to a private repository on GitHub. 
 
 * __Push__ your changes to the homework repository on GitHub.
 
@@ -70,11 +70,11 @@ You will be given access to a private repository on GitHub.
 * Make at least 4 separate commits - (for example, one option may be to make one commit per part in the homework).
 
 
-## Part 1 - Setup for Course Sounds App (Storing Data in a Database)
+## Part 1 - Setup for Course Reviews App (Storing Data in a Database)
 
 ### Installing MongoDB and Preparing Data
 
-* to install MongoDB, use a package manager like apt on Linux or homebrew on MacOS (`brew install mongodb`)...  or follow the [install instructions for your operating system on MongoDB's site](http://docs.mongodb.org/manual/installation/)
+* to install MongoDB, use a package manager like apt on Linux or homebrew on MacOS (`brew install mongodb`)...  or follow the [install instructions for your operating system on MongoDB's site](http://docs.mongodb.org/manual/installation/) 
 * by default, MongoDB does not require a username/password to connect 😮
 	* if you'd like to add authentication [you can follow this guide](https://docs.mongodb.com/manual/tutorial/enable-authentication/) (optional, but recommended)
 	* if you add authentication, make sure to:
@@ -97,28 +97,20 @@ You will be given access to a private repository on GitHub.
 			* create the directory: <code>sudo mkdir -p /data/db</code>
 			* change the owner to your user (replace yourusername with your _actual_ username for you system): <code>sudo chown -R yourusername:staff /data/</code>
 		* ensure that it is up and running by connecting to it using a commandline client... so in a different terminal tab/window, type in <code>mongo</code>:
-* once you're connected with a commandline client (mongo), start inserting documents into a database called <code>hw05</code> and a collection called <code>sounds</code>:
-	* sounds will have a sound name, place of where it was heard, date where it was heard (as a string in the format YYYY-MM-DD), hour the sound was heard (in EST, 00-23 format), and description of the sound
-	* so to insert, just do this in the commandline client:
-		<pre><code data-trim contenteditable>db.sounds.insert({
-			what: "clatter",
-			where: "the factory",
-			date: "2000-05-17",
-			hour: 9,
-			desc: "before a crash and a clack"
-		});
+* once you're connected with a commandline client (mongo), start inserting documents into a database called <code>hw05</code> and a collection called <code>reviews</code>:
+	* reviews will have a course number, course name, semester (fall/spring/summer), year, professor's name, and a review field
+	* so to insert, just do this in the commandline client: 
+		<pre><code data-trim contenteditable>db.reviews.insert({ courseNumber: "CSCI-UA.0101", courseName: "Intro to CS", semester: "Fall", year: 2015, professor: "McTeacherson", review: "Now I can sort like pro!" });
 </code></pre>
 	* (inserting will automatically create the database and collection for you if they don't already exist)
-	* insert the following sounds:
-		<pre><code data-trim contenteditable>
-			clatter, the factory, 2000-05-17, 9, before a crash and a clack
-			crash, the factory, 2000-05-17, 10, after a clatter but before a clack
-			clack, the factory, 2000-05-17, 11, after a clatter and a crash
+	* insert the following reviews:
+		<pre><code data-trim contenteditable>CSCI-UA.0480, AIT, Spring, 2018, Versoza, The answer is always undefined
+CSCI-UA.0002, Intro To Computer Programming, Fall, 2018, Foobarbaz, OMG you have to take this course
 </code></pre>
-* use <code>db.sounds.find()</code> to show all of the sounds that you've inserted
+* use <code>db.reviews.find()</code> to show all of the reviews that you've inserted
 	* make sure there's _something_ there...
-	* so that you know your web app actually has sounds to read!
-* use <code>ctrl + d</code> to exit the commandline client
+	* so that you know your web app actually has reviews to read!
+* use <code>ctrl + d</code> to exit the commandline client 
 * (make sure you keep your database server running, though 🏃)
 
 ### Directory Structure and Dependencies
@@ -136,7 +128,7 @@ Start your usual express app by:
 	* activate express.urlencoded (body parser) to parse http request bodies
 	* setting up and creating the appropriate folders for templating and serving static files
 * configure your server __so that it uses port 3000__
-
+	
 ### Connect to the Database
 
 Create a file called <code>db.js</code> within `src`. <code>db.js</code> will contain:
@@ -159,47 +151,40 @@ And, finally, add the code that connects to the database. We'll connect to the l
 
 Or... with authentication
 
-<pre><code data-trim contenteditable>
-mongoose.connect(
-	"mongodb://localhost/hw05",
-	{
-		auth: {
-			authdb:"admin",
-			user: "username",
-			password: "password"
-		}
-	}
-)
+<pre><code data-trim contenteditable>mongoose.connect('mongodb://username:password@localhost/hw05');
 </code></pre>
 
-### Schema
+### Schema 
 
 For larger projects, there is usually one file per schema, all located in a separate folder called models. For now, however, define the following Schema within <code>db.js</code>. Check out the slides on:
 
-* [the MongoDB Demo](../slides/14/mongo.html)
-* [and/or the Mongoose API](../slides/14/mongoose.html)
+* [the MongoDB Demo](../slides/14/mongo.html) 
+* [and/or the Mongoose API](../slides/14/mongoose.html) 
 * (or alternatively [check out the docs!](http://mongoosejs.com/docs/guide.html))
 
-Since we're storing reports of sounds, we'd like each document to have:
-* sound name (a <code>String</code>)
-* place of where it was heard  (a <code>String</code>)
-* date where it was heard (a <code>String</code> in the format YYYY-MM-DD)
-* hour the sound was heard (a <code>Number</code> in EST, 00-23 format)
-* description of the sound (a <code>String</code>)
+Since we're storing reviews, we'd like each document to have:
+
+* a course number (a <code>String</code>)
+* a course name (a <code>String</code>)
+* the semester for the course (a <code>String</code>) 
+* a year (a <code>Number</code>)
+* the professor's name (a <code>String</code>)
+* the review to be posted (a <code>String</code>)
 
 Create a schema based on the above slides, and insert your code under your <code>// my schema goes here!</code> comment.
 
-Then, use your schema to define your model... the model is used as a constructor to create new documents... or as an object with methods that allows the read or update of existing documents.
+Then, use your schema to define your model... the model is used as a constructor to create new documents... or as an object with methods that allows the read or update of existing documents. 
 
 You can place the following code after your schema and before the connection (assuming that you're schema looks something like this) so that mongoose is aware that your model exists (it _registers_ our model so that you can retrieve it later):
 
-<pre><code data-trim contenteditable>mongoose.model("Sound", soundSchema)</code></pre>
+<pre><code data-trim contenteditable>mongoose.model('Review', Review);
+</code></pre>
 
-## Part 2 - Displaying All Sounds, Adding Styles, and Adding Navigation
+## Part 2 - Displaying All Reviews, Adding Styles, and Adding Navigation
 
 ### Overview
 
-We'll be using mongoose to read in all of the sounds from the database. Then, we'll be able to display the sounds in a table.
+We'll be using mongoose to read in all of the reviews from the database. Then, we'll be able to display the reviews in a table. 
 
 ### Details
 
@@ -209,15 +194,15 @@ There's a bunch of setup that we need in order to integrate our databases access
 * at the top of <code>app.js</code>, after you've created your application object: <code>require('./db');</code>
 * after that, retrieve the model that you registered with mongoose:
 	<pre><code data-trim contenteditable>const mongoose = require('mongoose');
-const Sound = mongoose.model('Sound');
+const Review = mongoose.model('Review');
 </code></pre>
 
-You can now use <code>Sound.find</code> to retrieve all of the sounds in your database!
+You can now use <code>Review.find</code> to retrieve all of the reviews in your database!
 
 * create a route handler that accepts requests for <code>/</code>
-* in that route handler, the callback should use <code>Sound.find</code> to retrieve all sounds!
-* <code>find</code> takes a __query object__ (just a regular object) that specifies the criteria for what we're searching for using name/value pairs... for example {year: 2016} would be all sounds for sounds in 2016
-* if you leave the query object empty, it'll just give back all sounds
+* in that route handler, the callback should use <code>Review.find</code> to retrieve all reviews!
+* <code>find</code> takes a __query object__ (just a regular object) that specifies the criteria for what we're searching for using name/value pairs... for example {year: 2016} would be all reviews for courses in 2016
+* if you leave the query object empty, it'll just give back all reviews
 * the second argument for find is yet another callback... this time, it's the function that's executed when mongoose finishes finding stuff for you
 * find works like this:
 	<pre><code data-trim contenteditable>SomeModel.find({search: criteria}, function(err, varToStoreResult, count) {
@@ -225,26 +210,26 @@ You can now use <code>Sound.find</code> to retrieve all of the sounds in your da
 });
 </code></pre>
 * so, once you've retrieved stuff from the database, you'll probably want to render your template... so in your callback, call <code>res.render</code>, rendering whatever template you'd like to display your table
-* of sound, you'll have to pass in your find results so that you can iterate over them in your template
-* in your template, use standard <code>table</code> markup, with each row containing a sound
-* try opening your page in your browser to show a table of all sounds: `http://localhost:3000`
+* of course, you'll have to pass in your find results so that you can iterate over them in your template
+* in your template, use standard <code>table</code> markup, with each row containing a review
+* try opening your page in your browser to show a table of all reviews: `http://localhost:3000` 
 * finally, __add styles to your page and add some simple navigation that will appear on this page as well as any other page that you create__
 	* to add styles, place a css file in `public/css`
 	* use a `link` tag in `layout.hbs` to include it
 	* style at your discretion (design will not be taken into account for grading, only the technical aspect of including a stylesheet will be graded)
 	* additionally, add the following navigation links (these should appear on every page):
-		* all sounds (`/`)
-		* add a sound (`/sounds/add`)
-		* show only "my" sounds (`/sounds/mine`)
+		* all reviews (`/`)
+		* add a review (`/reviews/add`)
+		* show only "my" reviews (`/reviews/mine`)
 * once you've completed all of the steps above, you should have a page that looks like the image under the Example heading below
 	* again, your sites styling, and even copy (that is the text content) does not have to match exactly; it's your decision how to style and what to name your site
 	* the following elements are shown in the image below, but do not have to be implemented yet
 		* the filter form will be added in the section
 		* the number of session visits will be added later in the instructions
 
-### Example - All Sounds
+### Example - All Reviews
 
-<img src='../resources/img/hw05-sounds-01-all-sm.gif'>
+<img src='../resources/img/hw05-review-01-all-sm.gif'>
 
 <hr>
 
@@ -258,14 +243,14 @@ In this part of the assignment, you'll add a form to your page that allows you t
 
 You already know how to do most of this, but here's a rough sketch of some of the relevant tasks:
 
-* in the same page as your table of sounds, create a form that uses GET
-  * it should go to '/' when submitted
+* in the same page as your table of reviews, create a form that uses GET
+  * it should go to '/' when submitted 
   * note that we don't need `req.body` for this since the request should be a GET
   * also... why are we using GET instead of POST? because we're merely reading data... (pretty common convention for search / filter)
 * modify your request handler to try to get the value of query string parameters (<code>req.query.nameOfFormElement</code>)
   * for example, submitting your form may result in adding a ?foo=bar to the url
   * to access that name/value pair in the query string on the server side, <code>req.query.foo</code>
-* use the value passed in from the form (via GET and the query string) to filter the sounds by director name
+* use the value passed in from the form (via GET and the query string) to filter the reviews by director name
 * however, instead of passing in an empty query object, `{}`, to find, pass in an object with the appropriate keys and values based on form input
 	* the keys should match the property names defined in your schema
 	* multiple key / value pairs within the query object behave as if they were combined with `and`...
@@ -273,41 +258,41 @@ You already know how to do most of this, but here's a rough sketch of some of th
 	* [see the mongoose docs](http://mongoosejs.com/docs/api.html#find_find) and [mongodb docs](https://docs.mongodb.com/manual/reference/method/db.collection.find/) for more info on `find`
 * see the example below for a filter form in action!
 
-### Example - Filtering Sounds
+### Example - Filtering Reviews
 
-<img src='../resources/img/hw05-sounds-02-filter-sm.gif'>
+<img src='../resources/img/hw05-review-02-filter-sm.gif'>
 
 <hr>
 
-## Part 4 - Adding a Sound
+## Part 4 - Adding a Review
 
 ### Overview
 
-In this part of the assignment, you'll create another page that contains a form to add new sounds. The form will POST data... and then redirect back to <code>/</code>.
+In this part of the assignment, you'll create another page that contains a form to add new reviews. The form will POST data... and then redirect back to <code>/</code>.
 
 ### Details
 
 Again, you've already done something similar in a previous assignment (using an in-memory store), but here's a rough sketch of some of the relevant tasks:
 
 * make sure that the following steps from earlier in the instructions have been completed:
-	* check that a link to `/sounds/add` has been created in all of your pages
+	* check that a link to `/reviews/add` has been created in all of your pages 
 	* ...and that you are able to parse http POST request bodies so that `req.body` is available
-* create the appropriate route handlers that accepts requests for <code>/sounds/add</code>
-* you'll two route handlers for `/sounds/add`: one for showing the form and one form processing the form
+* create the appropriate route handlers that accepts requests for <code>/reviews/add</code>
+* you'll two route handlers for `/reviews/add`: one for showing the form and one form processing the form
     * GET will handle showing the form
         * create another template file
         * add a form to your template
     * POST will handle the form submission
-        * your request handler that deals with POSTs will create a new sound in the database... [check out the slides](../slides/14/mongo.html)
-		* when it's done, it should redirect back to the page that shows all of the sounds
+        * your request handler that deals with POSTs will create a new review in the database... [check out the slides](../slides/14/mongo.html) 
+		* when it's done, it should redirect back to the page that shows all of the reviews
 
-### Example - Adding a Sound
+### Example - Adding a Review
 
-<img src='../resources/img/hw05-sounds-03-add-sm.gif'>
+<img src='../resources/img/hw05-review-03-add-sm.gif'>
 
 <hr>
 
-## Part 5 - Pages Visited (by session)
+## Part 5 - Pages Visited (by session) 
 
 Now that we have basic adding and filtering done, it's time to add some session based features.  Check out the [the slides on `express-session` middleware](../slides/10/sessions.html#/17) before starting (they're near the end of the slides).
 
@@ -326,32 +311,32 @@ Once your familiar with `express-session`, find a way to keep a count of the tot
 });
 </code></pre>
 		* this property will be available in every template rendered (including `layout.hbs`)
-		* using the example above, regardless of what template you're in (again, including `layout.hbs`), you can use `user` and `authenticated` as template variables! 👍
+		* using the example above, regardless of what template you're in (again, including `layout.hbs`), you can use `user` and `authenticated` as template variables! 👍	
 	* you'll have to find some way of incrementing a counter variable that's session dependent (that is, different client sessions will have different visit counts) for every page visited, regardless of page / path
-	* once you've implemented this, try refreshing the page or flipping back-and-forth between viewing all sounds and adding a sound
+	* once you've implemented this, try refreshing the page or flipping back-and-forth between viewing all reviews and adding a review
 	* you should see the counter increment similar to the animation shown in the example section below
 
 ### Example - Keeping Track of Number of Pages Visited During Session
 
-<img src='../resources/img/hw05-sounds-05-visit-sm.gif'>
+<img src='../resources/img/hw05-review-05-visit-sm.gif'>
 
 <hr>
 
-## Part 6 - Sound Reports Added (by session)
+## Part 6 - Movies Added (by session) 
 
-Finally, create one last page (which makes 3 total), `/sounds/mine`,  showing all of the sounds that have been added by the user during their session.
+Finally, create one last page (which makes 3 total), `/reviews/mine`,  showing all of the reviews that have been added by the user during their session.
 
 * you must use the `express-session` middleware to do this ([see the relevant slides](../slides/10/sessions.html#/17))
 * there are a few ways to implement this:
-	* storing sound objects directly in the session (as well as in the database)
-	* or (more complicated) modify your schema / model so that you can store the session id of the session that created a sound
+	* storing review objects directly in the session (as well as in the database)
+	* or (more complicated) modify your schema / model so that you can store the session id of the session that created a review
 		* `req.session.id` will contain the id for that particular session
-* make sure you link to `/sounds/mine` from both of the existing pages so that the graders can see that you've implemented this feature
-* the example below assumes that the last report was entered during the user's session... so it shows up under the 'My Sounds' page
+* make sure you link to `/reviews/mine` from both of the existing pages so that the graders can see that you've implemented this feature
+* the example below assumes that the last class was entered during the user's session... so it shows up under the 'My Reviews' page
 
-### Example - Show The Sound Reports Added for the Session
+### Example - Show The Movies Added for the Session
 
-<img src='../resources/img/hw05-sounds-04-session-sm.gif'>
+<img src='../resources/img/hw05-review-04-session-sm.gif'>
 
 </div>
 
