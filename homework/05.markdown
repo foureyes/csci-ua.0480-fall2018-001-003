@@ -7,7 +7,7 @@ title: CSCI-UA.0480 - Homework #5
 	<div class="panel-heading">Homework #5</div>
 	<div class="panel-body" markdown="block">
 
-# What Was That Sound? (Sessions and Storing Data) - __Thursday, March 22nd, by 11PM__
+# What Was That Sound? (Sessions and Storing Data) - __Friday, Nov 2nd, by 11PM__
 
 ## Overview
 
@@ -15,17 +15,17 @@ title: CSCI-UA.0480 - Homework #5
 
 This assignment will cover storing and retrieving data in a database and in an in-memory session store. You will:
 
-* use the commandline mongodb client to create a database, collection and several documents
+* use the commandline mongodb client to create a database, collection, and several documents
 * use mongoose to read and write data to and from mongodb from an express application
 * use pre-built session middleware to read and write data to and from an in-memory session store on a per session basis
 
 ### Description
 
-You'll be creating a site where users can anonymously post reports of weird sounds they heard. By the end of this project... you should be familiar with:
+You'll be creating a site where users can post reports of weird sounds they heard. By the end of this project... you should be familiar with:
 
 * writing middleware
 * some basic read and write operations with mongodb...
-* integrating mongodb with an Express web application using Mongoose (See the [example interaction at the end of this page](#examples)).
+* integrating mongodb with an Express web application using Mongoose 
 
 You'll create a single express application with the following directory layout (when you're done with all of the directions, the folder hierarchy should match the look the same as the one listed below): 📁
 
@@ -76,10 +76,10 @@ You will be given access to a private repository on GitHub.
 
 * to install MongoDB, use a package manager like apt on Linux or homebrew on MacOS (`brew install mongodb`)...  or follow the [install instructions for your operating system on MongoDB's site](http://docs.mongodb.org/manual/installation/)
 * by default, MongoDB does not require a username/password to connect 😮
-	* if you'd like to add authentication [you can follow this guide](https://docs.mongodb.com/manual/tutorial/enable-authentication/) (optional, but recommended)
+	* if you'd like to add authentication [you can follow this guide](https://docs.mongodb.com/manual/tutorial/enable-authentication/) (it's a little bit of work to make it so that your app works with authentication on your environment, but without authentication on the grader's environment)
 	* if you add authentication, make sure to:
-		* (ideal) use environment variables / `process.env` to set the username and password (but default to no credentials if environment variable(s) are not set)
-		* (also ideal) read the username and password from a configuration file, but don't put the configration file under version control
+		* (ideal) use environment variables (`process.env`) to set the username and password (but default to no credentials if environment variable(s) are not set)
+		* (also ideal) read the username and password from a configuration file, but don't put the configration file under version control (and perhaps read a different file based on an environment variable in `process.env`)
 		* (not great, but easy) commit and push the version with no credentials, and keep the version with credentials locally ... remembering to never commit and push that particular file
 * in order for you to connect to your database to work with data, your database server must be running
 	* for some installations, MongoDB will start when your computer starts
@@ -239,7 +239,7 @@ You can now use <code>Sound.find</code> to retrieve all of the sounds in your da
 * once you've completed all of the steps above, you should have a page that looks like the image under the Example heading below
 	* again, your sites styling, and even copy (that is the text content) does not have to match exactly; it's your decision how to style and what to name your site
 	* the following elements are shown in the image below, but do not have to be implemented yet
-		* the filter form will be added in the section
+		* the filter form will be added in the next section
 		* the number of session visits will be added later in the instructions
 
 ### Example - All Sounds
