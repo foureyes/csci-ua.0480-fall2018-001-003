@@ -358,9 +358,9 @@ Mongoose
 * [Embedded Documents - Sub Docs](http://mongoosejs.com/docs/subdocs.html) 
 * [Document References - Mongoose Population](http://mongoosejs.com/docs/populate.html) 
 ",Quizzes To Be Posted on NYU Classes for After Midterm,
-y,,13,18-Oct,Thu,"* About the Exam, Review",,,,
-y,exam,14,23-Oct,Tue,EXAM #1 (Midterm Exam),,,,
-y,,15,25-Oct,Thu,"* Authentication
+,,13,18-Oct,Thu,"* About the Exam, Review",,,,
+,exam,14,23-Oct,Tue,EXAM #1 (Midterm Exam),,,,
+,,15,25-Oct,Thu,"* Authentication
  * Authentication Library
 * Deployment
 
@@ -370,7 +370,7 @@ y,,15,25-Oct,Thu,"* Authentication
     * __new__ OAuth
     * __new__ JWT
 
--->"," Snow Day - Here's What we Should Have Covered:
+-->","
 
 * Continue with Mongoose
 * [Authentication](slides/16/auth.html)

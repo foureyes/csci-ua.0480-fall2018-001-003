@@ -146,8 +146,8 @@ npm install --save mongoose mongoose-url-slugs
 Require and connect...
 
 <pre><code data-trim contenteditable>
-var mongoose = require('mongoose'),
-	URLSlugs = require('mongoose-url-slugs');
+const mongoose = require('mongoose');
+const URLSlugs = require('mongoose-url-slugs');
 
 // more stuff goes here
 
@@ -177,12 +177,12 @@ Schemas represent collections (tables). Notice the different ways of specifying 
 
 
 <pre><code data-trim contenteditable>
-var Topping = new mongoose.Schema({
+const Topping = new mongoose.Schema({
 	name: String,
 	extra: {type: Boolean, default:false}
 });
 
-var Pizza = new mongoose.Schema({
+const Pizza = new mongoose.Schema({
 	size: {type: String, enum: ['small', 'medium', 'large']},
 	crust: String,
 	toppings: [Topping]
@@ -216,7 +216,7 @@ Pizza = mongoose.model('Pizza');
 ## Creating and Saving
 
 <pre><code data-trim contenteditable>
-var pizza1 = new Pizza({
+const pizza1 = new Pizza({
 	size: 'small',
 	crust: 'thin'
 });
@@ -303,7 +303,7 @@ Notice that when we update an embedded document, before we save the parent, we h
 
 <pre><code data-trim contenteditable>
 Pizza.findOne({slug:'small-2'}, function(err, pizza, count) {
-	for (var i = 0; i < pizza.toppings.length; i++) {
+	for (let i = 0; i < pizza.toppings.length; i++) {
 		pizza.toppings[i].extra = true;
 	}
 	pizza.markModified('toppings');
