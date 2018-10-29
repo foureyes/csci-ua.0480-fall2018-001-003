@@ -125,6 +125,7 @@ You will be given access to a private repository on GitHub.
 
 Start your usual express app by:
 
+* create a `.gitignore` to make sure your `node_modules` folder doesn't get into your repository
 * copying over an eslint configuration, `.eslintrc.json`, from a previous assignment
 * creating a `package.json` file with `npm init`
 * installing the appropriate modules and saving them to `package.json` using <code>--save</code> (this should have already been done from the previous parts)  in the root directory of your project
