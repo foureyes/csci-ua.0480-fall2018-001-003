@@ -7,7 +7,7 @@ title: CSCI-UA.0480 - Homework #5
 	<div class="panel-heading">Homework #5</div>
 	<div class="panel-body" markdown="block">
 
-# What Was That Sound? (Sessions and Storing Data) - __Friday, Nov 2nd, by 11PM__
+# What Was That Sound? (Sessions and Storing Data) - __Monday, Nov 5th, by 11PM__
 
 ## Overview
 
