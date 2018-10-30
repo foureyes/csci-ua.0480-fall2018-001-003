@@ -32,7 +32,7 @@ pre {
 	<div class="panel-heading">Final Project</div>
 	<div class="panel-body" markdown="block">
 
-# Final Project, Due __FRI, April 27th at 11pm__
+# Final Project, Due __Final Milestone Due Date TBD 11pm__
 
 
 ## Overview 
@@ -149,7 +149,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 
 <a name="proposal"></a>
 
-###  __4/4 at 11PM__ - Milestone 1 - Requirements / Specifications, Draft Data Model, Skeleton Application (20 points)
+###  __Tentatively 11/6 at 11PM__ - Milestone 1 - Requirements / Specifications, Draft Data Model, Skeleton Application (20 points)
 
 [Check out sample documentation](https://github.com/nyu-csci-ua-0480-008-spring-2017/final-project-example)
 
@@ -197,8 +197,9 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 {% endcomment %}
 
-### __4/12 at 11pm__ - Milestone 2 - Initial Deployment and First Form (20 points)
+### __TBD at 11pm__ - Milestone 2 - Initial Deployment and First Form (20 points)
 
+{% comment %}
 1. attempt to deploy your code to Courant's _compute_ and assignment servers by following [instructions](homework/deploy.html)
 2. <span class="warning">use [this form to submit your deployed site](https://docs.google.com/forms/d/e/1FAIpQLSfcpmZ6umoks5GbWz91SJeMmqCwrHAuBT48a5oiecQTkM5y9g/viewform)</span>
 3. your submission won't be graded unless the form above is sent with urls to your deployed site
@@ -217,10 +218,12 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 <br>
 
+{% endcomment %}
 
-### __4/20 at 11pm__ - Milestone 3 - 2nd Form and More Progress on Research (20 points)
+### __TBD at 11pm__ - Milestone 3 - 2nd Form and More Progress on Research (20 points)
 
 
+{% comment %}
 1. make at least 3 additional commits to add:
     * your 2nd form / ajax interaction
     * make more progress on your research topics
@@ -243,9 +246,11 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 <br>
 <br>
+{% endcomment %}
 
-### __4/27 11PM__ - Final Project Complete and Code is fully  _Deployed_  
+### __TBD 11PM__ - Final Project Complete and Code is fully  _Deployed_  
 
+{% comment %}
 * __all commits must be in by Friday, April 27th__ 
 * __project must be deployed__ on cims servers (or other platform, such as Heroku, gomix, zeit, etc.)     
 	* if your application needs to be restarted while being graded; I will contact you     
@@ -262,8 +267,8 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 
 <a name="suggestions">
+{% endcomment %}
 
-{% comment %}
 ## Potential Projects
 
 * A project portfolio site
@@ -273,7 +278,6 @@ Choose at least __8 points__ worth of these following topics (research and imple
 	* or a Battleship clone
 	* or a platformer
 * Or... whatever you can come up with!
-{% endcomment %}
 </div>
 </div>
 </div> 

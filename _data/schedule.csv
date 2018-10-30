@@ -390,11 +390,9 @@ Password Hashing
 ","__Due Monday 11/5 at 11pm:__
 
 * [Homework #5](homework/05.html)",
-y,,16,30-Oct,Tue,"* HTML Primer, JavaScript and the Browser
+,,16,30-Oct,Tue,"* HTML Primer, JavaScript and the Browser
 * The Document Object Model
-* Manipulating Elements","See previous class for snow day material
-
-* [HTML Primer, JavaScript and the Browser](slides/17/javascript-browser.html)
+* Manipulating Elements","* [HTML Primer, JavaScript and the Browser](slides/17/javascript-browser.html)
 * [The Document Object Model](slides/17/dom.html)
 * [DOM Continued sample markup](code/dom-continued.html)
 * [Attributes](slides/17/attributes.html)
@@ -406,10 +404,12 @@ y,,16,30-Oct,Tue,"* HTML Primer, JavaScript and the Browser
 ","* {{ site.book_js_5 }} - Chapter 12 - JavaScript and the Browser
 * {{ site.book_js_5 }} - Chapter 13 - The Document Object Model
 * [HTML and CSS from shayhowe.com](http://learn.shayhowe.com/html-css/getting-to-know-html/)
-","__Due Wednesday 4/4 at 11pm:__
+","<!--
+__Due Wednesday 4/4 at 11pm:__
 
-* [Homework #6](homework/06.html)",
-y,,17,1-Nov,Thu,"* CSS
+* [Homework #6](homework/06.html)
+-->",
+,,17,1-Nov,Thu,"* CSS
 
 <!--
 * Flexbox
@@ -422,9 +422,10 @@ y,,17,1-Nov,Thu,"* CSS
 * [Selectors, JS and CSS](slides/19/js-css.html)
 * [Events](slides/19/events.html)
 ","(readings same as previous class)
-","__Due Wednesday 4/4 at 11pm:__
+","<!--__Due Wednesday 4/4 at 11pm:__
 
-*  [Final Project Miletsone #01](final-project.html#milestone01)",
+*  [Final Project Miletsone #01](final-project.html#milestone01)
+-->",
 y,,18,6-Nov,Tue,"* CSS Continued
 * Events / Timers Continued
 * AJAX
