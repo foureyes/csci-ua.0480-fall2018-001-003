@@ -158,7 +158,83 @@ And, finally, add the code that connects to the database. We'll connect to the l
 <pre><code data-trim contenteditable>mongoose.connect('mongodb://localhost/hw05');
 </code></pre>
 
+ __If you get deprecation warnings, [check out these slides](slides/14/mongoose.html#/8)__ 
+
 Or... with authentication
+
+### Optionally Add Authentication
+
+Enabling authentication in mongodb requires:
+
+1. that authentication is required in certain environments (for example, your laptop or a production environment)
+2. authentication is not required in other environments (for example, for the grader)
+3. any authentication configuration is __not contained in the repository__
+
+This requires performing the following steps:
+
+1. [enable authentication for mongodb](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
+2. conditionally include a file that contains credentials
+
+The connection string placed into `mongoose.connect` will either be the same as shown earlier, or with authentication:
+
+<pre><code data-trim contenteditable>mongodb://USERNAME:PASSWORD@localhost/hw05
+</code></pre>
+
+Where:
+
+* `USERNAME` - is the username you used for logging it to the server
+* `PASSWORD` - is the password for __mongodb__ that you created from Part 3.
+
+
+You should not put these credentials directly into your `db.js` file, and they should not be in a file in version control (you may inadvertently disclose these credentials if your repository becomes public). One way to deal with this issue is to put your credentials in an external file that is conditionally read:
+
+1. add a conditional to your database configuration code that...
+2. checks if an environment variable named `NODE_ENV` is set to `DEV`
+    * [read the excellent digital ocean summary regarding environment variables](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-a-linux-vps)
+    * use [process.env.NAME_OF_VARIABLE] to access environment variables through node
+3. if the above is true, then read a file synchronously (blocking) by using [fs.readFileSync](https://nodejs.org/api/fs.html#fs_fs_readfilesync_file_options)
+4. the file that is read in will be a `json` file that's not in version control... that contains the database connection string for your application when deployed on the server
+
+(Note that this is a simple way of managing configuration, consider using a configuration management library, like [node-convict](https://github.com/mozilla/node-convict) for your professional projects)
+
+__To add an external configuration file, follow these steps__ &rarr;
+
+1. add `config.json` to your `.gitignore` so that your credentials don't inadvertently get committed
+2. in `db.js` add the following code before `mongoose.connect`:
+    <pre><code data-trim contenteditable>// is the environment variable, NODE_ENV, set to DEV? 
+let dbconf;
+if (process.env.NODE_ENV === 'DEV') {
+    // if we're in DEV mode, then read the configration from a file
+    // use blocking file io to do this...
+    const fs = require('fs');
+    const path = require('path');
+    const fn = path.join(__dirname, 'config.json');
+    const data = fs.readFileSync(fn);
+
+    // our configuration file will be in json, so parse it and set the
+    // conenction string appropriately!
+    const conf = JSON.parse(data);
+    dbconf = conf.dbconf;
+} else {
+    // if we're not in DEV mode (the graders are testing your work), then use
+    dbconf = 'mongodb://localhost/hw05';
+}
+</code></pre>
+3. when you use `mongoose.connect`, pass in the variable, `dbconf`, as the argument instead of a hardcoded string
+    * `mongoose.connect(dbconf);`
+4. you can test that everything works by:
+    * try running your application __locally__ (on your own computer) without any environment variables (just use `node app.js` or `./bin/www`)
+		* and note that your connection _should_ fail due to bad credentials (if you've configured mongodb with authenticaiton)
+    * then... create a `config.json` with a single json object in it:
+        * the key int the object should be `"dbconf"` (remember that json keys are double quoted)
+        * the value should be `"mongodb://username:password@localhost/hw05"`
+        * `{"dbconf":"mongodb://username:password@localhost/hw05"}
+    * then, run your application again, this time forcing your app to use the config file
+        * `NODE_ENV=DEV node app.js` or `NODE_ENV=DEV ./bin/www`
+    * __DO NOT COMMIT__ `config.json` (in fact, it should be in your `.gitignore` as the previous instructions specify)
+    * (you'll create a `config.json` on the server)
+
+Note, another method for using authentication is to pass in an object with options as the second argument (again, these options should be brought in from a config file)::
 
 <pre><code data-trim contenteditable>
 mongoose.connect(
