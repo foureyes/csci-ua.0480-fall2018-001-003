@@ -32,7 +32,9 @@ pre {
 	<div class="panel-heading">Final Project</div>
 	<div class="panel-body" markdown="block">
 
-# Final Project, Due __Final Milestone Due Date TBD 11pm__
+# Final Project, Due __Final Milestone (Due Date TBD)__
+
+(earlier milestones due throughout November and December)
 
 
 ## Overview 
@@ -197,7 +199,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 {% endcomment %}
 
-### __TBD at 11pm__ - Milestone 2 - Initial Deployment and First Form (20 points)
+### __Due Date TBD at 11pm__ - Milestone 2 - Initial Deployment and First Form (20 points)
 
 {% comment %}
 1. attempt to deploy your code to Courant's _compute_ and assignment servers by following [instructions](homework/deploy.html)
@@ -220,7 +222,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 
 {% endcomment %}
 
-### __TBD at 11pm__ - Milestone 3 - 2nd Form and More Progress on Research (20 points)
+### __Due Date TBD at 11pm__ - Milestone 3 - 2nd Form and More Progress on Research (20 points)
 
 
 {% comment %}
@@ -248,7 +250,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 {% endcomment %}
 
-### __TBD 11PM__ - Final Project Complete and Code is fully  _Deployed_  
+### __Due Date TBD at 11PM__ - Final Project Complete and Code is fully  _Deployed_  
 
 {% comment %}
 * __all commits must be in by Friday, April 27th__ 
