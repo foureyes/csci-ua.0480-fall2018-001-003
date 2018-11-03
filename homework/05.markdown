@@ -158,7 +158,7 @@ And, finally, add the code that connects to the database. We'll connect to the l
 <pre><code data-trim contenteditable>mongoose.connect('mongodb://localhost/hw05');
 </code></pre>
 
- __If you get deprecation warnings, [check out these slides](slides/14/mongoose.html#/8)__ 
+ __If you get deprecation warnings, [check out these slides](../slides/14/mongoose.html#/8)__ 
 
 Or... with authentication
 
