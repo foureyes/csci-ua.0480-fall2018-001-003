@@ -32,7 +32,7 @@ pre {
 	<div class="panel-heading">Final Project</div>
 	<div class="panel-body" markdown="block">
 
-# Final Project, Due __Final Milestone (Due Date TBD)__
+# Final Project, Due __Final Milestone (Due Date 11/30)__
 
 (earlier milestones due throughout November and December)
 
