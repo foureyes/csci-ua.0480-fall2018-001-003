@@ -151,7 +151,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 
 <a name="proposal"></a>
 
-###  __Due 11/6 at 11PM__ - Milestone 1 - Requirements / Specifications, Draft Data Model, Skeleton Application (20 points)
+###  __Due 11/7 at 11PM__ - Milestone 1 - Requirements / Specifications, Draft Data Model, Skeleton Application (20 points)
 
 [Check out sample documentation](https://github.com/nyu-csci-ua-0480-008-spring-2017/final-project-example)
 
@@ -199,7 +199,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 {% endcomment %}
 
-### __Due Date TBD at 11pm__ - Milestone 2 - Initial Deployment and First Form (20 points)
+### __Due Date 11/16 at 11pm__ - Milestone 2 - Initial Deployment and First Form (20 points)
 
 {% comment %}
 1. attempt to deploy your code to Courant's _compute_ and assignment servers by following [instructions](homework/deploy.html)
@@ -222,7 +222,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 
 {% endcomment %}
 
-### __Due Date TBD at 11pm__ - Milestone 3 - 2nd Form and More Progress on Research (20 points)
+### __Due Date 11/23 at 11pm__ - Milestone 3 - 2nd Form and More Progress on Research (20 points)
 
 
 {% comment %}
@@ -250,7 +250,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 {% endcomment %}
 
-### __Due Date TBD at 11PM__ - Final Project Complete and Code is fully  _Deployed_  
+### __Due Date 11/30 at 11PM__ - Final Project Complete and Code is fully  _Deployed_  
 
 {% comment %}
 * __all commits must be in by Friday, April 27th__ 

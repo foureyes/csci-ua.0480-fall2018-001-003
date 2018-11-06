@@ -12,7 +12,7 @@ title: CSCI-UA.0480 - Homework #6
 	<div class="panel-heading">Homework #6</div>
 	<div class="panel-body" markdown="block">
 
-# Authentication and Mongoose Models - __Due Wednesday, April 4th, by 11PM__
+# Authentication and Mongoose Models - __Due Monday, Nov 12th, by 11PM__
 
 ## Overview
 

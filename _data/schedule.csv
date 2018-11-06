@@ -404,11 +404,7 @@ Password Hashing
 ","* {{ site.book_js_5 }} - Chapter 12 - JavaScript and the Browser
 * {{ site.book_js_5 }} - Chapter 13 - The Document Object Model
 * [HTML and CSS from shayhowe.com](http://learn.shayhowe.com/html-css/getting-to-know-html/)
-","<!--
-__Due Wednesday 4/4 at 11pm:__
-
-* [Homework #6](homework/06.html)
--->",
+",,
 ,,17,1-Nov,Thu,"* CSS
 
 <!--
@@ -422,16 +418,17 @@ __Due Wednesday 4/4 at 11pm:__
 * [Selectors, JS and CSS](slides/19/js-css.html)
 * [Events](slides/19/events.html)
 ","(readings same as previous class)
-","<!--__Due Wednesday 4/4 at 11pm:__
+","__Due Wednesday 11/7 at 11pm:__
 
-*  [Final Project Miletsone #01](final-project.html#milestone01)
--->",
-y,,18,6-Nov,Tue,"* CSS Continued
+*  [Final Project Miletsone #01](final-project.html#milestone01)",
+,,18,6-Nov,Tue,"* CSS Continued
 * Events / Timers Continued
 * AJAX
 * APIs","* See Previous Slides for CSS, Events
 * [Ajax Part 1](slides/20/ajax.html)
-",* {{ site.book_js_5 }} - Chapter 17 - HTML (Focus on the section on XMLHttpRequest),,
+",* {{ site.book_js_5 }} - Chapter 17 - HTML (Focus on the section on XMLHttpRequest),"__Due Monday 11/12 at 11pm:__
+
+* [Homework #6](homework/06.html)",
 y,,19,8-Nov,Thu,"* AJAX Continued
 * Promises
 * Fetch API","* [Ajax Part 1](slides/20/ajax.html) (from previous class)
