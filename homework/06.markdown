@@ -12,7 +12,7 @@ title: CSCI-UA.0480 - Homework #6
 	<div class="panel-heading">Homework #6</div>
 	<div class="panel-body" markdown="block">
 
-# Authentication and Mongoose Models - __Due Monday, Nov 12th, by 11PM__
+# Authentication and Mongoose Models - __Due Tuesday, Nov 13th, by 11PM__
 
 ## Overview
 
@@ -76,7 +76,6 @@ Here's what it looks like to login, add a new article, and view the link and det
 You will be given access to a private repository on GitHub. The repository will have a partially built Express application. The final version of your assignment should be in GitHub:
 
 * __Push__ your changes to the homework repository on GitHub.
-* Add the URL of the repository to your assignment submission in NYU Classes.
 
 ### Make at Least 4 Commits
 

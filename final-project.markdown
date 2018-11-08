@@ -34,7 +34,9 @@ pre {
 
 # Final Project, Due __Final Milestone (Due Date 11/30)__
 
-(earlier milestones due throughout November and December)
+Earlier milestones due throughout November and December.
+
+<span class="warning">Note: Number of milestones were reduced from 4 to 3 due to scheduling around Thanksgiving break.</span>
 
 
 ## Overview 
@@ -52,11 +54,11 @@ Create a __small__ web application using Express and MongoDB. Build the applicat
 
 ### Grading Rubric
 
-__Completing the milestones leading up to the due date is required!__ Milestones 1 - 3 are worth over half of your final project grade.
+__Completing the milestones leading up to the due date is required!__ Milestones <s>1 through 3</s> 1 and 2 are worth over half of your final project grade.
 
-* (20 points) Milestone #1 - requirements, draft data model, and a skeleton application
-* (20 points) Milestone #2 - deployment attempt and a single working form (__You cannot change _your idea_ for your final project after this__, but you can still make minor modifications)
-* (20 points) Milestone #3 - two working forms and proof of work on research topics
+* (<s>20</s> 30 points) Milestone #1 - requirements, draft data model, and a skeleton application
+* (<s>20</s> 30 points) Milestone #2 - deployment attempt and a single working form (__You cannot change _your idea_ for your final project after this__, but you can still make minor modifications)
+* <s>(20 points) Milestone #3 - two working forms and proof of work on research topics</s>
 * (40 points total) Completed project
     * (12 points) minimum 3 x forms or ajax interactions (__excluding login__)
     * (6 points) minimum 3 x any of the following (can be the same): 
@@ -151,7 +153,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 
 <a name="proposal"></a>
 
-###  __Due 11/7 at 11PM__ - Milestone 1 - Requirements / Specifications, Draft Data Model, Skeleton Application (20 points)
+###  __Due 11/7 at 11PM__ - Milestone 1 - Requirements / Specifications, Draft Data Model, Skeleton Application (<s>20</s> 30 points)
 
 [Check out sample documentation](https://github.com/nyu-csci-ua-0480-008-spring-2017/final-project-example)
 
@@ -199,9 +201,8 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 {% endcomment %}
 
-### __Due Date 11/16 at 11pm__ - Milestone 2 - Initial Deployment and First Form (20 points)
+### __Due Date 11/19 at 11pm__ - Milestone 2 - Initial Deployment and First Form (<s>20</s> 30 points)
 
-{% comment %}
 1. attempt to deploy your code to Courant's _compute_ and assignment servers by following [instructions](homework/deploy.html)
 2. <span class="warning">use [this form to submit your deployed site](https://docs.google.com/forms/d/e/1FAIpQLSfcpmZ6umoks5GbWz91SJeMmqCwrHAuBT48a5oiecQTkM5y9g/viewform)</span>
 3. your submission won't be graded unless the form above is sent with urls to your deployed site
@@ -220,9 +221,8 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 <br>
 
-{% endcomment %}
 
-### __Due Date 11/23 at 11pm__ - Milestone 3 - 2nd Form and More Progress on Research (20 points)
+### <s>__Due Date 11/23 at 11pm__ - Milestone 3 - 2nd Form and More Progress on Research (20 points)</s>
 
 
 {% comment %}
