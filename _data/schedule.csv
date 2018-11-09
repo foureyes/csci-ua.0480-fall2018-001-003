@@ -429,15 +429,20 @@ Password Hashing
 ",* {{ site.book_js_5 }} - Chapter 17 - HTML (Focus on the section on XMLHttpRequest),"__Due Tuesday 11/13 at 11pm:__
 
 * [Homework #6](homework/06.html)",
-y,,19,8-Nov,Thu,"* AJAX Continued
+,,19,8-Nov,Thu,"* AJAX Continued
 * Promises
 * Fetch API","* [Ajax Part 1](slides/20/ajax.html) (from previous class)
 * [Ajax Part 2](slides/21/ajax-express.html)
 * [Promises](slides/21/promises.html)
-",,"__Due <s>Wednesday 4/11</s> Thursday 4/12 at 11pm:__
+",,"<!--
+__Due <s>Wednesday 4/11</s> Thursday 4/12 at 11pm:__
 
 * [Homework #7](homework/07.html) 
-* [Final Project Miletsone #02](final-project.html#milestone02)",m1 due
+-->
+
+__Due Tuesday 11/16 at 11pm:__
+
+* [Final Project Miletsone #02](final-project.html#milestone2)",m1 due
 y,,20,13-Nov,Tue,"* AJAX Review
 * Promises Review
 * async / await",See previous slides,,,
