@@ -193,13 +193,11 @@ Choose at least __8 points__ worth of these following topics (research and imple
 
 <div id="final" markdown="block">
 
-{% comment %}
-<a name="milestone2">
+<a id="milestone2" name="milestone2">
 
 <br>
 <br>
 <br>
-{% endcomment %}
 
 ### __Due Date 11/19 at 11pm__ - Milestone 2 - Initial Deployment and First Form (<s>20</s> 30 points)
 
