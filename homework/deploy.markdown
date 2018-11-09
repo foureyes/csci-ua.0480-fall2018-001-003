@@ -110,7 +110,8 @@ mkdir ~/opt</code></pre>
     * consequently, you'll have to install the most current version of node
     * you can do this by installing and using a tool called [node version manager, or nvm](https://github.com/creationix/nvm)
     * to install:
-        * `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash`
+        * `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+`
     * to get the latest version of node
         * `. ~/.nvm/nvm.sh`
         * `nvm install node`
@@ -201,8 +202,7 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
     * __DO NOT COMMIT__ `config.json` (in fact, it should be in your `.gitignore` as the previous instructions specify)
     * (you'll create a `config.json` on the server)
 5. Finally, because you'll want to use a custom port number, <span class="warning">you'll have to modify your app.listen call so that it uses an environment variable</span>
-    * if you're using express generator, then this is already done for you
-    * otherwise, change your call to `app.listen` so that it checks for an environment variable, `PORT`, first... otherwise, default to 300
+    * change your call to `app.listen` so that it checks for an environment variable, `PORT`, first... otherwise, default to 300
     * `app.listen(process.env.PORT || 3000);`
 5. commit and push your code
 
@@ -261,12 +261,13 @@ Again, <span class="warning">make sure you're logged in to you remote server (li
 4. Save it by <code>CONTROL+O</code> to _write out_ the file. Press <code>RETURN/ENTER</code> to accept the file name.
 5. Quit <code>nano</code> by <code>CONTROL+X</code>
 6. Test your application. Substitute <code>APP_PORT_NUMBER</code> with the port number you retrieved from Part 1 and add the environment variable, `NODE_ENV`.
-  * Run <code>bin/www</code> or... if you didn't use express generator, use <code>node app.js</code>. __Don't use nodemon to run it.__
+  * Use <code>node app.js</code>. __Don't use nodemon to run it.__
     <br>
-        <pre><code>PORT=APP_PORT_NUMBER NODE_ENV=PRODUCTION bin/www</code></pre>
+        <pre><code>PORT=APP_PORT_NUMBER NODE_ENV=PRODUCTION node app.js</code></pre>
   * If it starts up fine, try connecting to it from your browser: 
         <br>
     <pre><code>http://server_name:APP_PORT_NUMBER/</code></pre>
+  * So something like: `http://linserv1.cims.nyu.edu:NNNNN` where `NNNNN` is your port number
 6. Troubleshooting:
   * If you see the following error 
         <br>
