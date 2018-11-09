@@ -201,10 +201,11 @@ Choose at least __8 points__ worth of these following topics (research and imple
 
 ### __Due Date 11/19 at 11pm__ - Milestone 2 - Initial Deployment and First Form (<s>20</s> 30 points)
 
-1. attempt to deploy your code to Courant's _compute_ and assignment servers by following [instructions](homework/deploy.html)
-2. <span class="warning">use [this form to submit your deployed site](https://docs.google.com/forms/d/e/1FAIpQLSezswWaLIKQgk96gifpZu1KFykNGIULChR7qlKO7PwAbQE49w/viewform)</span>
-3. your submission won't be graded unless the form above is sent with urls to your deployed site
-4. your deployed site should contain the following progress:
+1. your server and port name can be accessed through a link in a piazza post for milestone #2
+2. attempt to deploy your code to Courant's servers by following [instructions](homework/deploy.html)
+3. <span class="warning">use [this form to submit your deployed site](https://docs.google.com/forms/d/e/1FAIpQLSezswWaLIKQgk96gifpZu1KFykNGIULChR7qlKO7PwAbQE49w/viewform)</span>
+4. your submission won't be graded unless the form above is sent with urls to your deployed site
+5. your deployed site should contain the following progress:
     * __one working form (that is not login or registration)__ 
         * ...that should allow data to be modified or deleted
         * the results of submitting this form should be apparent/viewable
