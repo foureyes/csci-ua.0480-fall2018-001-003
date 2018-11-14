@@ -7,9 +7,8 @@ title: CSCI-UA.0480 - Homework #7
 	<div class="panel-heading">Homework #7</div>
 	<div class="panel-body" markdown="block">
 
-# Threes Dice Game (Client Side JavaScript)- <strike>Due Tuesday, November 17th, by 11PM</strike>
+# Threes Dice Game (Client Side JavaScript) - __Due <s>Wednesday, April 11th</s> Thursday, April 12th, by 11PM__
 
-# Extended: __Tuesday, November 17th, by 11PM__
 
 ## Overview
 
@@ -39,7 +38,7 @@ Threes is a dice game where the goal is to get the lowest score (with each die f
 
 You will be making an online version of this game where all of the game logic is client side JavaScript. Here's an example of what your game may look like:
 
-![Demo](../resources/img/hw07b-01-win.gif)
+<img src="../resources/img/hw07b-01-win.gif">
  
 ### Submission Process
 
@@ -47,7 +46,7 @@ You will be given access to a private repository on GitHub.  The final version o
 
 * __Push__ your changes to the homework repository on GitHub.
 
-### (4 points) Make at Least 4 Commits
+### Make at Least 4 Commits
 
 * Commit multiple times throughout your development process.
 * Make at least 4 separate commits
@@ -56,13 +55,14 @@ You will be given access to a private repository on GitHub.  The final version o
 
 ### __Required Features__
 
-(6 points) __Use the following markup__
+__Use the following markup__
 
-1. You don't _really_ need an Express application to do this homework, but start with one anyway, in case you decide to do the extra credit...
-2. Start a new express project with express generator or create a project that uses express-static.
-3. (there's no need to create any route handlers for this homework, you can do the whole thing with static files)
-4. In your public folder, create an <code>index.html</code> file.
-5. Add the following code to your <code>index.html</code>:
+1. Start a new express project that uses express-static.
+	* the root directory should contain `package.json`, your eslint config, `.gitignore`, etc.
+	* the `src` directory should contain `app.js` (serving on 3000), `public`, etc.
+2. (there's no need to create any route handlers for this homework, you can do the whole thing with static files)
+3. In your public folder, create an <code>index.html</code> file.
+4. Add the following code to your <code>index.html</code>:
     <pre><code data-trim contenteditable>&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -93,11 +93,11 @@ You will be given access to a private repository on GitHub.  The final version o
 &lt;/head&gt;
 &lt;/html&gt;
 </code></pre>
-4. __You are not allowed to use any additional markup__; you must generate any additional elements you'll need with JavaScript 
-5. All of your JavaScript should go in your external JavaScript file.
-6. ... and, of course, all of your CSS should go in your external CSS file. 
+5. __You are not allowed to use any additional markup__; you must generate any additional elements you'll need with JavaScript 
+6. All of your JavaScript should go in your external JavaScript file.
+7. ... and, of course, all of your CSS should go in your external CSS file. 
 
-(3 points) __Only show title screen and form on page load__
+__Only show title screen and form on page load__
 
 * Only show the content in the div with id <code>intro</code>
     * Make sure the overlay div and the game div are not displayed
@@ -107,10 +107,10 @@ You will be given access to a private repository on GitHub.  The final version o
 * If the user clicks on the button, then start the game (see next requirement for instructions)
 * Here's what the interaction should look like (you won't have any real content on the _next_ page yet, though):
     <br>
-    ![title](../resources/img/hw07b-00-start.gif)
+    <img src="../resources/img/hw07b-00-start.gif">
     <br>
 
-(8 points) __Pressing "Go" reveals the game screen and sets predefined dice roll results__
+__Pressing "Go" reveals the game screen and sets predefined dice roll results__
 
 * Use <code>addEventListener</code> to allow the button on the _title screen_ to be pressed
     * It should lead to the next _screen_, which will be contained within the `div` with id, `game`
@@ -123,7 +123,9 @@ You will be given access to a private repository on GitHub.  The final version o
 * Note that there's a form field in the _title screen_ ...
     * This field will allow the player to set the results of the dice rolls in the game (it's kind of like cheating / using loaded dice, but it's really for making it easier to test!)!
     * If the player enters a value in this field, then the dice rolls will be set to the sequence inputted
-    * The input should be a comma separated list of numbers, for example `1,2,3,1,2,3`
+    * The input should be a comma separated list of numbers, for example `1,2,3,4,5,6,7,8,9`
+		* the first 5 rolls should be 1,2,3,4,5
+		* the next 5 rolls should be 6,7,8,9 plus a random 5th number
     * No validation is required (assume that the user puts in valid input or no input)
     * You can retrieve the user input from the text field by using the `value` property on the form element that contains the user input - [see the mdn docs on value under HTML Input Element](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement)
     * If there's nothing in the field, then dice rolls should be random
@@ -133,13 +135,14 @@ You will be given access to a private repository on GitHub.  The final version o
     * Again, dice rolls should initially be random ...
     * However, the function or object should be _configurable_ so that it can draw numbers from the list of numbers entered
     * (Use whatever mechanism you like to do this - perhaps storing the list in a closure or in a property in the function or constructor... or just a plain old global)
+	* Note that the first several numbers will be exhausted by the computer's rolls
     * Once the list of specified numbers is exhausted, random numbers should be generated again
 * Here's an example of how it may work (again, the _game screen_ will be blank for now, but when it's implemented, it should function like this):
-    ![title](../resources/img/hw07b-00a-start-btn-fix.gif)
+    <img src="../resources/img/hw07b-00a-start-btn-fix.gif">
     <br>
 
 
-(8 points) __Generate DOM elements for 5 dice and 3 buttons__ 
+__Generate DOM elements for 5 dice and 3 buttons__ 
 
 * Create DOM elements to represent 5 dice
     * The elements should start off with no text 
@@ -155,9 +158,9 @@ You will be given access to a private repository on GitHub.  The final version o
     * Hint: To do this in JavaScript, use either `someElementObject.disabled = true;` or <code>someElementObject.setAttribute("disabled", "disabled");</code>
 * The generated dice and buttons should look something like this:
     <br>
-    ![dice](../resources/img/hw07b-00b-dice.gif)
+    <img src="../resources/img/hw07b-00b-dice.gif">
 
-(12 points) __Pressing "Start" Generates a score for the computer and shows your score__
+__Pressing "Start" Generates a score for the computer and shows your score__
 
 * Add an event listener to the Start button so that it when it's clicked it:
     1. Generates a set of pinned dice for the computer
@@ -176,11 +179,11 @@ You will be given access to a private repository on GitHub.  The final version o
 * Display the player's score (which is 0 for now) below the computer's score, but above the dice
 * Here's what the two scores should look like:
     <br>
-    ![title](../resources/img/hw07b-00b-comp.gif)
+    <img src="../resources/img/hw07b-00b-comp.gif">
 * Finally, disable the `Start` button and enable the `Roll` button
     * Hint: To do this in JavaScript, use either `someElementObject.disabled = false;` or <code>someElementObject.removeAttribute("disabled");</code>
 
-(9 points) __Rolling dice__
+__Rolling dice__
 
 * When the roll button is pressed...
 * Assign a random number between 1 and 6 to each _unpinned_ die
@@ -195,10 +198,10 @@ You will be given access to a private repository on GitHub.  The final version o
 * You can do this by using <code>someElementObject.removeAttribute('disabled');</code>
 * See an example roll below...
     <br>
-    ![title](../resources/img/hw07b-00c-roll.gif)
+    <img src="../resources/img/hw07b-00c-roll.gif">
 
 
-(9 points) __Selecting dice to pin__
+__Selecting dice to pin__
 
 * After rolling, a player must pin at least one die
 * First, the player must select the dice that they would like to pin
@@ -208,17 +211,17 @@ You will be given access to a private repository on GitHub.  The final version o
     * Hovering over the dice should also have an effect on styling (in the examples, hovering over dice show a green background)
     * The example below shows a die selected for pinning being given a background color of __light__ gray...
         <br>
-        ![title](../resources/img/hw07b-00d-select.gif)
+        <img src="../resources/img/hw07b-00d-select.gif">
 * Clicking on a die again _deselects_ it for pinning
     * A user can deselect a die simply by clicking on the die again 
     * Note that this reverts its style
     * Hint: <code>someElementObject.classList.toggle(someClassName)</code> is helpful when dealing with flipping back-and-forth between one state and another
     * See below for an example of selecting and then deselecting (toggling)
         <br>
-        ![title](../resources/img/hw07b-00d-deselect.gif)
+        <img src="../resources/img/hw07b-00d-deselect.gif">
 * __Selecting the dice to pin doesn't actually pin the dice... you'll have to press the pin button to do that__ (see next step!)
 
-(5 points) __Pressing the pin button__
+__Pressing the pin button__
 
 * Once a player has chosen the dice to pin, they can finalize their choices by clicking the <code>Pin</code> button
     * At least one die must be selected to pin for the <code>Pin</code> button to work
@@ -231,10 +234,12 @@ You will be given access to a private repository on GitHub.  The final version o
 * Again, if there are still unpinned dice after pinning, then they become blank (no number)
 * Everything together should look like:
     <br>
-    ![select and pin](../resources/img/hw07b-00d-select-and-pin.gif)
+    <img src="../resources/img/hw07b-00d-select-and-pin.gif">
 
 
-(5 points) __Determine the winner__
+
+
+__Determine the winner__
 
 Once all of the dice have been pinned...
 
@@ -246,10 +251,10 @@ Once all of the dice have been pinned...
     * win text is green
     * lose text is red
     * tie text is blue
-6. See the example below of a user losing a game below:
-    ![lose](../resources/img/hw07b-02-lose.gif)
+6. See the example below of a user losing a game:
+    <img src="../resources/img/hw07b-02-lose.gif">
 
-(10 points) __Validation and error messages__
+__Validation and error messages__
 
 There are two interactions that the user __shouldn't be able to do__:
 
@@ -263,7 +268,7 @@ If either state occurs, create an overlay on the screen with the appropriate err
 * Hint: the overlay's <code>z-index</code> should be a high number (100?) so that it appears _on top_ of everything else
 * Hint: to center content within the overlay, <code>margin: auto</code> and a specific <code>width</code> is helpful
 
-__If you can't implement the overlay, using <code>alert</code> will give you partial credit for this feature__.
+<img src="../resources/img/hw07b-05-error.gif">
 
 
 ### Optional Features (Extra Credit)
@@ -278,23 +283,16 @@ Implement any of the following features
     * the player starts with 5 unpinned dice
     * Start and Pin are disabled, but Roll is enabled
 
-(10 points) __Add actual dice faces to the game__
+(5 points) __Add actual dice faces to the game__
 
 * instead of numbers, add an actual face to each die
     * you can use images
     * ... or [svgs](https://commons.wikimedia.org/wiki/File:Dice_1-6.svg)
-    * ... or even [css](https://davidwalsh.name/flexbox-dice)!
-    * ... or flexbox!
+    * ... or even [css / flexbox](https://davidwalsh.name/flexbox-dice)!
 * (the computer's pinned dice can remain as numbers, though)
 
-(15 points) __Use localstorage to show the player's last 5 scores__
-
-* do research on the [localStorage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store data that doesn't expire in the browser's "local storage"
-* when the game ends, display an overlay that shows the last 5 scores that the player had
-* if this is combined with the restart game extra credit, then place the restart button on the overlay
-
-
 </div>
 </div>
+
 
 
