@@ -446,16 +446,19 @@ __Due Monday 11/19 at 11pm:__
 ,,20,13-Nov,Tue,"* AJAX Review
 * Promises Review
 * async / await",See previous slides,,,
-y,,21,15-Nov,Thu,"* AJAX Review
+,,21,15-Nov,Thu,"* AJAX Review
 * Promises Review
 * async / await","* Previous class on AJAX post
 * Previous class on Promises
 * AJAX Polling
 * [Example Code for AJAX Polling / Chat](code/chat.zip)
-",,"__Due Friday 4/20 at 11pm:__ 
+",,"__Due Monday 11/26 at 11pm:__ 
 
-* [Homework #8](homework/08.html)
-* [Final Project Miletsone #03](final-project.html#milestone03)",m2 due
+* [Homework #7](homework/07.html)
+
+<!--
+* [Final Project Miletsone #03](final-project.html#milestone03)
+-->",m2 due
 y,,22,20-Nov,Tue,* SocketIO, * [Socket.io](slides/23/socketio.html),,"
 * [Socket IO How-To](http://socket.io/docs/)
 ",
