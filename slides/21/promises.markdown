@@ -641,3 +641,74 @@ fetch(url)
 </code></pre>
 
 </section>
+
+<section markdown="block">
+## Fetch API Details
+
+__The Fetch API offers a `Request` and `Response` object, as well as a global `fetch` function__ &rarr;
+
+
+The `fetch` function:
+
+* {:.fragment} takes one argument, a `url`
+* {:.fragment} it returns a promise
+* {:.fragment} the promise is resolved with `Response` object
+
+
+<pre><code data-trim contenteditable>
+fetch('http://foo.bar.baz/qux.json')   
+	.then(function(response) {
+		# Response object!
+		return response.json();
+	})
+	.then(function(data) {
+		console.log(JSON.stringify(data));
+	});
+</code></pre>
+{:.fragment}
+</section>
+
+<section markdown="block">
+## Response Object
+
+__The `Response` object has a few methods and properties__ &rarr;
+
+* `status`
+* `headers`
+* `json()` - response body __parsed__ json
+* `text()` - response body
+</section>
+
+
+<section markdown="block">
+## fetch and Config
+
+__A `fetch` call can be configured by passing in an object as the second argument__ &rarr;
+
+<pre><code data-trim contenteditable>
+// example of options for a POST
+{         
+	method: "POST", 
+	headers: {
+		"Content-Type": "application/x-www-form-urlencoded"
+	},
+	body: 'foo=bar'
+}
+</code></pre>
+
+Check out [mdn's Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) for more detailed examples.
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

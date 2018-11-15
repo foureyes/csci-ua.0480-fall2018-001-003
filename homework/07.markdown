@@ -196,8 +196,7 @@ Implement any of the following features
 
 (15 points) __Pin Single Cells__
 
-* instead of an 8x8 forest, make it something bigger
-* everything should work the same way
+* Pin single emoji instead of entire row
 </div>
 </div>
 
