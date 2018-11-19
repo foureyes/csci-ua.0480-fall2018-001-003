@@ -115,6 +115,8 @@ __Pressing "generate" reveals the simulation screen and sets predefined forest l
     * This field will allow the player to manually set the emoji forest in the sim (it's kind of like cheating / playing Intelligent Creator, but it's really for making it easier to test)
     * If the player enters a value in this field, then the forest  will be set to the sequence inputted
     * The input should be a multiline string of forest emojis
+		* (no commas, just a string with multiple lines of emoji)
+		* (if it's useful, a string can be broken into an `Array` of characters: `"asdf".split(''); // [ 'a', 's', 'd', 'f' ]`)
     * No validation is required (assume that the user puts in valid input or no input)
     * You can retrieve the user input from the text field by using the `value` property on the form element that contains the user input - [see the mdn docs on value under HTML textarea Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
     * If there's nothing in the field, then forest should be completely random
@@ -188,11 +190,8 @@ Implement any of the following features
 
 (10 points) __Restart Sim__
 
-* when simulation ends, add a restart button along the bottom row of buttons
-* the restart button resets the sim so that:
-    * the computer generates a new score
-    * the player starts with 5 unpinned rows of forest
-    * start and Pin are disabled, but generate button is enabled
+* add a restart button along the bottom of the sim
+* the restart button makes the original form show up, and essentially starts from the beginning without refreshing the page
 
 (15 points) __Pin Single Cells__
 
