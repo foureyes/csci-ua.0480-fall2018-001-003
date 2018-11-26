@@ -116,7 +116,8 @@ __Pressing "generate" reveals the simulation screen and sets predefined forest l
     * If the player enters a value in this field, then the forest  will be set to the sequence inputted
     * The input should be a multiline string of forest emojis
 		* (no commas, just a string with multiple lines of emoji)
-		* (if it's useful, a string can be broken into an `Array` of characters: `"asdf".split(''); // [ 'a', 's', 'd', 'f' ]`)
+		* if it's useful, a string can be broken into an `Array` of characters using the spread operator: `[..."asdf"] // [ 'a', 's', 'd', 'f' ]`)
+		* <s>(if it's useful, a string can be broken into an `Array` of characters: `"asdf".split(''); // [ 'a', 's', 'd', 'f' ]`)</s>
     * No validation is required (assume that the user puts in valid input or no input)
     * You can retrieve the user input from the text field by using the `value` property on the form element that contains the user input - [see the mdn docs on value under HTML textarea Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
     * If there's nothing in the field, then forest should be completely random
