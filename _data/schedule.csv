@@ -459,21 +459,11 @@ __Due Monday 11/19 at 11pm:__
 <!--
 * [Final Project Miletsone #03](final-project.html#milestone03)
 -->",m2 due
-y,,22,20-Nov,Tue,* SocketIO, * [Socket.io](slides/23/socketio.html),,"
+,,22,20-Nov,Tue,* SocketIO, * [Socket.io](slides/23/socketio.html),,"
 * [Socket IO How-To](http://socket.io/docs/)
 ",
-y,holiday,,22-Nov,Thu,Thanksgiving,,,,
-y,,23,27-Nov,Tue,* SocketIO Continued,,,"Due __today__ while you're in class:
-
-* [Socket IO Lab](homework/socket-io-lab.html)
-    * [Form to submit](https://docs.google.com/forms/d/e/1FAIpQLSeXfOwrx1LvRdaHfbU_FogOcRQeKn2lOWkHQRf9JfPIPnKj2w/viewform)
-
-Due 4/27 at 11pm
-
-* [final project instructions](final-project.html#final_submit)
-* [submit final project using this form](https://docs.google.com/forms/d/e/1FAIpQLSeAwaHmPxvmWzvMYHdswd5h72ZUhwPvL-57sK-S4CyBn_jxpQ/viewform)
-
-",m3 due
+,holiday,,22-Nov,Thu,Thanksgiving,,,,
+,,23,27-Nov,Tue,* SocketIO Continued,See previous slides,,,m3 due
 y,,24,29-Nov,Thu,* Frontend Framework  ,"* Final Project
     * Milestone #3
     * Potential Grading Modifications
@@ -493,11 +483,24 @@ Practice Questions
 * [Practice Questions Set 2](resources/handouts/final/final_exam_practice_2.pdf)
 * [Practice Questions Set 2 Solutions](resources/handouts/final/final_exam_practice_2_solutions.pdf)
 
-","__Reminders__: 
+","<!--__Reminders__: 
 
 * __Final Project Due Next Friday 4/27 at 11pm__
 * React Lab on Wednesday, 4/25
 * Final Exam 5/7
+-->
+
+Due __today__ while you're in class:
+
+* [Socket IO Lab](homework/socket-io-lab.html)
+    * [Form to submit](https://docs.google.com/forms/d/e/1FAIpQLSeXfOwrx1LvRdaHfbU_FogOcRQeKn2lOWkHQRf9JfPIPnKj2w/viewform)
+
+Due 4/27 at 11pm
+
+* [final project instructions](final-project.html#final_submit)
+* [submit final project using this form](https://docs.google.com/forms/d/e/1FAIpQLSeAwaHmPxvmWzvMYHdswd5h72ZUhwPvL-57sK-S4CyBn_jxpQ/viewform)
+
+
 
 
 ",
