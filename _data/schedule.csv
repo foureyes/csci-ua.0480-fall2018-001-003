@@ -471,9 +471,6 @@ __Due Monday 11/19 at 11pm:__
 * Frontend Framework  
 
 ","* Final Project
-    * Milestone #3
-    * Potential Grading Modifications
-    * Due Date
 * [React Basics](slides/26/react.html)
 * [React Revisited](slides/26/react-state-parent.html)
 * (Optional) [React and Express / Using Webpack](slides/26/react-webpack-continued.html)
@@ -511,7 +508,7 @@ Due 4/27 at 11pm
 
 
 ",
-,,25,4-Dec,Tue,* Frontend Framework Continued,"* [React Basics](slides/26/react.html) (from previous class)
+y,,25,4-Dec,Tue,* Frontend Framework Continued,"* [React Basics](slides/26/react.html) (from previous class)
 * [React Revisited](slides/26/react-state-parent.html) (from previous class)
 * [React and Express / Using Webpack](slides/26/react-webpack-continued.html)
 * React review, multiple child clickers and forms
