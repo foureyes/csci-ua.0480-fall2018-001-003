@@ -54,7 +54,7 @@ Make a real time web app that:
 
 Use the _one-page_ version of the slides to guide you through socket.io:
 
-[https://foureyes.github.io/csci-ua.0480-spring2018-008/slides/23/socketio.html?print-pdf#/](https://foureyes.github.io/csci-ua.0480-spring2018-008/slides/23/socketio.html?print-pdf#/)
+[https://cs.nyu.edu/courses/fall18/CSCI-UA.0480-003/_site/slides/23/socketio.html?print-pdf](https://cs.nyu.edu/courses/fall18/CSCI-UA.0480-003/_site/slides/23/socketio.html?print-pdf)
 
 1. create a directory to store your project
 2. create your `package.json` and install these packages:
