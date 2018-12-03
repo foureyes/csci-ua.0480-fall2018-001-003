@@ -509,23 +509,23 @@ Due 4/27 at 11pm
 
 
 ",
-y,,25,4-Dec,Tue,* Frontend Framework Continued,"* [React Basics](slides/26/react.html) (from previous class)
+,,25,4-Dec,Tue,* Frontend Framework Continued,"* [React Basics](slides/26/react.html) (from previous class)
 * [React Revisited](slides/26/react-state-parent.html) (from previous class)
 * [React and Express / Using Webpack](slides/26/react-webpack-continued.html)
 * React review, multiple child clickers and forms
 * React lab demo
-",,"
-Due __today__ while you're in class:
-
-* [React Lab](homework/react-lab.html)
-    * [Form to submit](https://docs.google.com/forms/d/e/1FAIpQLSde-vCFp3eJ9vFII9534X_FErSum5G8j3r2q4Uide7skzszaQ/viewform)
-",m4 due
+",,,m4 due
 y,,26,6-Dec,Thu,"* TBD (everything together, wasm, webgl, electron or webaudio?)","* from previous slides...
   * go over webpack 
   * go over text input
   * componentDidMount
 * solution?
 * late submissions
-* evaluations",,,
+* evaluations",,"
+Due __today__ while you're in class:
+
+* [React Lab](homework/react-lab.html)
+    * [Form to submit](https://docs.google.com/forms/d/e/1FAIpQLSde-vCFp3eJ9vFII9534X_FErSum5G8j3r2q4Uide7skzszaQ/viewform)
+",
 y,,27,11-Dec,Tue,* Review,,,,
 y,exam,28,13-Dec,Thu,EXAM #2 (Final Exam),,,,
