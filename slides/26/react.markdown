@@ -396,7 +396,7 @@ __If you're using ES6 classes and want to use `this` in your click handler, reme
 Here's an alert that uses `this.props`:
 
 <pre><code data-trim contenteditable>
-onButtonClick: function(evt) {
+onButtonClick(evt) {
   alert(this.props.someProp);
 },
 </code></pre>
@@ -404,7 +404,7 @@ onButtonClick: function(evt) {
 To enable the above code access `this`, though, bind it when you assign the callback function for `onClick`. 
 
 <pre><code data-trim contenteditable>
-render: function() {
+render() {
     return <div onClick={this.onButtonClick.bind(this)}>Press This Button<&#47;div>;
 }
 </code></pre>
