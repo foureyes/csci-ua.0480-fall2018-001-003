@@ -359,8 +359,9 @@ return (
     <div>only one element<p>but you can nest!</p></div>
 );    
 </code></pre>
-2. {:.fragment} a common pattern add an Array of elements is to use map
+2. {:.fragment} a common pattern to add an Array of elements is to use map
 3. {:.fragment} ...but regardless of which method you use to generate an Array of elements, add a `key` attribute to each element!
+4. {:.fragment} (note that wrapping in JSX elements in `[]` and commas or wrapping in `<></>` will work without needing a wrapping element
 
 </section>
 
