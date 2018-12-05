@@ -140,7 +140,7 @@ Note that this will be implemented __as a single page web app__. This means that
 		* again, check your network tab to see an `xhr` request to `api/smashings`... but note that the request should have query string parameters attached to it
 
 
-### Adding New Reviews
+### Adding New Keyboard Smashes
 
 1. In the route, `POST /api/smashing` (in `app.js`, __the server__),  create a new smashing document and save it in the database
     * it should give back a JSON object as the response: `{"_code": "OK"}` or, if there's an error, `{"_code": "ERROR"}` 
@@ -151,7 +151,7 @@ Note that this will be implemented __as a single page web app__. This means that
 			* set the `ContentType` to `application/x-www-form-urlencoded`
 			* set the body to the value of the textarea
 			* the response should trigger the client to refresh the data on the page with the newly created smashing (note, not a page refresh, but just updated DOM elements)
-    		* __if there was a filter set before adding, then clear the filter to show all reviews, including the newly added one__
+    		* __if there was a filter set before adding, then clear the filter to show all smashings, including the newly added one__
 			* use existing helper functions within `index.js` to aid in this implementation
 		* `main` (you may have have finished this already) to add an event listener to handle a button press for the form to create a keyboard smashing
     		* remember to make sure that the regular form button press event isn't triggered (use `preventDefault`)
