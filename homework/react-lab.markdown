@@ -13,7 +13,9 @@ title: CSCI-UA.0480 - Socket IO Lab
 
 * work in groups of 2 or 3
 * choose one of the applications described below in the Overview &rarr; Description and implement it
-* __submit using [this form](https://docs.google.com/forms/d/e/1FAIpQLScB9x_Oh43TcEl8GyUly31nLfrLbbAJu1aSQIK8cOiWmZ4jGQ/viewform)__
+* __submit using the form for__:
+	* [the 8am section](https://docs.google.com/forms/d/e/1FAIpQLScB9x_Oh43TcEl8GyUly31nLfrLbbAJu1aSQIK8cOiWmZ4jGQ/viewform)__
+	* [the 11am section](https://docs.google.com/forms/d/e/1FAIpQLSep_hY-v-uHOAY97Kebm3N2JrX871NeH576aF8in1rOlhokmA/viewform)__
 * __each person on the team should submit their own individual form__
 * once you've submitted:
     * raise your hand to let me know
